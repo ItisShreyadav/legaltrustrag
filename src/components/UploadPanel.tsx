@@ -28,7 +28,6 @@ interface Props {
   notices: string[];
   busy: boolean;
   loadingSample: boolean;
-  mockMode: boolean;
   /** Model id reported by the server, shown beside the actions. */
   model?: string;
   onAddFiles: (files: File[]) => void;
@@ -59,7 +58,6 @@ export function UploadPanel({
   notices,
   busy,
   loadingSample,
-  mockMode,
   model,
   onAddFiles,
   onRemoveFile,
@@ -245,7 +243,6 @@ export function UploadPanel({
           {files.length === 0
             ? "Add at least one document to begin."
             : `${files.length} ${files.length === 1 ? "document" : "documents"}, ${ruleCount} ${ruleCount === 1 ? "rule" : "rules"}.`}
-          {mockMode ? " Mock mode: Analyse plays a simulated run and shows the built-in fixture; no API call is made." : ""}
         </p>
         {model ? (
           <p className="font-mono text-[0.6875rem] text-muted md:ml-auto">

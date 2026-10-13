@@ -1,13 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import type { ProgressEvent, TrustReport } from "@/lib/types";
 import { EmptyState } from "./EmptyState";
 import { ProgressPanel, type ProgressState } from "./ProgressPanel";
 import { NumberedHeading } from "./report/ui";
-import { mockDocuments, mockProgress, mockReport } from "./report/mock";
 import { ReportView } from "./report/ReportView";
 import { readSseStream } from "./sse";
 import { STAGES, stageIndex, type PipelineStage } from "./stages";
@@ -94,8 +91,6 @@ const SAMPLE_RULES = [
   "Personal data must not be transferred outside India without prior written consent.",
 ];
 
-const MOCK_DOC_TEXTS: DocTexts = Object.fromEntries(mockDocuments.map((d) => [d.id, d.text]));
-
 function extensionOf(name: string): string {
   const dot = name.lastIndexOf(".");
   return dot === -1 ? "" : name.slice(dot + 1).toLowerCase();
@@ -117,29 +112,12 @@ async function errorFromResponse(res: Response): Promise<string> {
   return fallback;
 }
 
-function sleep(ms: number, signal: AbortSignal): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (signal.aborted) return reject(new DOMException("Aborted", "AbortError"));
-    const timer = setTimeout(resolve, ms);
-    signal.addEventListener(
-      "abort",
-      () => {
-        clearTimeout(timer);
-        reject(new DOMException("Aborted", "AbortError"));
-      },
-      { once: true },
-    );
-  });
-}
 
 function isProgressEvent(value: unknown): value is ProgressEvent {
   return typeof value === "object" && value !== null && "stage" in value && typeof value.stage === "string";
 }
 
 export function AnalyzeApp() {
-  const searchParams = useSearchParams();
-  const mockMode = searchParams.get("mock") === "1";
-
   const [state, dispatch] = useReducer(reducer, { status: "idle" });
   const [files, setFiles] = useState<File[]>([]);
   const [rules, setRules] = useState("");
@@ -254,17 +232,6 @@ export function AnalyzeApp() {
     };
 
     try {
-      if (mockMode) {
-        dispatch({ type: "documents", docTexts: MOCK_DOC_TEXTS });
-        for (const event of mockProgress) {
-          await sleep(500, controller.signal);
-          handleEvent(event);
-        }
-        await sleep(500, controller.signal);
-        handleEvent({ stage: "done", report: mockReport });
-        return;
-      }
-
       const form = new FormData();
       for (const file of files) form.append("files[]", file, file.name);
       if (rules.trim()) form.append("rules", rules);
@@ -297,7 +264,7 @@ export function AnalyzeApp() {
     } finally {
       if (abortRef.current === controller) abortRef.current = null;
     }
-  }, [files, rules, mockMode]);
+  }, [files, rules]);
 
   const cancel = useCallback(() => {
     abortRef.current?.abort();
@@ -305,22 +272,16 @@ export function AnalyzeApp() {
     dispatch({ type: "reset" });
   }, []);
 
-  // In mock mode the fixture is shown until a run replaces it.
-  const showMockFixture = mockMode && state.status === "idle";
-  const report = state.status === "done" ? state.report : showMockFixture ? mockReport : null;
-  const docTexts = state.status === "done" ? state.docTexts : showMockFixture ? MOCK_DOC_TEXTS : undefined;
+  const report = state.status === "done" ? state.report : null;
+  const docTexts = state.status === "done" ? state.docTexts : undefined;
 
   return (
     <div className="mt-12">
-      {health && !health.hasApiKey && !mockMode ? (
+      {health && !health.hasApiKey ? (
         <p role="note" className="mb-8 max-w-[68ch] text-[1.0625rem] leading-[1.6] md:ml-16">
           <span className="smallcaps font-semibold">Configuration.</span>{" "}
           <code className="font-mono text-[0.875em]">ANTHROPIC_API_KEY</code> is not set on the server, so analysis will
-          fail. Add it to <code className="font-mono text-[0.875em]">.env.local</code>, or{" "}
-          <Link href="/?mock=1" className="link">
-            preview with mock data
-          </Link>
-          .
+          fail. Add it to <code className="font-mono text-[0.875em]">.env.local</code>.
         </p>
       ) : null}
 
@@ -330,7 +291,6 @@ export function AnalyzeApp() {
         notices={notices}
         busy={running}
         loadingSample={loadingSample}
-        mockMode={mockMode}
         model={health?.model}
         onAddFiles={addFiles}
         onRemoveFile={removeFile}
@@ -348,16 +308,6 @@ export function AnalyzeApp() {
         <NumberedHeading id="analysis-heading" number="3." title="Analysis" />
 
         <div className="mt-5 space-y-8">
-          {mockMode && (showMockFixture || state.status === "done") ? (
-            <p className="max-w-[68ch] text-[1.0625rem] leading-[1.6] text-muted italic">
-              Mock data. This report comes from a built-in fixture; no API call was made.{" "}
-              <Link href="/" className="link whitespace-nowrap text-ink not-italic">
-                Exit mock mode
-              </Link>
-              .
-            </p>
-          ) : null}
-
           {state.status === "running" ? <ProgressPanel progress={state.progress} mode="running" onCancel={cancel} /> : null}
 
           {state.status === "error" ? (

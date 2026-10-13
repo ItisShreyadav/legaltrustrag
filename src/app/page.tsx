@@ -21,7 +21,6 @@ export default function Home() {
           Every finding is tied to an exact quote from the source; anything that cannot be verified is withheld.
         </p>
       </div>
-      {/* useSearchParams (?mock=1) needs a Suspense boundary so the shell above can be prerendered. */}
       <Suspense fallback={<AppFallback />}>
         <AnalyzeApp />
       </Suspense>

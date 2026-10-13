@@ -1,0 +1,45 @@
+MASTER SERVICES AGREEMENT
+This Master Services Agreement (this "Agreement") is made on January 15, 2025 between
+Fabrikam Health Systems, Inc. ("Customer") and Tailspin Consulting Ltd. ("Provider"), each
+a "Party".
+1. SERVICES
+1.1 Statements of Work. Provider shall perform the services described in each statement of
+work executed by the Parties (each, a "Statement of Work" or "SOW"). Each SOW is subject to
+the terms of this Agreement.
+1.2 Personnel. Provider shall assign qualified personnel to perform the Services and shall
+not remove key personnel without Customer's consent, which shall not be unreasonably
+withheld.
+2. FEES AND PAYMENT
+2.1 Fees. Customer shall pay the fees set out in the applicable SOW. Provider may not
+increase its hourly rates more than once in any twelve (12) month period, and any increase
+shall not exceed three percent (3%).
+2.2 Minimum Commitment. Customer agrees to purchase not less than five hundred thousand
+dollars ($500,000) of Services in each contract year.
+3. INTELLECTUAL PROPERTY
+3.1 Work Product. All deliverables created by Provider for Customer under a SOW
+("Work Product") shall be works made for hire and Provider hereby assigns to Customer all
+right, title and interest in the Work Product.
+3.2 Pre-Existing Materials. Notwithstanding Section 3.1, Provider retains ownership of its
+pre-existing tools and methodologies and grants Customer a perpetual, irrevocable,
+royalty-free license to use them as incorporated in the Work Product.
+4. CONFIDENTIALITY AND DATA PROTECTION
+4.1 Obligations. Each Party shall protect the other Party's confidential information using at least the same degree of care it uses to protect its own confidential information of a similar nature, and in no event less than a reasonable degree of care. Neither Party shall disclose confidential information to any third party except to its employees, contractors, and professional advisers who need to know such information for the purposes of this Agreement and who are bound by written obligations of confidentiality no less protective than those set out herein. Provider shall implement and maintain administrative, physical, and technical safeguards designed to protect the security, confidentiality, and integrity of Customer data, including encryption of Customer data at rest and in transit using industry-standard algorithms. Provider shall notify Customer in writing without undue delay, and in any event within forty-eight (48) hours, after becoming aware of any unauthorized access to Customer data. Such notice shall describe the nature of the incident, the categories and approximate number of records affected, the likely consequences, and the measures taken or proposed to be taken to address the incident. Provider shall cooperate with Customer and with any regulator in investigating the incident. Provider shall not transfer Customer data outside the United States without Customer's prior written consent. Provider shall ensure that each of its subcontractors that processes Customer data is bound by written terms no less protective than this Section 4.1. Upon expiration or termination of this Agreement, Provider shall, at Customer's election, return or securely destroy all Customer data in its possession and certify such destruction in writing within thirty (30) days. The obligations in this Section 4.1 shall survive for five (5) years following termination, except that obligations relating to trade secrets shall survive for so long as the information remains a trade secret under applicable law. Provider shall maintain records of its processing activities and make them available to Customer on reasonable request.
+5. WARRANTIES
+5.1 Performance Warranty. Provider warrants that the Services will be performed in a
+professional and workmanlike manner for a period of ninety (90) days after acceptance.
+5.2 DISCLAIMER. EXCEPT AS EXPRESSLY SET FORTH IN SECTION 5.1, PROVIDER MAKES NO OTHER
+WARRANTIES, EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR
+FITNESS FOR A PARTICULAR PURPOSE.
+6. NON-SOLICITATION
+6.1 During the term of this Agreement and for twelve (12) months thereafter, neither Party
+shall solicit for employment any employee of the other Party who was involved in the
+Services, provided that general advertisements not targeted at such employees shall not
+breach this Section 6.1.
+7. TERM AND TERMINATION
+7.1 This Agreement shall continue until terminated in accordance with this Section 7.
+7.2 Customer may terminate this Agreement or any SOW for convenience on thirty (30) days'
+written notice. Sections 3.1 and 3.2 shall survive any termination.
+8. MISCELLANEOUS
+8.1 Insurance. Provider shall maintain commercial general liability insurance with limits
+of not less than $2,000,000 per occurrence.
+8.2 Governing Law. This Agreement is governed by the laws of England and Wales.

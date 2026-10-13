@@ -1,0 +1,34 @@
+AMENDMENT NO. 1 TO MASTER SERVICES AGREEMENT
+
+This Amendment No. 1 (the "Amendment") is made on 15 September 2026 between Acme Analytics Private Limited ("Provider") and Bluefin Retail Limited ("Customer") and amends the Master Services Agreement dated 1 April 2026 (the "Agreement").
+
+1. DEFINITIONS
+1.1 Capitalised terms used but not defined in this Amendment have the meanings given to them in the Agreement.
+1.2 "Amendment Effective Date" means 1 October 2026.
+1.3 "Priority Support" means the extended support services described in Schedule A to this Amendment.
+
+2. TERMINATION
+2.1 Either party may terminate the Agreement for convenience by giving the other party not less than sixty (60) days' prior written notice.
+2.2 Customer shall pay all Fees for Services performed up to the effective date of termination.
+
+3. LIABILITY FOR INTELLECTUAL PROPERTY BREACH
+3.1 Notwithstanding anything to the contrary in the Agreement, Provider's liability for any breach of Section 7 of the Agreement or any infringement of a third party's Intellectual Property Rights shall be unlimited.
+3.2 Subject to Section 3.1, Section 6 of the Agreement continues to apply.
+
+4. PRIORITY SUPPORT
+4.1 From the Amendment Effective Date, Provider shall provide Priority Support to Customer for an additional monthly fee set out in Schedule A.
+4.2 Priority Support requests shall be acknowledged within four (4) business hours.
+
+5. FEES
+5.1 The Fees for Priority Support shall be invoiced monthly in arrears and are payable within forty-five (45) days of receipt of a valid invoice.
+
+6. GOVERNING LAW
+6.1 This Amendment shall be governed by and construed in accordance with the laws of Singapore.
+
+7. GENERAL
+7.1 Except as expressly amended by this Amendment, the Agreement remains in full force and effect.
+7.2 In the event of any inconsistency between this Amendment and the Agreement, this Amendment shall prevail.
+7.3 This Amendment may be executed in counterparts, each of which shall be deemed an original.
+
+Signed for and on behalf of Acme Analytics Private Limited: ____________________
+Signed for and on behalf of Bluefin Retail Limited: ____________________

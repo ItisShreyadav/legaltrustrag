@@ -1,0 +1,51 @@
+import type { CuadCategory } from "../types";
+
+/** One-line definitions of the CUAD clause categories (condensed from the CUAD v1 label guide). */
+export const CATEGORY_DEFINITIONS: Record<CuadCategory, string> = {
+  "Document Name": "The name/title of the contract.",
+  Parties: "Identifies the parties that signed the contract.",
+  "Agreement Date": "The date the contract was signed or dated.",
+  "Effective Date": "The date the contract becomes effective.",
+  "Expiration Date": "When the contract's initial term expires.",
+  "Renewal Term": "Renewal term after the initial term, including automatic or unilateral extensions.",
+  "Notice Period To Terminate Renewal": "Notice period required to terminate or not renew a renewal.",
+  "Governing Law": "Which jurisdiction's law governs the contract.",
+  "Most Favored Nation": "If a third party gets better terms, this party is entitled to those better terms.",
+  "Non-Compete": "Restricts a party from competing or operating in a geography, business, or technology sector.",
+  Exclusivity:
+    "Exclusive dealing: requirements commitments, or bans on selling/licensing to or working with third parties.",
+  "No-Solicit Of Customers": "Restricts a party from soliciting or contracting with the counterparty's customers or partners.",
+  "Competitive Restriction Exception": "An exception or carve-out to a Non-Compete, Exclusivity or No-Solicit Of Customers clause.",
+  "No-Solicit Of Employees": "Restricts soliciting or hiring the counterparty's employees or contractors.",
+  "Non-Disparagement": "Requires a party not to disparage the counterparty.",
+  "Termination For Convenience": "A party may terminate without cause, by notice and/or a waiting period.",
+  "Rofr/Rofo/Rofn": "Right of first refusal, first offer, or first negotiation over equity, assets, technology, products or services.",
+  "Change Of Control":
+    "Termination right, consent or notice if a party undergoes a change of control (merger, stock or asset sale, etc.).",
+  "Anti-Assignment": "Consent or notice is required to assign the contract to a third party.",
+  "Revenue/Profit Sharing": "A party must share revenue or profit (e.g. royalties, revenue share) with the counterparty.",
+  "Price Restrictions": "Restricts a party's ability to raise or reduce prices.",
+  "Minimum Commitment": "Minimum order size, purchase amount, or units per period that a party must buy.",
+  "Volume Restriction": "Fee increase, consent requirement, etc. if usage exceeds a threshold.",
+  "Ip Ownership Assignment": "IP created by one party becomes the property of the counterparty (assignment, work made for hire).",
+  "Joint Ip Ownership": "Joint or shared ownership of intellectual property between the parties.",
+  "License Grant": "A license granted by one party to the counterparty.",
+  "Non-Transferable License": "Limits a party's ability to transfer or sublicense the license granted.",
+  "Affiliate License-Licensor": "License grant by the licensor's affiliates, or covering IP of the licensor's affiliates.",
+  "Affiliate License-Licensee": "License grant that extends to the licensee's (or sublicensee's) affiliates.",
+  "Unlimited/All-You-Can-Eat-License": "Enterprise, all-you-can-eat, or unlimited-usage license.",
+  "Irrevocable Or Perpetual License": "A license grant that is irrevocable or perpetual.",
+  "Source Code Escrow": "Source code must be deposited in escrow, releasable on events such as bankruptcy.",
+  "Post-Termination Services":
+    "Obligations after termination/expiration: transition services, wind-down, payment, IP transfer, last-buy, etc.",
+  "Audit Rights": "Right to audit the counterparty's books, records, or premises for compliance.",
+  "Uncapped Liability": "Liability is uncapped for a breach, or certain claims (e.g. IP, confidentiality) are excluded from the cap.",
+  "Cap On Liability": "A cap on liability for breach, including limits on damages amount or time to bring claims.",
+  "Liquidated Damages": "Liquidated damages for breach, or a termination fee.",
+  "Warranty Duration": "Duration of a warranty against defects or errors in products or services.",
+  Insurance: "A party must maintain insurance for the counterparty's benefit.",
+  "Covenant Not To Sue": "A party may not contest the counterparty's IP or bring claims unrelated to the contract.",
+  "Third Party Beneficiary": "A non-party is a beneficiary who can enforce rights under the contract.",
+  Other:
+    "None of the above: definitions, confidentiality, notices, payment mechanics, boilerplate, signature blocks, recitals, etc.",
+};

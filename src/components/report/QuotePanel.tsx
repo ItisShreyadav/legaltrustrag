@@ -1,8 +1,9 @@
 import type { Quote } from "@/lib/types";
-import { clauseContext, quoteMatches } from "./context";
+import { clauseContext, clausePath, quoteMatches } from "./context";
 
 interface Props {
   quote: Quote;
+  /** Short marker for this side of a finding, e.g. "A". */
   heading: string;
   docName: string;
   /** Full source text of the quote's document, when available. */
@@ -14,46 +15,63 @@ function clauseLabel(clauseId: string): string {
   return local.replace(/^c_/, "clause ");
 }
 
-/** One side of a finding: the clause text with the exact quote highlighted. */
+/** Mono reference: "msa.txt › Section 4 › 4.2", falling back to the clause id. */
+export function QuoteRef({ quote, docName, docText }: { quote: Quote; docName: string; docText?: string }) {
+  const path = clausePath(docText, quote);
+  const parts = [docName, ...(path.length > 0 ? path : [clauseLabel(quote.clauseId)])];
+  return (
+    <span className="break-words" title={quote.clauseId}>
+      {parts.map((p, i) => (
+        <span key={i}>
+          {i > 0 ? (
+            <span aria-hidden="true" className="px-[0.5ch] text-muted">
+              ›
+            </span>
+          ) : null}
+          {i > 0 ? <span className="sr-only">, </span> : null}
+          <span className={i === 0 ? "text-ink" : ""}>{p}</span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/** One side of a finding: the clause text, with the exact quote underlined in oxblood. */
 export function QuotePanel({ quote, heading, docName, docText }: Props) {
   const context = clauseContext(docText, quote);
   const mismatch = docText !== undefined && !quoteMatches(docText, quote);
 
   return (
-    <figure className="flex min-w-0 flex-col rounded-lg border border-zinc-200 bg-zinc-50/60 dark:border-zinc-800 dark:bg-zinc-950/40">
-      <figcaption className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-zinc-200 px-3 py-2 text-xs dark:border-zinc-800">
-        <span className="font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">{heading}</span>
-        <span className="min-w-0 truncate text-zinc-600 dark:text-zinc-400" title={`${docName}, ${quote.clauseId}`}>
-          <span className="font-medium text-zinc-800 dark:text-zinc-200">{docName}</span>
-          {" · "}
-          {clauseLabel(quote.clauseId)}
-          {" · "}
-          <span className="font-mono">
-            {quote.start}&ndash;{quote.end}
-          </span>
+    <figure className="min-w-0">
+      <figcaption className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 border-b border-rule pb-1.5 font-mono text-[0.75rem] leading-5 text-muted">
+        <span className="min-w-0">
+          <span className="mr-[1.5ch] text-ink">{heading}</span>
+          <QuoteRef quote={quote} docName={docName} docText={docText} />
+        </span>
+        <span className="figures shrink-0">
+          <span className="sr-only">characters </span>
+          {quote.start}&ndash;{quote.end}
         </span>
       </figcaption>
-      <blockquote className="px-3 py-3 text-sm leading-relaxed break-words whitespace-pre-line text-zinc-700 dark:text-zinc-300">
+      <blockquote className="mt-3 max-w-[68ch] text-[1.0625rem] leading-[1.65] break-words whitespace-pre-line">
         {context ? (
           <>
-            {context.truncatedStart ? "…" : null}
-            {context.before}
-            <mark className="rounded-sm bg-amber-200/80 px-0.5 text-zinc-900 ring-1 ring-amber-400/60 dark:bg-amber-400/25 dark:text-amber-50 dark:ring-amber-300/40">
-              {context.match}
-            </mark>
-            {context.after}
-            {context.truncatedEnd ? "…" : null}
+            <span className="text-muted">
+              {context.truncatedStart ? "… " : null}
+              {context.before}
+            </span>
+            <mark>{context.match}</mark>
+            <span className="text-muted">
+              {context.after}
+              {context.truncatedEnd ? " …" : null}
+            </span>
           </>
         ) : (
-          <mark className="rounded-sm bg-amber-200/80 px-0.5 text-zinc-900 dark:bg-amber-400/25 dark:text-amber-50">
-            {quote.text}
-          </mark>
+          <mark>{quote.text}</mark>
         )}
       </blockquote>
       {mismatch ? (
-        <p className="border-t border-red-200 px-3 py-2 text-xs text-red-700 dark:border-red-900/60 dark:text-red-300">
-          Quote does not match the source text at the cited offsets.
-        </p>
+        <p className="mt-2 text-sm text-accent italic">Quote does not match the source text at the cited offsets.</p>
       ) : null}
     </figure>
   );

@@ -1,10 +1,8 @@
 import type { TrustReport } from "@/lib/types";
 
-interface Card {
+interface Stat {
   label: string;
   value: string;
-  hint: string;
-  accent?: string;
 }
 
 function formatRate(rate: number): string {
@@ -13,30 +11,36 @@ function formatRate(rate: number): string {
   return `${pct < 10 && pct > 0 ? pct.toFixed(1) : Math.round(pct)}%`;
 }
 
+/** One ruled row of figures: serif numerals above small-caps labels, hairlines between. */
 export function SummaryCards({ report }: { report: TrustReport }) {
   const { stats } = report;
-  const cards: Card[] = [
-    { label: "Clauses", value: String(report.clauseCount), hint: `across ${report.documents.length} document${report.documents.length === 1 ? "" : "s"}` },
-    { label: "Candidate pairs", value: String(stats.candidatePairs), hint: "retrieved for NLI" },
-    { label: "Verified", value: String(stats.verified), hint: "passed all checks", accent: "text-emerald-600 dark:text-emerald-400" },
-    { label: "Unverified", value: String(stats.unverified), hint: "partially supported", accent: "text-amber-600 dark:text-amber-400" },
-    { label: "Withheld", value: String(stats.withheld), hint: "failed verification", accent: "text-zinc-500 dark:text-zinc-400" },
-    { label: "Abstain rate", value: formatRate(stats.abstainRate), hint: "withheld / all findings" },
+  const docCount = report.documents.length;
+  const items: Stat[] = [
+    { label: "Clauses", value: String(report.clauseCount) },
+    { label: "Candidate pairs", value: String(stats.candidatePairs) },
+    { label: "Verified", value: String(stats.verified) },
+    { label: "Unverified", value: String(stats.unverified) },
+    { label: "Withheld", value: String(stats.withheld) },
+    { label: "Abstain rate", value: formatRate(stats.abstainRate) },
   ];
   return (
-    <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6">
-      {cards.map((card) => (
-        <div
-          key={card.label}
-          className="rounded-xl border border-zinc-200 bg-white px-4 py-3 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
-        >
-          <dt className="text-xs font-medium text-zinc-500 dark:text-zinc-400">{card.label}</dt>
-          <dd className={`mt-1 text-2xl font-semibold tabular-nums ${card.accent ?? "text-zinc-900 dark:text-zinc-100"}`}>
-            {card.value}
-          </dd>
-          <dd className="text-xs text-zinc-500 dark:text-zinc-500">{card.hint}</dd>
-        </div>
-      ))}
-    </dl>
+    <div>
+      <dl className="grid grid-cols-3 border-y border-rule md:grid-cols-6">
+        {items.map((item) => (
+          <div
+            key={item.label}
+            className="flex flex-col-reverse justify-end border-l border-rule px-3 py-4 md:px-4 [&:nth-child(3n+1)]:border-l-0 [&:nth-child(3n+1)]:pl-0 [&:nth-child(n+4)]:border-t md:[&:nth-child(4)]:border-l md:[&:nth-child(4)]:pl-4 md:[&:nth-child(n+4)]:border-t-0"
+          >
+            <dt className="smallcaps mt-1 text-[0.9375rem] leading-tight text-muted">{item.label}</dt>
+            <dd className="figures text-[2.25rem] leading-none font-normal sm:text-[2.625rem]">{item.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <p className="mt-3 max-w-[68ch] text-[0.9375rem] leading-[1.55] text-muted italic">
+        Clauses counted across {docCount} {docCount === 1 ? "document" : "documents"}. Candidate pairs were retrieved for
+        comparison; verified findings passed every check, unverified ones passed some. The abstain rate is the share of
+        candidate findings withheld.
+      </p>
+    </div>
   );
 }

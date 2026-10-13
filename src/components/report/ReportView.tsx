@@ -5,13 +5,15 @@ import type { Finding, TrustReport } from "@/lib/types";
 import { ComplianceTable } from "./ComplianceTable";
 import { FindingCard, type DocLookup } from "./FindingCard";
 import { SummaryCards } from "./SummaryCards";
-import { SectionHeading } from "./ui";
+import { NumberedHeading } from "./ui";
 import { WithheldList } from "./WithheldList";
 
 interface Props {
   report: TrustReport;
   /** Parsed document texts keyed by doc id, used to show quotes in clause context. */
   docTexts?: Record<string, string>;
+  /** Section number the report sits under, e.g. "3" gives subsections 3.1, 3.2 … */
+  sectionNumber?: string;
 }
 
 const STATUS_RANK: Record<Finding["verification"]["status"], number> = { verified: 0, unverified: 1, withheld: 2 };
@@ -35,7 +37,11 @@ function formatGeneratedAt(iso: string): string {
   return m ? `${m[1]} ${m[2]} UTC` : iso;
 }
 
-export function ReportView({ report, docTexts }: Props) {
+function Lede({ children }: { children: React.ReactNode }) {
+  return <p className="mt-2 mb-5 max-w-[68ch] text-[1.0625rem] leading-[1.6] text-muted">{children}</p>;
+}
+
+export function ReportView({ report, docTexts, sectionNumber = "3" }: Props) {
   const docs = useMemo<DocLookup>(() => {
     const names = new Map(report.documents.map((d) => [d.id, d.name]));
     return {
@@ -52,88 +58,97 @@ export function ReportView({ report, docTexts }: Props) {
     [report.findings],
   );
 
+  const n = (sub: number) => `${sectionNumber}.${sub}`;
+  const count = (k: number, one: string, many: string) => (
+    <span className="font-mono text-[0.75rem] text-muted">
+      {k} {k === 1 ? one : many}
+    </span>
+  );
+
   return (
-    <div className="space-y-8">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div className="min-w-0">
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Trust report</h2>
-          <p className="mt-0.5 text-sm text-zinc-500 dark:text-zinc-400">
-            {report.documents.map((d) => d.name).join(", ")} &middot; generated {formatGeneratedAt(report.generatedAt)}
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={() => downloadJson(report)}
-          className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
-        >
-          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="size-4">
-            <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.6L6.3 8.4a.75.75 0 1 0-1.1 1.03l4.25 4.5a.75.75 0 0 0 1.1 0l4.25-4.5a.75.75 0 1 0-1.1-1.03l-2.95 3.1V2.75Z" />
-            <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
-          </svg>
+    <div className="space-y-14">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-rule pb-3 font-mono text-[0.75rem] leading-5 text-muted">
+        <p className="min-w-0 break-words">
+          <span className="text-ink">{report.documents.map((d) => d.name).join(", ")}</span>
+          <span aria-hidden="true" className="px-[0.6ch]">
+            ·
+          </span>
+          generated {formatGeneratedAt(report.generatedAt)}
+        </p>
+        <button type="button" onClick={() => downloadJson(report)} className="link font-serif text-[0.9375rem] text-ink">
           Export JSON
         </button>
       </div>
 
-      <section aria-label="Summary">
-        <SummaryCards report={report} />
+      <section aria-labelledby="summary-heading">
+        <NumberedHeading id="summary-heading" level={3} number={n(1)} title="Summary" />
+        <div className="mt-4">
+          <SummaryCards report={report} />
+        </div>
       </section>
 
       <section aria-labelledby="findings-heading">
-        <SectionHeading
+        <NumberedHeading
           id="findings-heading"
+          level={3}
+          number={n(2)}
           title="Findings"
-          count={conflicts.length}
-          description="Clause pairs that contradict each other or carve out an exception. Highlighted text is the exact quote the verifier checked."
+          aside={count(conflicts.length, "finding", "findings")}
         />
+        <Lede>
+          Clause pairs that contradict one another or carve out an exception. The underlined words are the exact quote
+          the verifier checked against the source.
+        </Lede>
         {conflicts.length > 0 ? (
-          <div className="space-y-4">
+          <div className="border-b border-rule">
             {conflicts.map((f, i) => (
               <FindingCard key={f.id} finding={f} index={i} docs={docs} />
             ))}
           </div>
         ) : (
-          <p className="rounded-xl border border-zinc-200 bg-white px-4 py-6 text-center text-sm text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
-            No conflicts survived verification.
-          </p>
+          <p className="border-y border-rule py-5 text-muted italic">No conflicts survived verification.</p>
         )}
       </section>
 
       <section aria-labelledby="compliance-heading">
-        <SectionHeading
+        <NumberedHeading
           id="compliance-heading"
+          level={3}
+          number={n(3)}
           title="Compliance matrix"
-          count={report.compliance.length}
-          description="Each rule you supplied, checked against the documents."
+          aside={count(report.compliance.length, "rule", "rules")}
         />
+        <Lede>Each rule you supplied, checked against the documents.</Lede>
         {report.compliance.length > 0 ? (
           <ComplianceTable rows={report.compliance} docs={docs} />
         ) : (
-          <p className="rounded-xl border border-zinc-200 bg-white px-4 py-6 text-center text-sm text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
-            No compliance rules were supplied for this run.
-          </p>
+          <p className="border-y border-rule py-5 text-muted italic">No compliance rules were supplied for this run.</p>
         )}
       </section>
 
       <section aria-labelledby="withheld-heading">
-        <SectionHeading
+        <NumberedHeading
           id="withheld-heading"
-          title="Withheld / insufficient evidence"
-          count={report.withheld.length}
-          description="Candidate findings that failed verification. The system abstains rather than report them as results."
+          level={3}
+          number={n(4)}
+          title="Withheld for insufficient evidence"
+          aside={count(report.withheld.length, "item", "items")}
         />
+        <Lede>
+          Candidate findings that failed verification. The system abstains rather than report them; they are listed
+          here so the abstention can be checked.
+        </Lede>
         {report.withheld.length > 0 ? (
           <WithheldList findings={report.withheld} docs={docs} />
         ) : (
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">Nothing was withheld.</p>
+          <p className="border-y border-rule py-5 text-muted italic">Nothing was withheld.</p>
         )}
       </section>
 
-      <aside
-        aria-label="Disclaimer"
-        className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200"
-      >
-        <p className="font-semibold">Not legal advice</p>
-        <p className="mt-1 leading-relaxed">{report.disclaimer}</p>
+      <aside aria-label="Disclaimer" className="max-w-[68ch] border-t border-rule pt-4">
+        <p className="text-[0.9375rem] leading-[1.6] text-muted">
+          <span className="smallcaps font-semibold text-ink">Not legal advice.</span> {report.disclaimer}
+        </p>
       </aside>
     </div>
   );

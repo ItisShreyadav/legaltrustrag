@@ -6,6 +6,7 @@ import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import type { ProgressEvent, TrustReport } from "@/lib/types";
 import { EmptyState } from "./EmptyState";
 import { ProgressPanel, type ProgressState } from "./ProgressPanel";
+import { NumberedHeading } from "./report/ui";
 import { mockDocuments, mockProgress, mockReport } from "./report/mock";
 import { ReportView } from "./report/ReportView";
 import { readSseStream } from "./sse";
@@ -21,19 +22,23 @@ type RunState =
   | { status: "error"; message: string; progress: ProgressState | null };
 
 type Action =
-  | { type: "start" }
+  | { type: "start"; at: number; fileCount: number }
   | { type: "documents"; docTexts: DocTexts }
-  | { type: "progress"; stage: PipelineStage; message: string; pct: number }
+  | { type: "progress"; stage: PipelineStage; message: string; pct: number; at: number }
   | { type: "done"; report: TrustReport }
-  | { type: "error"; message: string }
+  | { type: "error"; message: string; at: number }
   | { type: "reset" };
-
-const INITIAL_PROGRESS: ProgressState = { stage: null, pct: 0, message: "" };
 
 function reducer(state: RunState, action: Action): RunState {
   switch (action.type) {
-    case "start":
-      return { status: "running", progress: INITIAL_PROGRESS };
+    case "start": {
+      const n = action.fileCount;
+      const message = `Uploading ${n} ${n === 1 ? "document" : "documents"} for parsing.`;
+      return {
+        status: "running",
+        progress: { stage: null, pct: 0, message, log: [{ at: action.at, stage: "upload", message }] },
+      };
+    }
     case "documents":
       return state.status === "running" ? { ...state, docTexts: action.docTexts } : state;
     case "progress": {
@@ -41,12 +46,16 @@ function reducer(state: RunState, action: Action): RunState {
       const idx = stageIndex(action.stage);
       const prev = state.progress;
       const prevIdx = prev.stage ? stageIndex(prev.stage) : -1;
-      // Never move the stepper or the bar backwards; the bar is at least at the
-      // start of the current stage.
+      // Never move the stage or the bar backwards; the bar is at least at the
+      // start of the current stage. The log records every event as received.
       const stage = idx >= prevIdx ? action.stage : prev.stage;
       const floor = (Math.max(idx, prevIdx) / STAGES.length) * 100;
       const pct = Math.min(100, Math.max(prev.pct, floor, Number.isFinite(action.pct) ? action.pct : 0));
-      return { ...state, progress: { stage, pct, message: action.message } };
+      const message = action.message || (STAGES[idx]?.hint ?? "");
+      return {
+        ...state,
+        progress: { stage, pct, message, log: [...prev.log, { at: action.at, stage: action.stage, message }] },
+      };
     }
     case "done":
       return {
@@ -58,7 +67,13 @@ function reducer(state: RunState, action: Action): RunState {
       return {
         status: "error",
         message: action.message,
-        progress: state.status === "running" ? state.progress : null,
+        progress:
+          state.status === "running"
+            ? {
+                ...state.progress,
+                log: [...state.progress.log, { at: action.at, stage: "error", message: action.message }],
+              }
+            : null,
       };
     case "reset":
       return { status: "idle" };
@@ -132,7 +147,7 @@ export function AnalyzeApp() {
   const [loadingSample, setLoadingSample] = useState(false);
   const [health, setHealth] = useState<Health | null>(null);
   const abortRef = useRef<AbortController | null>(null);
-  const resultsRef = useRef<HTMLDivElement>(null);
+  const resultsRef = useRef<HTMLElement>(null);
 
   const running = state.status === "running";
 
@@ -153,7 +168,7 @@ export function AnalyzeApp() {
     return () => ref.current?.abort();
   }, []);
 
-  // Move focus (and scroll, on narrow screens) to the progress/results column when a
+  // Move focus (and scroll) to the analysis section when a
   // run starts or finishes, for keyboard and screen-reader users.
   useEffect(() => {
     if (state.status !== "idle") resultsRef.current?.focus();
@@ -216,7 +231,7 @@ export function AnalyzeApp() {
     const controller = new AbortController();
     abortRef.current = controller;
     setNotices([]);
-    dispatch({ type: "start" });
+    dispatch({ type: "start", at: Date.now(), fileCount: files.length });
 
     let finished = false;
     const handleEvent = (event: ProgressEvent) => {
@@ -226,9 +241,15 @@ export function AnalyzeApp() {
         dispatch({ type: "done", report: event.report });
       } else if (event.stage === "error") {
         finished = true;
-        dispatch({ type: "error", message: event.message || "The analysis failed." });
+        dispatch({ type: "error", message: event.message || "The analysis failed.", at: Date.now() });
       } else {
-        dispatch({ type: "progress", stage: event.stage, message: event.message ?? "", pct: Number(event.pct) });
+        dispatch({
+          type: "progress",
+          stage: event.stage,
+          message: event.message ?? "",
+          pct: Number(event.pct),
+          at: Date.now(),
+        });
       }
     };
 
@@ -272,7 +293,7 @@ export function AnalyzeApp() {
       if (!finished) throw new Error("The connection closed before the analysis finished. Please try again.");
     } catch (err) {
       if (controller.signal.aborted || finished) return;
-      dispatch({ type: "error", message: errorText(err) });
+      dispatch({ type: "error", message: errorText(err), at: Date.now() });
     } finally {
       if (abortRef.current === controller) abortRef.current = null;
     }
@@ -290,89 +311,78 @@ export function AnalyzeApp() {
   const docTexts = state.status === "done" ? state.docTexts : showMockFixture ? MOCK_DOC_TEXTS : undefined;
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] xl:grid-cols-[minmax(0,24rem)_minmax(0,1fr)]">
-      <aside aria-label="Analysis input" className="lg:sticky lg:top-20 lg:self-start">
-        <div className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-5 dark:border-zinc-800 dark:bg-zinc-900">
-          {health && !health.hasApiKey && !mockMode ? (
-            <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200">
-              <span className="font-semibold">ANTHROPIC_API_KEY is not set</span> on the server, so analysis will fail.
-              Add it to <code className="font-mono">.env.local</code>, or{" "}
-              <Link href="/?mock=1" className="font-medium underline underline-offset-2">
-                preview with mock data
+    <div className="mt-12">
+      {health && !health.hasApiKey && !mockMode ? (
+        <p role="note" className="mb-8 max-w-[68ch] text-[1.0625rem] leading-[1.6] md:ml-16">
+          <span className="smallcaps font-semibold">Configuration.</span>{" "}
+          <code className="font-mono text-[0.875em]">ANTHROPIC_API_KEY</code> is not set on the server, so analysis will
+          fail. Add it to <code className="font-mono text-[0.875em]">.env.local</code>, or{" "}
+          <Link href="/?mock=1" className="link">
+            preview with mock data
+          </Link>
+          .
+        </p>
+      ) : null}
+
+      <UploadPanel
+        files={files}
+        rules={rules}
+        notices={notices}
+        busy={running}
+        loadingSample={loadingSample}
+        mockMode={mockMode}
+        model={health?.model}
+        onAddFiles={addFiles}
+        onRemoveFile={removeFile}
+        onRulesChange={setRules}
+        onAnalyse={analyse}
+        onLoadSample={loadSample}
+      />
+
+      <section
+        ref={resultsRef}
+        tabIndex={-1}
+        aria-labelledby="analysis-heading"
+        className="scroll-mt-6 border-t border-rule pt-7 focus:outline-none md:pl-16"
+      >
+        <NumberedHeading id="analysis-heading" number="3." title="Analysis" />
+
+        <div className="mt-5 space-y-8">
+          {mockMode && (showMockFixture || state.status === "done") ? (
+            <p className="max-w-[68ch] text-[1.0625rem] leading-[1.6] text-muted italic">
+              Mock data. This report comes from a built-in fixture; no API call was made.{" "}
+              <Link href="/" className="link whitespace-nowrap text-ink not-italic">
+                Exit mock mode
               </Link>
               .
-            </div>
-          ) : null}
-          <UploadPanel
-            files={files}
-            rules={rules}
-            notices={notices}
-            busy={running}
-            loadingSample={loadingSample}
-            mockMode={mockMode}
-            onAddFiles={addFiles}
-            onRemoveFile={removeFile}
-            onRulesChange={setRules}
-            onAnalyse={analyse}
-            onLoadSample={loadSample}
-          />
-          {health?.model ? (
-            <p className="mt-4 border-t border-zinc-100 pt-3 text-xs text-zinc-400 dark:border-zinc-800 dark:text-zinc-500">
-              Model: <span className="font-mono">{health.model}</span>
             </p>
           ) : null}
-        </div>
-      </aside>
 
-      <div ref={resultsRef} tabIndex={-1} className="min-w-0 space-y-6 focus:outline-none">
-        {mockMode && (showMockFixture || state.status === "done") ? (
-          <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-sm text-indigo-900 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-200">
-            <span>
-              <span className="font-semibold">Mock data.</span> This report comes from a built-in fixture; no API call was
-              made.
-            </span>
-            <Link href="/" className="font-medium underline underline-offset-2">
-              Exit mock mode
-            </Link>
-          </div>
-        ) : null}
+          {state.status === "running" ? <ProgressPanel progress={state.progress} mode="running" onCancel={cancel} /> : null}
 
-        {state.status === "running" ? <ProgressPanel progress={state.progress} mode="running" onCancel={cancel} /> : null}
-
-        {state.status === "error" ? (
-          <>
-            {state.progress ? <ProgressPanel progress={state.progress} mode="error" /> : null}
-            <div
-              role="alert"
-              className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-200"
-            >
-              <p className="font-semibold">The analysis could not be completed</p>
-              <p className="mt-1 break-words">{state.message}</p>
-              <div className="mt-3 flex gap-2">
-                <button
-                  type="button"
-                  onClick={analyse}
-                  disabled={files.length === 0}
-                  className="rounded-lg bg-red-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 disabled:opacity-50"
-                >
-                  Try again
-                </button>
-                <button
-                  type="button"
-                  onClick={() => dispatch({ type: "reset" })}
-                  className="rounded-lg px-3 py-1.5 text-sm font-medium text-red-700 hover:bg-red-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 dark:text-red-300 dark:hover:bg-red-500/20"
-                >
-                  Dismiss
-                </button>
+          {state.status === "error" ? (
+            <>
+              {state.progress ? <ProgressPanel progress={state.progress} mode="error" /> : null}
+              <div role="alert" className="max-w-[68ch]">
+                <p className="text-[1.125rem] font-semibold text-accent">The analysis could not be completed.</p>
+                <p className="mt-1 text-[1.0625rem] leading-[1.6] break-words">{state.message}</p>
+                <div className="mt-4 flex flex-wrap items-baseline gap-x-6 gap-y-3">
+                  <button type="button" onClick={analyse} disabled={files.length === 0} className="btn-primary">
+                    Try again
+                  </button>
+                  <button type="button" onClick={() => dispatch({ type: "reset" })} className="link text-[0.9375rem]">
+                    Dismiss
+                  </button>
+                </div>
               </div>
-            </div>
-          </>
-        ) : null}
+            </>
+          ) : null}
 
-        {report ? <ReportView report={report} docTexts={docTexts} /> : null}
+          {report ? <ReportView report={report} docTexts={docTexts} sectionNumber="3" /> : null}
 
-        {state.status === "idle" && !report ? <EmptyState /> : null}
-      </div>
+          {state.status === "idle" && !report ? <EmptyState /> : null}
+        </div>
+      </section>
     </div>
   );
 }

@@ -87,3 +87,62 @@ export function clauseContext(docText: string | undefined, quote: Quote): QuoteC
     truncatedEnd,
   };
 }
+
+/** "4. TERM AND TERMINATION", "ARTICLE V", "Section 5 – Indemnity", "SCHEDULE A". */
+const TOP_HEADING =
+  /^\s*(?:(article|section|clause|schedule|part|annex|appendix|exhibit)\s+([0-9]+[a-z]?|[ivxlcdm]+|[a-z])\b|(\d+)\.\s+\S)/i;
+/** "4.2 ", "10.1. " */
+const NUMBERED = /^\s*(\d+(?:\.\d+)+)\.?\s/;
+/** "(a) ", "(iv) ", "(2) " */
+const SUB_ITEM = /^\s*\(([a-z]{1,4}|\d{1,2})\)\s/i;
+
+const MAX_LINES_BACK = 400;
+
+function titleCase(word: string): string {
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+/**
+ * Best-effort clause path for a quote, derived from the source text around it,
+ * e.g. ["Section 4", "4.2"] or ["Article V", "5.2", "(a)"]. Walks back from the
+ * quote's line to the nearest numbered clause and top-level heading. Returns an
+ * empty array when the text has no recognisable numbering (e.g. a preamble).
+ */
+export function clausePath(docText: string | undefined, quote: Quote): string[] {
+  if (docText === undefined || quote.start < 0 || quote.start > docText.length) return [];
+  let sub: string | null = null;
+  let numbered: string | null = null;
+  let top: string | null = null;
+
+  let lineStart = docText.lastIndexOf("\n", quote.start - 1) + 1;
+  for (let i = 0; i < MAX_LINES_BACK; i++) {
+    const lineEnd = docText.indexOf("\n", lineStart);
+    const line = docText.slice(lineStart, lineEnd === -1 ? undefined : lineEnd);
+
+    if (!numbered && !sub) {
+      const s = SUB_ITEM.exec(line);
+      if (s) sub = `(${s[1]})`;
+    }
+    if (!numbered) {
+      const n = NUMBERED.exec(line);
+      if (n) numbered = n[1];
+    }
+    const t = TOP_HEADING.exec(line);
+    if (t && !NUMBERED.test(line)) {
+      if (t[1] && t[2]) {
+        const id = /^[ivxlcdm]+$/i.test(t[2]) || /^[a-z]$/i.test(t[2]) ? t[2].toUpperCase() : t[2];
+        top = `${titleCase(t[1])} ${id}`;
+      } else if (t[3]) {
+        top = `Section ${t[3]}`;
+      }
+      if (top) break;
+    }
+    if (lineStart === 0) break;
+    lineStart = docText.lastIndexOf("\n", lineStart - 2) + 1;
+  }
+
+  // A numbered clause from a different top-level section means the heading we
+  // found is not its parent (e.g. headings are unnumbered); drop the heading.
+  if (top && numbered && /^Section \d+$/.test(top) && !numbered.startsWith(`${top.slice(8)}.`)) top = null;
+  return [top, numbered, sub].filter((p): p is string => p !== null);
+}

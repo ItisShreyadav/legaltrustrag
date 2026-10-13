@@ -1,6 +1,6 @@
 import type { Finding } from "@/lib/types";
 import { QuotePanel } from "./QuotePanel";
-import { ConfidenceMeter, LabelBadge, StatusBadge } from "./ui";
+import { Confidence, LabelText, Sep, StatusText } from "./ui";
 import { VerificationDetails } from "./VerificationDetails";
 
 export interface DocLookup {
@@ -8,34 +8,33 @@ export interface DocLookup {
   text: (docId: string) => string | undefined;
 }
 
+/** One ruled entry: mono reference line, the two clauses side by side, then the reasoning. */
 export function FindingCard({ finding, index, docs }: { finding: Finding; index: number; docs: DocLookup }) {
   const titleId = `finding-${finding.id}-title`;
   return (
-    <article
-      aria-labelledby={titleId}
-      className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-5 dark:border-zinc-800 dark:bg-zinc-900"
-    >
-      <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <h3 id={titleId} className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-            Finding {index + 1}
-          </h3>
-          <LabelBadge label={finding.label} />
-          <StatusBadge status={finding.verification.status} />
-        </div>
-        <ConfidenceMeter value={finding.confidence} />
-      </header>
+    <article aria-labelledby={titleId} className="border-t border-rule py-7">
+      <h4 id={titleId} className="font-mono text-[0.8125rem] leading-6">
+        <span>Finding {String(index + 1).padStart(2, "0")}</span>
+        <Sep />
+        <LabelText label={finding.label} />
+        <Sep />
+        <span className="figures">
+          <Confidence value={finding.confidence} />
+        </span>
+        <Sep />
+        <StatusText status={finding.verification.status} />
+      </h4>
 
-      <div className={`grid gap-3 ${finding.clauseB ? "md:grid-cols-2" : ""}`}>
+      <div className={`mt-4 grid gap-x-10 gap-y-6 ${finding.clauseB ? "md:grid-cols-2" : ""}`}>
         <QuotePanel
-          heading="Clause A"
+          heading="A"
           quote={finding.clauseA}
           docName={docs.name(finding.clauseA.docId)}
           docText={docs.text(finding.clauseA.docId)}
         />
         {finding.clauseB ? (
           <QuotePanel
-            heading="Clause B"
+            heading="B"
             quote={finding.clauseB}
             docName={docs.name(finding.clauseB.docId)}
             docText={docs.text(finding.clauseB.docId)}
@@ -43,9 +42,9 @@ export function FindingCard({ finding, index, docs }: { finding: Finding; index:
         ) : null}
       </div>
 
-      <p className="mt-4 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">{finding.explanation}</p>
+      <p className="mt-5 max-w-[68ch] pl-6 text-[1.0625rem] leading-[1.65] md:pl-10">{finding.explanation}</p>
 
-      <div className="mt-4">
+      <div className="mt-4 pl-6 md:pl-10">
         <VerificationDetails verification={finding.verification} />
       </div>
     </article>

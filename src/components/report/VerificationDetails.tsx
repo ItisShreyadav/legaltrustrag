@@ -1,5 +1,4 @@
 import type { VerificationCheck, VerificationResult } from "@/lib/types";
-import { CheckIcon, CrossIcon } from "./ui";
 
 const CHECK_ORDER: VerificationCheck["name"][] = ["relevance", "quote", "support", "conflict"];
 
@@ -10,64 +9,63 @@ const CHECK_INFO: Record<VerificationCheck["name"], { title: string; what: strin
   conflict: { title: "Conflict re-check", what: "An independent pass reaches the same label." },
 };
 
+type CheckState = "pass" | "fail" | "missing";
+
+const GLYPH: Record<CheckState, string> = { pass: "✓", fail: "✗", missing: "–" };
+const SPOKEN: Record<CheckState, string> = { pass: "passed", fail: "failed", missing: "not run" };
+const WORD: Record<CheckState, string> = { pass: "pass", fail: "fail", missing: "not run" };
+
+/** Compact mono line of check results that expands to the verifier's notes. */
 export function VerificationDetails({ verification }: { verification: VerificationResult }) {
   const byName = new Map(verification.checks.map((c) => [c.name, c]));
-  const rows = CHECK_ORDER.map((name) => ({ name, check: byName.get(name) }));
-  const passed = rows.filter((r) => r.check?.passed).length;
+  const rows = CHECK_ORDER.map((name) => {
+    const check = byName.get(name);
+    const state: CheckState = check === undefined ? "missing" : check.passed ? "pass" : "fail";
+    return { name, check, state };
+  });
 
   return (
-    <details className="group rounded-lg border border-zinc-200 dark:border-zinc-800">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm select-none hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:hover:bg-zinc-800/50 [&::-webkit-details-marker]:hidden">
-        <span className="flex items-center gap-2 font-medium text-zinc-800 dark:text-zinc-200">
-          <svg
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            className="size-4 text-zinc-400 transition-transform group-open:rotate-90"
-          >
-            <path
-              fillRule="evenodd"
-              d="M7.2 4.2a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5a1 1 0 0 1-1.4-1.4L11.5 10 7.2 5.6a1 1 0 0 1 0-1.4Z"
-              clipRule="evenodd"
-            />
-          </svg>
-          Verification
-        </span>
-        <span className="text-xs text-zinc-500 tabular-nums dark:text-zinc-400">
-          {passed}/{rows.length} checks passed
-          {verification.retries > 0 ? ` · ${verification.retries} ${verification.retries === 1 ? "retry" : "retries"}` : ""}
+    <details className="group">
+      <summary className="inline-flex cursor-pointer list-none flex-wrap items-baseline gap-x-[2ch] gap-y-1 font-mono text-[0.75rem] leading-6 text-muted select-none hover:text-ink">
+        <span className="sr-only">Verification checks: </span>
+        {rows.map(({ name, state }) => (
+          <span key={name} className={state === "fail" ? "font-bold text-ink" : undefined}>
+            {name}
+            <span aria-hidden="true" className="ml-[1ch]">
+              {GLYPH[state]}
+            </span>
+            <span className="sr-only"> {SPOKEN[state]},</span>
+          </span>
+        ))}
+        {verification.retries > 0 ? (
+          <span>
+            {verification.retries} {verification.retries === 1 ? "retry" : "retries"}
+          </span>
+        ) : null}
+        <span aria-hidden="true" className="text-ink">
+          <span className="group-open:hidden">+</span>
+          <span className="hidden group-open:inline">×</span>
         </span>
       </summary>
-      <ul className="divide-y divide-zinc-100 border-t border-zinc-200 dark:divide-zinc-800 dark:border-zinc-800">
-        {rows.map(({ name, check }) => {
+      <dl className="mt-2 max-w-[68ch] border-t border-rule">
+        {rows.map(({ name, check, state }) => {
           const info = CHECK_INFO[name];
-          const state = check === undefined ? "missing" : check.passed ? "pass" : "fail";
           return (
-            <li key={name} className="flex gap-3 px-3 py-2 text-sm">
-              <span
-                className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full ${
-                  state === "pass"
-                    ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300"
-                    : state === "fail"
-                      ? "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-300"
-                      : "bg-zinc-100 text-zinc-400 dark:bg-zinc-800"
-                }`}
-              >
-                {state === "pass" ? <CheckIcon className="size-3.5" /> : state === "fail" ? <CrossIcon className="size-3.5" /> : <span aria-hidden="true">&ndash;</span>}
-              </span>
-              <div className="min-w-0">
-                <p className="font-medium text-zinc-800 dark:text-zinc-200">
-                  {info.title}
-                  <span className="ml-2 text-xs font-normal text-zinc-500 dark:text-zinc-400">
-                    {state === "pass" ? "Pass" : state === "fail" ? "Fail" : "Not run"}
-                  </span>
-                </p>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400">{check?.detail ?? info.what}</p>
-              </div>
-            </li>
+            <div
+              key={name}
+              className="grid grid-cols-[11ch_7ch] gap-x-3 border-b border-rule py-2 md:grid-cols-[11ch_7ch_minmax(0,1fr)]"
+            >
+              <dt className="font-mono text-[0.75rem] leading-6">{name}</dt>
+              <dd className={`font-mono text-[0.75rem] leading-6 ${state === "fail" ? "font-bold" : "text-muted"}`}>
+                {WORD[state]}
+              </dd>
+              <dd className="col-span-2 text-[0.9375rem] leading-[1.55] md:col-span-1">
+                <span className="italic">{info.title}.</span> {check?.detail ?? info.what}
+              </dd>
+            </div>
           );
         })}
-      </ul>
+      </dl>
     </details>
   );
 }

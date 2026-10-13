@@ -1,28 +1,139 @@
 @import "tailwindcss";
 
+/*
+ * Paper and ink. One accent (oxblood) for contradictions, violated rules and
+ * the primary action; everything else is ink, muted ink, italics and rules.
+ */
 :root {
-  --background: #fafafa;
-  --foreground: #18181b;
+  --paper: #f6f3ee;
+  --ink: #1a1a1a;
+  --muted: #5c574e;
+  --rule: #d9d3c7;
+  --rule-strong: #a69e8f;
+  --accent: #7a2e2e;
+  --accent-hover: #5f2222;
+  --on-accent: #f6f3ee;
   color-scheme: light;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #09090b;
-    --foreground: #f4f4f5;
+    --paper: #161513;
+    --ink: #e8e4dc;
+    --muted: #a59f94;
+    --rule: #3a3732;
+    --rule-strong: #6b655b;
+    --accent: #c8696a;
+    --accent-hover: #d98586;
+    --on-accent: #161513;
     color-scheme: dark;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --font-serif: var(--font-source-serif), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-source-serif), "Iowan Old Style", Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-source-serif), "Iowan Old Style", Georgia, serif;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  /* The exact quote the verifier checked: a thin oxblood underline, no highlight block. */
+  mark {
+    background: transparent;
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    text-decoration-skip-ink: auto;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@utility smallcaps {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.06em;
+}
+
+@utility figures {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+@utility link {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+  cursor: pointer;
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--muted);
+    text-decoration-style: dotted;
+  }
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+  border-radius: 0;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 0.5rem 1.5rem 0.6rem;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.25;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  &:hover:not(:disabled) {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background: transparent;
+    border-color: var(--rule-strong);
+    color: var(--muted);
+  }
 }

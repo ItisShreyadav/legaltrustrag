@@ -1,0 +1,3830 @@
+{
+  "meta": {
+    "timestamp": "2026-10-13T19:23:20.570Z",
+    "gitSha": "111a95b5b618b8a81664ead1d68395aa62dcdd5c",
+    "gitDirty": true,
+    "node": "v22.22.0",
+    "model": "claude-sonnet-5-5",
+    "hasApiKey": false,
+    "env": {}
+  },
+  "dryRun": true,
+  "runs": [
+    {
+      "config": {
+        "verify": true,
+        "dryRun": true,
+        "embed": null,
+        "rerank": null,
+        "model": "stub"
+      },
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 75,
+        "surfaced": 37,
+        "withheld": 38,
+        "correctSurfaced": 16,
+        "precision": 0.43243243243243246,
+        "recall": 0.32,
+        "f1": 0.36781609195402293,
+        "retrievalRecall": 0.68,
+        "groundedRate": 1,
+        "citationPrecision": 0.43243243243243246,
+        "abstainRate": 0.5066666666666667,
+        "answeredAccuracy": 0.8997134670487106,
+        "abstainedCorrect": 4,
+        "errors": {
+          "search_failure": 16,
+          "reasoning_failure": 36,
+          "invented": 3
+        }
+      },
+      "curve": [
+        {
+          "threshold": 0,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.05,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.1,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.15,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.2,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.25,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.3,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.35,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.4,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.45,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.5,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.55,
+          "kept": 37,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.49333333333333335,
+          "accuracy": 0.43243243243243246
+        },
+        {
+          "threshold": 0.6,
+          "kept": 34,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.4533333333333333,
+          "accuracy": 0.47058823529411764
+        },
+        {
+          "threshold": 0.65,
+          "kept": 33,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.44,
+          "accuracy": 0.48484848484848486
+        },
+        {
+          "threshold": 0.7,
+          "kept": 31,
+          "total": 75,
+          "correct": 16,
+          "coverage": 0.41333333333333333,
+          "accuracy": 0.5161290322580645
+        },
+        {
+          "threshold": 0.75,
+          "kept": 29,
+          "total": 75,
+          "correct": 15,
+          "coverage": 0.38666666666666666,
+          "accuracy": 0.5172413793103449
+        },
+        {
+          "threshold": 0.8,
+          "kept": 20,
+          "total": 75,
+          "correct": 11,
+          "coverage": 0.26666666666666666,
+          "accuracy": 0.55
+        },
+        {
+          "threshold": 0.85,
+          "kept": 15,
+          "total": 75,
+          "correct": 8,
+          "coverage": 0.2,
+          "accuracy": 0.5333333333333333
+        },
+        {
+          "threshold": 0.9,
+          "kept": 0,
+          "total": 75,
+          "correct": 0,
+          "coverage": 0,
+          "accuracy": null
+        },
+        {
+          "threshold": 0.95,
+          "kept": 0,
+          "total": 75,
+          "correct": 0,
+          "coverage": 0,
+          "accuracy": null
+        },
+        {
+          "threshold": 1,
+          "kept": 0,
+          "total": 75,
+          "correct": 0,
+          "coverage": 0,
+          "accuracy": null
+        }
+      ],
+      "grades": [
+        {
+          "caseId": "e2e-01",
+          "goldCount": 3,
+          "candidatePairs": 19,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.7683250590915259,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.7530638894245191,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.8204202053841408,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-01-g2",
+              "correct": true
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-01-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-01-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "contradict",
+              "error": "reasoning_failure",
+              "detail": "correct finding was withheld (abstained)"
+            },
+            {
+              "goldId": "e2e-01-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 19,
+            "abstained": 1,
+            "correct": 16
+          }
+        },
+        {
+          "caseId": "e2e-02",
+          "goldCount": 2,
+          "candidatePairs": 21,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.6386428501124534,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5723787313634545,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-02-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-02-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 21,
+            "abstained": 2,
+            "correct": 18
+          }
+        },
+        {
+          "caseId": "e2e-03",
+          "goldCount": 3,
+          "candidatePairs": 18,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8505661935127593,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-03-g3",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.6249374739886767,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.5723312815967386,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-03-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-03-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-03-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            }
+          ],
+          "decisions": {
+            "total": 18,
+            "abstained": 1,
+            "correct": 15
+          }
+        },
+        {
+          "caseId": "e2e-04",
+          "goldCount": 2,
+          "candidatePairs": 15,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.5712364441652408,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5081435586536623,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": false,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.6261792030106546,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-04-g2",
+              "correct": true
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-04-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-04-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "exception",
+              "error": "reasoning_failure",
+              "detail": "correct finding was withheld (abstained)"
+            }
+          ],
+          "decisions": {
+            "total": 15,
+            "abstained": 2,
+            "correct": 11
+          }
+        },
+        {
+          "caseId": "e2e-05",
+          "goldCount": 3,
+          "candidatePairs": 20,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.7908275863015649,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.611939814757603,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5885272994992501,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-05-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-05-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-05-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 20,
+            "abstained": 2,
+            "correct": 15
+          }
+        },
+        {
+          "caseId": "e2e-06",
+          "goldCount": 2,
+          "candidatePairs": 18,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8464073044793882,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.7939185525455681,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-06-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.5829439122680141,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.4731351150261012,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.5803049482729076,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-06-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            },
+            {
+              "goldId": "e2e-06-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 18,
+            "abstained": 2,
+            "correct": 13
+          }
+        },
+        {
+          "caseId": "e2e-07",
+          "goldCount": 3,
+          "candidatePairs": 23,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8710898620739478,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-07-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.8268469325595804,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-07-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.7030264353949991,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-07-g3",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.615156546611913,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.6031191551110189,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_6",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.5016811183787955,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-07-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-07-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-07-g3",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "exception",
+              "error": "reasoning_failure",
+              "detail": "correct finding was withheld (abstained)"
+            }
+          ],
+          "decisions": {
+            "total": 23,
+            "abstained": 4,
+            "correct": 19
+          }
+        },
+        {
+          "caseId": "e2e-08",
+          "goldCount": 2,
+          "candidatePairs": 15,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.862722816041824,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.25972500425927325,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": false,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-08-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "agree",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as agree"
+            },
+            {
+              "goldId": "e2e-08-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 15,
+            "abstained": 1,
+            "correct": 12
+          }
+        },
+        {
+          "caseId": "e2e-09",
+          "goldCount": 3,
+          "candidatePairs": 25,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8446546367392305,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-09-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8069193686502558,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "invented",
+              "detail": "explanation failed the support check"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.7704412749981067,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_6",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.6754033288266861,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.6072439715046061,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.3991742470865485,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": false,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-09-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-09-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-09-g3",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 25,
+            "abstained": 3,
+            "correct": 19
+          }
+        },
+        {
+          "caseId": "e2e-10",
+          "goldCount": 2,
+          "candidatePairs": 20,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.8629019363040598,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.7951000116492285,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-10-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5813505843638,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5563280835510191,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5453213226585321,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-10-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-10-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            }
+          ],
+          "decisions": {
+            "total": 20,
+            "abstained": 3,
+            "correct": 16
+          }
+        },
+        {
+          "caseId": "e2e-11",
+          "goldCount": 3,
+          "candidatePairs": 28,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8701980732019047,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-11-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8596685470966324,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.6733327582682163,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "invented",
+              "detail": "explanation failed the support check"
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5114695787200186,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.6177891728201292,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_6",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.5583572716417761,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-11-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-11-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-11-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 28,
+            "abstained": 3,
+            "correct": 22
+          }
+        },
+        {
+          "caseId": "e2e-12",
+          "goldCount": 2,
+          "candidatePairs": 15,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.8718119382211379,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-12-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8614266551195316,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5675199476773285,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.7225257491703106,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.4053484653590107,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": false,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-12-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-12-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            }
+          ],
+          "decisions": {
+            "total": 15,
+            "abstained": 3,
+            "correct": 11
+          }
+        },
+        {
+          "caseId": "e2e-13",
+          "goldCount": 3,
+          "candidatePairs": 17,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.8501180146403405,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-13-g2",
+              "correct": true
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-13-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-13-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-13-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 17,
+            "abstained": 0,
+            "correct": 16
+          }
+        },
+        {
+          "caseId": "e2e-14",
+          "goldCount": 2,
+          "candidatePairs": 20,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8839585848150961,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.8604847781724401,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.8235255452724484,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-14-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.7678733028673643,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_6",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.6056328038009948,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5523069684523431,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_7",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.4396599732810669,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-14-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-14-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 20,
+            "abstained": 3,
+            "correct": 14
+          }
+        },
+        {
+          "caseId": "e2e-15",
+          "goldCount": 3,
+          "candidatePairs": 25,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.8720623461868222,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.7718450048985378,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-15-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5586853866533759,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-15-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            },
+            {
+              "goldId": "e2e-15-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-15-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 25,
+            "abstained": 1,
+            "correct": 21
+          }
+        },
+        {
+          "caseId": "e2e-16",
+          "goldCount": 2,
+          "candidatePairs": 20,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.8686588902453907,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-16-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.7308156979851667,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-16-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.6383806174182024,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.556212269495069,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-16-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            },
+            {
+              "goldId": "e2e-16-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            }
+          ],
+          "decisions": {
+            "total": 20,
+            "abstained": 2,
+            "correct": 18
+          }
+        },
+        {
+          "caseId": "e2e-17",
+          "goldCount": 3,
+          "candidatePairs": 15,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8640965412713305,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-17-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5975196475925179,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-17-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-17-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-17-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 15,
+            "abstained": 1,
+            "correct": 14
+          }
+        },
+        {
+          "caseId": "e2e-18",
+          "goldCount": 2,
+          "candidatePairs": 18,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.6592730956708318,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "invented",
+              "detail": "explanation failed the support check"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.5525245291053373,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "withheld",
+              "confidence": 0.49440718364220215,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-18-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-18-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 18,
+            "abstained": 2,
+            "correct": 14
+          }
+        },
+        {
+          "caseId": "e2e-19",
+          "goldCount": 3,
+          "candidatePairs": 18,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.8677584518085275,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-19-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.6702616771685901,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-19-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "withheld",
+              "confidence": 0.5608802423021172,
+              "surfaced": false,
+              "hardWithheld": true,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-19-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-19-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "contradict",
+              "error": "reasoning_failure",
+              "detail": "correct finding was withheld (abstained)"
+            },
+            {
+              "goldId": "e2e-19-g3",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 18,
+            "abstained": 2,
+            "correct": 16
+          }
+        },
+        {
+          "caseId": "e2e-20",
+          "goldCount": 2,
+          "candidatePairs": 17,
+          "findings": [
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "verified",
+              "confidence": 0.5727655050039273,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.7950710981398847,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-20-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "verified",
+              "confidence": 0.7361088187016919,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-20-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-20-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            }
+          ],
+          "decisions": {
+            "total": 17,
+            "abstained": 0,
+            "correct": 14
+          }
+        }
+      ]
+    },
+    {
+      "config": {
+        "verify": false,
+        "dryRun": true,
+        "embed": null,
+        "rerank": null,
+        "model": "stub"
+      },
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 75,
+        "surfaced": 75,
+        "withheld": 0,
+        "correctSurfaced": 20,
+        "precision": 0.26666666666666666,
+        "recall": 0.4,
+        "f1": 0.32,
+        "retrievalRecall": 0.68,
+        "groundedRate": 0.9466666666666667,
+        "citationPrecision": 0.26666666666666666,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8217054263565892,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 16,
+          "reasoning_failure": 65,
+          "invented": 4
+        }
+      },
+      "curve": [
+        {
+          "threshold": 0,
+          "kept": 75,
+          "total": 75,
+          "correct": 20,
+          "coverage": 1,
+          "accuracy": 0.26666666666666666
+        },
+        {
+          "threshold": 0.05,
+          "kept": 75,
+          "total": 75,
+          "correct": 20,
+          "coverage": 1,
+          "accuracy": 0.26666666666666666
+        },
+        {
+          "threshold": 0.1,
+          "kept": 75,
+          "total": 75,
+          "correct": 20,
+          "coverage": 1,
+          "accuracy": 0.26666666666666666
+        },
+        {
+          "threshold": 0.15,
+          "kept": 75,
+          "total": 75,
+          "correct": 20,
+          "coverage": 1,
+          "accuracy": 0.26666666666666666
+        },
+        {
+          "threshold": 0.2,
+          "kept": 75,
+          "total": 75,
+          "correct": 20,
+          "coverage": 1,
+          "accuracy": 0.26666666666666666
+        },
+        {
+          "threshold": 0.25,
+          "kept": 75,
+          "total": 75,
+          "correct": 20,
+          "coverage": 1,
+          "accuracy": 0.26666666666666666
+        },
+        {
+          "threshold": 0.3,
+          "kept": 75,
+          "total": 75,
+          "correct": 20,
+          "coverage": 1,
+          "accuracy": 0.26666666666666666
+        },
+        {
+          "threshold": 0.35,
+          "kept": 75,
+          "total": 75,
+          "correct": 20,
+          "coverage": 1,
+          "accuracy": 0.26666666666666666
+        },
+        {
+          "threshold": 0.4,
+          "kept": 71,
+          "total": 75,
+          "correct": 20,
+          "coverage": 0.9466666666666667,
+          "accuracy": 0.28169014084507044
+        },
+        {
+          "threshold": 0.45,
+          "kept": 68,
+          "total": 75,
+          "correct": 20,
+          "coverage": 0.9066666666666666,
+          "accuracy": 0.29411764705882354
+        },
+        {
+          "threshold": 0.5,
+          "kept": 56,
+          "total": 75,
+          "correct": 19,
+          "coverage": 0.7466666666666667,
+          "accuracy": 0.3392857142857143
+        },
+        {
+          "threshold": 0.55,
+          "kept": 45,
+          "total": 75,
+          "correct": 18,
+          "coverage": 0.6,
+          "accuracy": 0.4
+        },
+        {
+          "threshold": 0.6,
+          "kept": 40,
+          "total": 75,
+          "correct": 18,
+          "coverage": 0.5333333333333333,
+          "accuracy": 0.45
+        },
+        {
+          "threshold": 0.65,
+          "kept": 40,
+          "total": 75,
+          "correct": 18,
+          "coverage": 0.5333333333333333,
+          "accuracy": 0.45
+        },
+        {
+          "threshold": 0.7,
+          "kept": 40,
+          "total": 75,
+          "correct": 18,
+          "coverage": 0.5333333333333333,
+          "accuracy": 0.45
+        },
+        {
+          "threshold": 0.75,
+          "kept": 38,
+          "total": 75,
+          "correct": 17,
+          "coverage": 0.5066666666666667,
+          "accuracy": 0.4473684210526316
+        },
+        {
+          "threshold": 0.8,
+          "kept": 32,
+          "total": 75,
+          "correct": 15,
+          "coverage": 0.4266666666666667,
+          "accuracy": 0.46875
+        },
+        {
+          "threshold": 0.85,
+          "kept": 23,
+          "total": 75,
+          "correct": 13,
+          "coverage": 0.30666666666666664,
+          "accuracy": 0.5652173913043478
+        },
+        {
+          "threshold": 0.9,
+          "kept": 15,
+          "total": 75,
+          "correct": 8,
+          "coverage": 0.2,
+          "accuracy": 0.5333333333333333
+        },
+        {
+          "threshold": 0.95,
+          "kept": 2,
+          "total": 75,
+          "correct": 1,
+          "coverage": 0.02666666666666667,
+          "accuracy": 0.5
+        },
+        {
+          "threshold": 1,
+          "kept": 0,
+          "total": 75,
+          "correct": 0,
+          "coverage": 0,
+          "accuracy": null
+        }
+      ],
+      "grades": [
+        {
+          "caseId": "e2e-01",
+          "goldCount": 3,
+          "candidatePairs": 19,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.91,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-01-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.82,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.82,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-01-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-01-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-01-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 19,
+            "abstained": 0,
+            "correct": 17
+          }
+        },
+        {
+          "caseId": "e2e-02",
+          "goldCount": 2,
+          "candidatePairs": 21,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.55,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.44999999999999996,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-02-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-02-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 21,
+            "abstained": 0,
+            "correct": 18
+          }
+        },
+        {
+          "caseId": "e2e-03",
+          "goldCount": 3,
+          "candidatePairs": 18,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.87,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-03-g3",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.59,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.44999999999999996,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-03-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-03-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-03-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            }
+          ],
+          "decisions": {
+            "total": 18,
+            "abstained": 0,
+            "correct": 15
+          }
+        },
+        {
+          "caseId": "e2e-04",
+          "goldCount": 2,
+          "candidatePairs": 15,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.9199999999999999,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": false,
+              "pairMatch": null,
+              "correct": false,
+              "error": "invented",
+              "detail": "quote is not an exact substring of its document"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.48,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-04-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.39999999999999997,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-04-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-04-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            }
+          ],
+          "decisions": {
+            "total": 15,
+            "abstained": 0,
+            "correct": 12
+          }
+        },
+        {
+          "caseId": "e2e-05",
+          "goldCount": 3,
+          "candidatePairs": 20,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.57,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.48,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.76,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-05-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-05-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-05-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 20,
+            "abstained": 0,
+            "correct": 15
+          }
+        },
+        {
+          "caseId": "e2e-06",
+          "goldCount": 2,
+          "candidatePairs": 18,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.86,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.5,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.78,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-06-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.51,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.47,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-06-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            },
+            {
+              "goldId": "e2e-06-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 18,
+            "abstained": 0,
+            "correct": 13
+          }
+        },
+        {
+          "caseId": "e2e-07",
+          "goldCount": 3,
+          "candidatePairs": 23,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.95,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-07-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.88,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-07-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.81,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-07-g3",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.59,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.45999999999999996,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_6",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.41,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-07-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-07-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-07-g3",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            }
+          ],
+          "decisions": {
+            "total": 23,
+            "abstained": 0,
+            "correct": 20
+          }
+        },
+        {
+          "caseId": "e2e-08",
+          "goldCount": 2,
+          "candidatePairs": 15,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.87,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.43999999999999995,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": false,
+              "pairMatch": null,
+              "correct": false,
+              "error": "invented",
+              "detail": "quote is not an exact substring of its document"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-08-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "agree",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as agree"
+            },
+            {
+              "goldId": "e2e-08-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 15,
+            "abstained": 0,
+            "correct": 12
+          }
+        },
+        {
+          "caseId": "e2e-09",
+          "goldCount": 3,
+          "candidatePairs": 25,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.94,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.87,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-09-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.83,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.8,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": false,
+              "pairMatch": null,
+              "correct": false,
+              "error": "invented",
+              "detail": "quote is not an exact substring of its document"
+            },
+            {
+              "findingId": "conflict_6",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.75,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.51,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-09-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-09-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-09-g3",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 25,
+            "abstained": 0,
+            "correct": 19
+          }
+        },
+        {
+          "caseId": "e2e-10",
+          "goldCount": 2,
+          "candidatePairs": 20,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.9,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-10-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.88,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.52,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.5,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.45999999999999996,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-10-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-10-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            }
+          ],
+          "decisions": {
+            "total": 20,
+            "abstained": 0,
+            "correct": 16
+          }
+        },
+        {
+          "caseId": "e2e-11",
+          "goldCount": 3,
+          "candidatePairs": 28,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.91,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-11-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.9,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.35,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.81,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.53,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_6",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.52,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-11-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-11-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-11-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 28,
+            "abstained": 0,
+            "correct": 22
+          }
+        },
+        {
+          "caseId": "e2e-12",
+          "goldCount": 2,
+          "candidatePairs": 15,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.9199999999999999,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-12-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.9,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.53,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.75,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.74,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": false,
+              "pairMatch": null,
+              "correct": false,
+              "error": "invented",
+              "detail": "quote is not an exact substring of its document"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-12-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-12-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            }
+          ],
+          "decisions": {
+            "total": 15,
+            "abstained": 0,
+            "correct": 11
+          }
+        },
+        {
+          "caseId": "e2e-13",
+          "goldCount": 3,
+          "candidatePairs": 17,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.86,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-13-g2",
+              "correct": true
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-13-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-13-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-13-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 17,
+            "abstained": 0,
+            "correct": 16
+          }
+        },
+        {
+          "caseId": "e2e-14",
+          "goldCount": 2,
+          "candidatePairs": 20,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.95,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.91,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-14-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.9,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_6",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.54,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_5",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.49,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.82,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_7",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.38999999999999996,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-14-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-14-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 20,
+            "abstained": 0,
+            "correct": 14
+          }
+        },
+        {
+          "caseId": "e2e-15",
+          "goldCount": 3,
+          "candidatePairs": 25,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.94,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.47,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.79,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-15-g1",
+              "correct": true
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-15-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            },
+            {
+              "goldId": "e2e-15-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-15-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 25,
+            "abstained": 0,
+            "correct": 21
+          }
+        },
+        {
+          "caseId": "e2e-16",
+          "goldCount": 2,
+          "candidatePairs": 20,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.88,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-16-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_4",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.59,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.49,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.74,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-16-g1",
+              "correct": true
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-16-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            },
+            {
+              "goldId": "e2e-16-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            }
+          ],
+          "decisions": {
+            "total": 20,
+            "abstained": 0,
+            "correct": 18
+          }
+        },
+        {
+          "caseId": "e2e-17",
+          "goldCount": 3,
+          "candidatePairs": 15,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.9199999999999999,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-17-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.54,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-17-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-17-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-17-g3",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 15,
+            "abstained": 0,
+            "correct": 14
+          }
+        },
+        {
+          "caseId": "e2e-18",
+          "goldCount": 2,
+          "candidatePairs": 18,
+          "findings": [
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.77,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.49,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.37,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-18-g1",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            },
+            {
+              "goldId": "e2e-18-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            }
+          ],
+          "decisions": {
+            "total": 18,
+            "abstained": 0,
+            "correct": 14
+          }
+        },
+        {
+          "caseId": "e2e-19",
+          "goldCount": 3,
+          "candidatePairs": 18,
+          "findings": [
+            {
+              "findingId": "conflict_1",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.9199999999999999,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-19-g1",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.5,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-19-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.38,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-19-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-19-g2",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "contradict"
+            },
+            {
+              "goldId": "e2e-19-g3",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": false,
+              "found": false,
+              "error": "search_failure",
+              "detail": "gold clause pair was not among the candidate pairs"
+            }
+          ],
+          "decisions": {
+            "total": 18,
+            "abstained": 0,
+            "correct": 17
+          }
+        },
+        {
+          "caseId": "e2e-20",
+          "goldCount": 2,
+          "candidatePairs": 17,
+          "findings": [
+            {
+              "findingId": "conflict_3",
+              "label": "contradict",
+              "status": "unverified",
+              "confidence": 0.47,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            },
+            {
+              "findingId": "conflict_1",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.81,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": "e2e-20-g2",
+              "correct": true
+            },
+            {
+              "findingId": "conflict_2",
+              "label": "exception",
+              "status": "unverified",
+              "confidence": 0.8,
+              "surfaced": true,
+              "hardWithheld": false,
+              "retrieved": true,
+              "grounded": true,
+              "pairMatch": null,
+              "correct": false,
+              "error": "reasoning_failure",
+              "detail": "conflict flagged between clauses that do not conflict"
+            }
+          ],
+          "golds": [
+            {
+              "goldId": "e2e-20-g1",
+              "label": "contradict",
+              "source": "twin",
+              "retrieved": true,
+              "found": false,
+              "engineLabel": "not_mentioned",
+              "error": "reasoning_failure",
+              "detail": "engine judged the pair as not_mentioned"
+            },
+            {
+              "goldId": "e2e-20-g2",
+              "label": "exception",
+              "source": "carveout",
+              "retrieved": true,
+              "found": true,
+              "engineLabel": "exception"
+            }
+          ],
+          "decisions": {
+            "total": 17,
+            "abstained": 0,
+            "correct": 14
+          }
+        }
+      ]
+    }
+  ]
+}

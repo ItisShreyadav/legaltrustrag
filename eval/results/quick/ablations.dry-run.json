@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "timestamp": "2026-10-13T15:11:16.928Z",
+    "gitSha": "111a95b5b618b8a81664ead1d68395aa62dcdd5c",
+    "gitDirty": true,
+    "node": "v22.22.0",
+    "model": "claude-sonnet-5-5",
+    "hasApiKey": false,
+    "env": {}
+  },
+  "dryRun": true,
+  "cases": 4,
+  "rows": [
+    {
+      "model": "stub",
+      "embed": false,
+      "rerank": false,
+      "verify": false,
+      "summary": {
+        "cases": 4,
+        "caseErrors": 0,
+        "gold": 10,
+        "findings": 12,
+        "surfaced": 12,
+        "withheld": 0,
+        "correctSurfaced": 4,
+        "precision": 0.3333333333333333,
+        "recall": 0.4,
+        "f1": 0.3636363636363636,
+        "retrievalRecall": 0.7,
+        "groundedRate": 0.9166666666666666,
+        "citationPrecision": 0.3333333333333333,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8428571428571429,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 3,
+          "reasoning_failure": 10,
+          "invented": 1
+        }
+      },
+      "seconds": 0.034
+    },
+    {
+      "model": "stub",
+      "embed": false,
+      "rerank": false,
+      "verify": true,
+      "summary": {
+        "cases": 4,
+        "caseErrors": 0,
+        "gold": 10,
+        "findings": 12,
+        "surfaced": 4,
+        "withheld": 8,
+        "correctSurfaced": 2,
+        "precision": 0.5,
+        "recall": 0.2,
+        "f1": 0.28571428571428575,
+        "retrievalRecall": 0.7,
+        "groundedRate": 1,
+        "citationPrecision": 0.5,
+        "abstainRate": 0.6666666666666666,
+        "answeredAccuracy": 0.9193548387096774,
+        "abstainedCorrect": 2,
+        "errors": {
+          "search_failure": 3,
+          "reasoning_failure": 7,
+          "invented": 0
+        }
+      },
+      "seconds": 0.164
+    },
+    {
+      "model": "stub",
+      "embed": false,
+      "rerank": true,
+      "verify": false,
+      "summary": {
+        "cases": 4,
+        "caseErrors": 0,
+        "gold": 10,
+        "findings": 12,
+        "surfaced": 12,
+        "withheld": 0,
+        "correctSurfaced": 4,
+        "precision": 0.3333333333333333,
+        "recall": 0.4,
+        "f1": 0.3636363636363636,
+        "retrievalRecall": 0.7,
+        "groundedRate": 0.9166666666666666,
+        "citationPrecision": 0.3333333333333333,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8428571428571429,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 3,
+          "reasoning_failure": 10,
+          "invented": 1
+        }
+      },
+      "seconds": 0.02
+    },
+    {
+      "model": "stub",
+      "embed": false,
+      "rerank": true,
+      "verify": true,
+      "summary": {
+        "cases": 4,
+        "caseErrors": 0,
+        "gold": 10,
+        "findings": 12,
+        "surfaced": 4,
+        "withheld": 8,
+        "correctSurfaced": 2,
+        "precision": 0.5,
+        "recall": 0.2,
+        "f1": 0.28571428571428575,
+        "retrievalRecall": 0.7,
+        "groundedRate": 1,
+        "citationPrecision": 0.5,
+        "abstainRate": 0.6666666666666666,
+        "answeredAccuracy": 0.9193548387096774,
+        "abstainedCorrect": 2,
+        "errors": {
+          "search_failure": 3,
+          "reasoning_failure": 7,
+          "invented": 0
+        }
+      },
+      "seconds": 0.03
+    },
+    {
+      "model": "stub",
+      "embed": true,
+      "rerank": false,
+      "verify": false,
+      "summary": {
+        "cases": 4,
+        "caseErrors": 0,
+        "gold": 10,
+        "findings": 11,
+        "surfaced": 11,
+        "withheld": 0,
+        "correctSurfaced": 3,
+        "precision": 0.2727272727272727,
+        "recall": 0.3,
+        "f1": 0.28571428571428564,
+        "retrievalRecall": 0.6,
+        "groundedRate": 0.9090909090909091,
+        "citationPrecision": 0.2727272727272727,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8493150684931506,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 4,
+          "reasoning_failure": 10,
+          "invented": 1
+        }
+      },
+      "seconds": 0.027
+    },
+    {
+      "model": "stub",
+      "embed": true,
+      "rerank": false,
+      "verify": true,
+      "summary": {
+        "cases": 4,
+        "caseErrors": 0,
+        "gold": 10,
+        "findings": 11,
+        "surfaced": 5,
+        "withheld": 6,
+        "correctSurfaced": 1,
+        "precision": 0.2,
+        "recall": 0.1,
+        "f1": 0.13333333333333333,
+        "retrievalRecall": 0.6,
+        "groundedRate": 1,
+        "citationPrecision": 0.2,
+        "abstainRate": 0.5454545454545454,
+        "answeredAccuracy": 0.8955223880597015,
+        "abstainedCorrect": 2,
+        "errors": {
+          "search_failure": 4,
+          "reasoning_failure": 9,
+          "invented": 0
+        }
+      },
+      "seconds": 0.029
+    },
+    {
+      "model": "stub",
+      "embed": true,
+      "rerank": true,
+      "verify": false,
+      "summary": {
+        "cases": 4,
+        "caseErrors": 0,
+        "gold": 10,
+        "findings": 11,
+        "surfaced": 11,
+        "withheld": 0,
+        "correctSurfaced": 3,
+        "precision": 0.2727272727272727,
+        "recall": 0.3,
+        "f1": 0.28571428571428564,
+        "retrievalRecall": 0.6,
+        "groundedRate": 0.9090909090909091,
+        "citationPrecision": 0.2727272727272727,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8493150684931506,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 4,
+          "reasoning_failure": 10,
+          "invented": 1
+        }
+      },
+      "seconds": 0.035
+    },
+    {
+      "model": "stub",
+      "embed": true,
+      "rerank": true,
+      "verify": true,
+      "summary": {
+        "cases": 4,
+        "caseErrors": 0,
+        "gold": 10,
+        "findings": 11,
+        "surfaced": 5,
+        "withheld": 6,
+        "correctSurfaced": 1,
+        "precision": 0.2,
+        "recall": 0.1,
+        "f1": 0.13333333333333333,
+        "retrievalRecall": 0.6,
+        "groundedRate": 1,
+        "citationPrecision": 0.2,
+        "abstainRate": 0.5454545454545454,
+        "answeredAccuracy": 0.8955223880597015,
+        "abstainedCorrect": 2,
+        "errors": {
+          "search_failure": 4,
+          "reasoning_failure": 9,
+          "invented": 0
+        }
+      },
+      "seconds": 0.025
+    }
+  ]
+}

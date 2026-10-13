@@ -1,5 +1,7 @@
+import { getSessionUser } from "@/lib/auth";
 import { loadDocument } from "@/lib/parse";
 import { runPipeline } from "@/lib/pipeline";
+import { saveRun } from "@/lib/runs";
 import type { AnalyzeRequest, ProgressEvent, SourceDocument, TrustReport } from "@/lib/types";
 
 // Runs on the Node.js runtime, which is the default. Next 16 rejects an explicit
@@ -49,9 +51,16 @@ function parseRules(raw: string): string[] {
  *                quotes inside their clause context)
  *
  * Responds with text/event-stream. Every ProgressEvent is sent as `data: <json>\n\n`;
- * the stream closes after the `done` or `error` event.
+ * the stream closes after the `done` or `error` event. A finished report is saved
+ * for the signed-in user (with the document texts) and the `done` event carries
+ * its `runId`; if saving fails the report is still sent, without a `runId`.
  */
 export async function POST(request: Request): Promise<Response> {
+  const user = await getSessionUser();
+  if (!user) {
+    return Response.json({ error: "Sign in to analyse documents." }, { status: 401 });
+  }
+
   const contentType = request.headers.get("content-type") ?? "";
   if (!contentType.toLowerCase().startsWith("multipart/form-data")) {
     return badRequest("Expected a multipart/form-data body with files[] and an optional rules field.");
@@ -160,7 +169,14 @@ export async function POST(request: Request): Promise<Response> {
         const report: TrustReport = await runPipeline(analyzeRequest, (event: ProgressEvent) => {
           if (!closed) emit(event);
         });
-        if (!closed) emit({ stage: "done", report });
+        // Saved even if the client has gone away, so the run is waiting under /runs.
+        let runId: string | undefined;
+        try {
+          runId = saveRun({ userId: user.id, documents, ruleCount: rules.length, report });
+        } catch (err) {
+          console.error("[api/analyze] could not save the run:", err);
+        }
+        if (!closed) emit(runId ? { stage: "done", report, runId } : { stage: "done", report });
       } catch (err) {
         console.error("[api/analyze] pipeline failed:", err);
         if (!closed) emit({ stage: "error", message: errorMessage(err) });

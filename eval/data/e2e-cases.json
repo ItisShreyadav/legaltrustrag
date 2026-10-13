@@ -1,0 +1,1895 @@
+[
+  {
+    "id": "e2e-01",
+    "contractId": "GridironBionutrientsInc_20171206_8-K_EX-10.1_10972555_EX-10.1_Endorsement Agreement",
+    "documents": [
+      {
+        "id": "e2e-01-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Notwithstanding anything to the contrary in this Agreement, if Company incurs any expenses, damages or other liabilities (including but not limited to reasonable attorney's fees) in connection with the performance or nonperformance of any term or provision of this Agreement, NFLA's liability to Company shall not exceed the remuneration, excluding reimbursement of expenses, actually paid to NFLA by Company\n\n2. All payments shall be made by wire transfer drawn to the account of NFLA-NC no later than ten (10) business days after the end of each quarter as follows: $0.05 per Unit as described herein of Company's Products sold in the Contract Territory payable to NFLA-NC.\n\n3. All terms of this Agreement will automatically commence on November 1st, 2017, and expire on November 2nd, 2020.\n\n4. NFLA agrees not to grant the right to use the NFLAs Identification to anyone other than Company in connection with the advertisement and promotion of Products.\n\n5. Company acknowledges that this Agreement does not grant Company any rights with respect to any other NFLA Marks (defined below), the name, likeness, signature, or other attributes of any NFLA member or other individual, or any audio or video of any NFLA event.\n\n6. This Agreement shall be governed by, and its provisions enforced in accordance with, the laws of California without regard to its principles of conflicts of laws.\n\n7. Company agrees that it will not file, during the Contract Period or afterward, any application for trademark registration or otherwise obtain or attempt to obtain ownership of any trademark or trade name within the Contract Territory or in any other country of the world which consists of the NFLA Identification or any mark, design or logo intended to obtain any rights to the name of the NFLA or to identify products as being endorsed b the NFLA.\n\n8. Company will not sublicense pass-through or otherwise grant to any third parties the rights granted to Company hereunder without the NFLA prior written consent, including but not limited to the right to use the Licensed Marks."
+      },
+      {
+        "id": "e2e-01-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Notwithstanding Section 6 of the Agreement, the requirement that this Agreement shall be governed by, and its provisions enforced shall not apply to disputes concerning the validity of a party's Intellectual Property.\n\n2. Section 3 of the Agreement is amended and restated in its entirety to read as follows: All terms of this Agreement will automatically begin on November 1st, 2017, and expire on November 2nd, 2020.\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: All payments shall be made by wire transfer drawn to the account of NFLA-NC no later than twenty (20) business days after the end of each quarter as follows: $0.05 per Unit as described herein of Company's Products sold in the Contract Territory payable to NFLA-NC.\n\n4. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Notwithstanding anything to the contrary in this Agreement, if Company incurs any expenses, damages or other liabilities (including but not limited to reasonable attorney's fees) in connection with the performance or nonperformance of any term or provision of this Agreement, NFLA's liability to Company shall exceed the remuneration, excluding reimbursement of expenses, actually paid to NFLA by Company\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-01-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Governing Law",
+        "edit": "carve-out of \"the requirement that this Agreement shall be governed by, and its provisions enforced\" to disputes concerning the validity of a party's Intellectual Property",
+        "a": {
+          "docId": "e2e-01-agreement",
+          "start": 1354,
+          "end": 1516
+        },
+        "b": {
+          "docId": "e2e-01-amendment",
+          "start": 179,
+          "end": 396
+        }
+      },
+      {
+        "id": "e2e-01-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Revenue/Profit Sharing",
+        "edit": "number: \"ten (10)\" -> \"twenty (20)\"",
+        "a": {
+          "docId": "e2e-01-agreement",
+          "start": 541,
+          "end": 803
+        },
+        "b": {
+          "docId": "e2e-01-amendment",
+          "start": 602,
+          "end": 954
+        }
+      },
+      {
+        "id": "e2e-01-g3",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Cap On Liability",
+        "edit": "negation: \"not exceed\" -> \"exceed\"",
+        "a": {
+          "docId": "e2e-01-agreement",
+          "start": 128,
+          "end": 536
+        },
+        "b": {
+          "docId": "e2e-01-amendment",
+          "start": 959,
+          "end": 1450
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-01-agreement",
+          "start": 808,
+          "end": 920
+        },
+        "b": {
+          "docId": "e2e-01-amendment",
+          "start": 401,
+          "end": 597
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-01-amendment",
+          "start": 1455,
+          "end": 1539
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-02",
+    "contractId": "TUNIUCORP_03_06_2014-EX-10-COOPERATION AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-02-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Party A and Party B agree and confirm that the term of cooperation under this Agreement shall commence from the execution date hereof and end on the expiration date of the operation term of Party B (\"Term of Cooperation\").\n\n2. The Parties agree that any and all intellectual property researched and developed, created and invented by the Parties (including their employees) in the course of performance of this Agreement shall be owned by Party B. For the purpose of this Article 12.3, \"Intellectual Property\" means the patent, patent application right, trademark, service mark, logo, image, trade name, internet domain name, design right, copyright (including copyright of computer software) and moral rights, database right, right of semiconductor design drawing, utility model, proprietary technology and other intellectual property that are registered and unregistered including those that have applied for registration, as well as all other rights or protection methods with same or similar effect on a global scope.\n\n3. Party A shall not establish any same or similar cooperative relationship with any third party in respect of such businesses nor shall it make any same or similar arrangement, unless with the prior written consent of Party B.\n\n4. Party B shall have the right to terminate this Agreement in advance without the prior written consent from Party A, bysending a written notice to Party A but Party A may not terminate or rescind this Agreement;\n\n5. The rights and obligations of each Party under this Agreement shall not be transferred, except for the transfer by Party B to its affiliates.\n\n6. Except as otherwise agreed hereunder, if Party A or its subsidiaries fail to pay the Service Fee in full on schedule according to provisions of Article 4.1 and Article 4.2, then Party A or its subsidiaries shall, in addition to the continuance of the payment of Service Fee in full, it shall pay Party B the liquidated damages at a daily interest rate of 0.03% in respect of the outstanding Service Fee.\n\n7. Party A irrevocably undertakes that, without Party B's consent, Party A shall not conduct any other business or make any commercial arrangement, including without limitation being engaged in or otherwise participating in any commercial activities and businesses independently or together with any other person or entity, nor shall it carry out any activities that may be competitive with or cause adverse effect to Party B's business.\n\n8. This Agreement shall be governed by and interpreted pursuant to the laws of the People's Republic of China that are promulgated and are publicly available, provided that the general international business practices shall apply if the laws of the People's Republic of China that are promulgated and are publicly available do not involve any matter in relation to this Agreement."
+      },
+      {
+        "id": "e2e-02-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Notwithstanding Section 4 of the Agreement, the requirement that Party B shall have the right to terminate this Agreement in advance without the prior written consent from Party shall not apply to any Statement of Work or purchase order then in effect, which shall continue until completed.\n\n2. Newegg grants Allied a revocable, non-transferrable, non-assignable (whether voluntarily, or as a result of a change of control, or by operation of law), non-sublicensable, non-exclusive and limited license to use, during the Term, the Newegg Marks solely in connection with Allied's marketing and conduct of the Arena.\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: The Parties agree that all intellectual property researched and developed, created and invented by the Parties (including their employees) in the course of performance of this Agreement shall be owned by Party B. For this Article 12.3, \"Intellectual Property\" means the patent, patent application right, trademark, service mark, logo, image, trade name, internet domain name, design right, copyright (including copyright of computer software) and moral rights, database right, right of semiconductor design drawing, utility model, proprietary technology and other intellectual property that are registered and unregistered including those that have applied for registration, as well as all other rights or protection methods with same or similar effect on a global scope.\n\n4. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Party A and Party B agree and confirm that the term of cooperation under this Agreement shall not commence from the execution date hereof and end on the expiration date of the operation term of Party B (\"Term of Cooperation\").\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-02-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Termination For Convenience",
+        "edit": "carve-out of \"the requirement that Party B shall have the right to terminate this Agreement in advance without the prior written consent from Party\" to any Statement of Work or purchase order then in effect, which shall continue until completed",
+        "a": {
+          "docId": "e2e-02-agreement",
+          "start": 1383,
+          "end": 1593
+        },
+        "b": {
+          "docId": "e2e-02-amendment",
+          "start": 179,
+          "end": 469
+        }
+      },
+      {
+        "id": "e2e-02-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Expiration Date",
+        "edit": "negation: \"commence\" -> \"not commence\"",
+        "a": {
+          "docId": "e2e-02-agreement",
+          "start": 128,
+          "end": 350
+        },
+        "b": {
+          "docId": "e2e-02-amendment",
+          "start": 1661,
+          "end": 1974
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-02-amendment",
+          "start": 474,
+          "end": 793
+        }
+      },
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-02-agreement",
+          "start": 355,
+          "end": 1149
+        },
+        "b": {
+          "docId": "e2e-02-amendment",
+          "start": 798,
+          "end": 1656
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-02-amendment",
+          "start": 1979,
+          "end": 2063
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-03",
+    "contractId": "UpjohnInc_20200121_10-12G_EX-2.6_11948692_EX-2.6_Manufacturing Agreement_ Supply Agreement",
+    "documents": [
+      {
+        "id": "e2e-03-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Manufacturer will provide Customer with periodic access, upon reasonable notice, to any of its Facilities where it is performing under this Agreement, to its employees and Records and to any associated dormitories or lodging that Manufacturer provides to its employees, to permit Customer to determine Manufacturer's compliance with this Section 5.3.\n\n2. In the event that Price is adjusted as a result of a change to Facility Conversion Cost under Section 3.2(b)(i), the Facility Conversion Cost Threshold for all remaining Fiscal Years in the Initial Term (or Extension Periods as appropriate) will be reduced such that if Facility Conversion Costs of a Facility during any Facility Conversion Cost Adjustment Fiscal Year are estimated to be (a) less -28- Source: UPJOHN INC, 10-12G, 1/21/2020 than eighty percent (80%) of the Facility Conversion Costs for the Facility Conversion Cost Baseline Fiscal Year or (b) greater than one hundred and twenty percent (120%) of the Facility Conversion Costs for the Facility Conversion Cost Baseline Fiscal Year, then the Price for such Product will be updated beginning with such Facility Conversion Cost Adjustment Fiscal Year to reflect the full estimated amount of the increase or decrease in Conversion Cost\n\n3. This Agreement and all Actions (whether in contract or tort) that may be based upon, arise out of or relate to this Agreement or the negotiation, execution or performance hereof or thereof shall be governed by and construed in accordance with the Law of the State of Delaware, without regard to any Laws or principles thereof that would result in the application of the Laws of any other jurisdiction.\n\n4. To the extent of the liabilities assumed by Manufacturer under this Agreement, such insurance policies of Manufacturer shall be primary and non-contributing with respect to any other similar insurance policies available to Customer or its Affiliates.\n\n5. Notwithstanding Section 2.4(e)(i), Customer acknowledges and agrees that (A) each Purchase Order Customer places hereunder for Product that is either API or Bulk Drug Product shall be equal to, or a whole multiple of, the Batch Size for such applicable Product as set forth in the applicable Facility Addendum and (B) each Purchase Order that Customer places hereunder for Product that is Finished Product shall be equal to or greater than the Minimum Order Quantity for such applicable Product as set forth in the applicable Facility Addendum; provided that, where Customer places Purchase Orders under (B) above that exceed the applicable Minimum Order Quantity, Customer shall\n\n6. Manufacturer acknowledges and agrees that, as between the Parties, any Improvements or Developments that are specific to and otherwise solely relate to, the manufacturing, processing or packaging of Products (such Improvements and Developments, collectively, \"Customer-Owned Improvements and Developments\") shall be the exclusive property of Customer, and Customer shall own all rights, title and interest in and to such Customer-Owned Improvements and Developments.\n\n7. Notwithstanding the foregoing clauses (i) through (v) of this Section 5.2(e) or anything else contained in this Agreement or any Facility Addendum or Quality Agreement, Manufacturer shall have no liability under this Agreement (including under Section 4.11(b) or Section 10.1) or any Facility Addendum or Quality Agreement for any Non-Complying Product which is non-complying due to any Non-Complying Customer-Supplied Materials or Non-Complying Buy-Sell Materials.\n\n8. Customer may, without Manufacturer's consent, assign the rights and obligations of this Agreement (i) on a Product-by-Product basis, to a Third Party in connection with a bona fide transfer, sale or divestiture of all or substantially all of its business to which such Product relates or in the event of such business's spin-off, merger or consolidation with another company or business entity or (ii) to any Third Party which acquires or succeeds to all or substantially all of the assets of the business of Customer to which this Agreement and the Facility Addenda relate (including in connection with such business's spin-off, merger or consolidation with another company or business entity)."
+      },
+      {
+        "id": "e2e-03-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Subject to Section 8.3, Distributor's right to market, distribute and sell the Products in the Territory shall be exclusive.\n\n2. Section 4 of the Agreement is amended and restated in its entirety to read as follows: To the extent of the liabilities assumed by Manufacturer under this Agreement, such insurance policies of Manufacturer shall be primary and non-contributing regarding any other similar insurance policies available to Customer or its Affiliates.\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: In the event that Price is not adjusted as a result of a change to Facility Conversion Cost under Section 3.2(b)(i), the Facility Conversion Cost Threshold for all remaining Fiscal Years in the Initial Term (or Extension Periods as appropriate) will be reduced such that if Facility Conversion Costs of a Facility during any Facility Conversion Cost Adjustment Fiscal Year are estimated to be (a) less -28- Source: UPJOHN INC, 10-12G, 1/21/2020 than eighty percent (80%) of the Facility Conversion Costs for the Facility Conversion Cost Baseline Fiscal Year or (b) greater than one hundred and twenty percent (120%) of the Facility Conversion Costs for the Facility Conversion Cost Baseline Fiscal Year, then the Price for such Product will be updated beginning with such Facility Conversion Cost Adjustment Fiscal Year to reflect the full estimated amount of the increase or decrease in Conversion Cost\n\n4. Notwithstanding Section 5 of the Agreement, the requirement that Bulk Drug Product shall be equal to, or a whole multiple shall not apply to promotional units provided free of charge.\n\n5. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Manufacturer will not provide Customer with periodic access, upon reasonable notice, to any of its Facilities where it is performing under this Agreement, to its employees and Records and to any associated dormitories or lodging that Manufacturer provides to its employees, to permit Customer to determine Manufacturer's compliance with this Section 5.3.\n\n6. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-03-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Price Restrictions",
+        "edit": "negation: \"adjusted\" -> \"not adjusted\"",
+        "a": {
+          "docId": "e2e-03-agreement",
+          "start": 483,
+          "end": 1382
+        },
+        "b": {
+          "docId": "e2e-03-amendment",
+          "start": 644,
+          "end": 1634
+        }
+      },
+      {
+        "id": "e2e-03-g2",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Minimum Commitment",
+        "edit": "carve-out of \"the requirement that Bulk Drug Product shall be equal to, or a whole multiple\" to promotional units provided free of charge",
+        "a": {
+          "docId": "e2e-03-agreement",
+          "start": 2048,
+          "end": 2727
+        },
+        "b": {
+          "docId": "e2e-03-amendment",
+          "start": 1639,
+          "end": 1822
+        }
+      },
+      {
+        "id": "e2e-03-g3",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Audit Rights",
+        "edit": "negation: \"provide\" -> \"not provide\"",
+        "a": {
+          "docId": "e2e-03-agreement",
+          "start": 128,
+          "end": 478
+        },
+        "b": {
+          "docId": "e2e-03-amendment",
+          "start": 1827,
+          "end": 2268
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-03-amendment",
+          "start": 179,
+          "end": 303
+        }
+      },
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-03-agreement",
+          "start": 1793,
+          "end": 2043
+        },
+        "b": {
+          "docId": "e2e-03-amendment",
+          "start": 308,
+          "end": 639
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-03-amendment",
+          "start": 2273,
+          "end": 2357
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-04",
+    "contractId": "Magenta Therapeutics, Inc. - Master Development and Manufacturing Agreement",
+    "documents": [
+      {
+        "id": "e2e-04-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Without limiting the foregoing, Magenta may use and disclose Bachem Intellectual Property to the extent necessary in connection with the prosecution, maintenance and enforcement of Magenta Developed Intellectual Property.\n\n2. Bachem will not assign this Agreement without the prior written consent of Magenta, and any purported assignment in contravention of this Section 15.2 shall be null and void; provided, however, that either Party may assign this Agreement in connection with (i) the sale, transfer or other disposition of its assets related to this Agreement, (ii) a change in control of such Party, or (iii) the sale or transfer of substantially all of such Party's outstanding stock.\n\n3. Bachem hereby assigns, and agrees to assign, to Magenta all of its right, title and interest to and in any Magenta Developed Intellectual Property, including all related intellectual property rights.\n\n4. Bachem shall provide, and shall cause its Affiliates and sublicensees who perform activities in connection with the manufacture of Product to provide, to Magenta, upon its reasonable request, a statement of coverages, amounts of insurance, and deductibles, and a copy of all policies including clauses within the policies that the insurance company has a duty to defend and indemnify.\n\n5. This Agreement shall commence on the Effective Date and shall extend for a period of Five (5) years thereafter (\"Initial Term\"), unless this Agreement is terminated earlier as provided herein or is extended by mutual written agreement of the Parties.\n\n6. In the event that Magenta does not inform Bachem within the [***] period that the Product does not meet the Specifications, Magenta shall be deemed to have accepted the Product.\n\n7. Magenta and its agents and designees shall have the right to audit Bachem's facilities, systems, records, procedures, and documentation related to this Agreement.\n\n8. This Agreement will be construed and interpreted and its performance governed by the laws of the State of New York, without giving effect to its conflict of laws principles."
+      },
+      {
+        "id": "e2e-04-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 4 of the Agreement is amended and restated in its entirety to read as follows: Bachem shall provide, and shall cause its Affiliates and sublicensees who perform activities in relation to the manufacture of Product to provide, to Magenta, upon its reasonable request, a statement of coverages, amounts of insurance, and deductibles, and a copy of all policies including clauses within the policies that the insurance company has a duty to defend and indemnify.\n\n2. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Without limiting the foregoing, Magenta may not use and disclose Bachem Intellectual Property to the extent necessary in connection with the prosecution, maintenance and enforcement of Magenta Developed Intellectual Property.\n\n3. Throughout the Term and for a period of six (6) months after the expiration or termination of this Agreement, Calm shall have a right of first refusal to expand the rights and obligations described in this Agreement to any Stores outside the Territory (the \"ROFR\").\n\n4. Notwithstanding Section 2 of the Agreement, the restriction that Bachem will not assign this Agreement without the prior written consent of Magenta shall not apply to any Affiliate of either party.\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-04-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "License Grant",
+        "edit": "negation: \"use\" -> \"not use\"",
+        "a": {
+          "docId": "e2e-04-agreement",
+          "start": 128,
+          "end": 349
+        },
+        "b": {
+          "docId": "e2e-04-amendment",
+          "start": 651,
+          "end": 963
+        }
+      },
+      {
+        "id": "e2e-04-g2",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Anti-Assignment",
+        "edit": "carve-out of \"the restriction that Bachem will not assign this Agreement without the prior written consent of Magenta\" to any Affiliate of either party",
+        "a": {
+          "docId": "e2e-04-agreement",
+          "start": 354,
+          "end": 821
+        },
+        "b": {
+          "docId": "e2e-04-amendment",
+          "start": 1238,
+          "end": 1435
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-04-agreement",
+          "start": 1030,
+          "end": 1414
+        },
+        "b": {
+          "docId": "e2e-04-amendment",
+          "start": 179,
+          "end": 646
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-04-amendment",
+          "start": 968,
+          "end": 1233
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-04-amendment",
+          "start": 1440,
+          "end": 1524
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-05",
+    "contractId": "MOELIS_CO_03_24_2014-EX-10.19-STRATEGIC ALLIANCE AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-05-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Businesses involving Japanese Companies where all principal parties involved are located within Covered Regions\n\n2. Prior to the IPO and during the term of the Strategic Alliance, SMBC shall have the right of first refusal to purchase all (but not less than all) Additional Units that Moelis Holdings proposes to issue to an SMBC Competitor, including (x) in a proposed issuance that is excepted from Section 3.4.2 of the Moelis Holdings Agreement as an issuance to a Strategic Investor, and (y) in a proposed issuance that is subject to Section 3.4.2 of the Moelis Holdings Agreement, to the extent that the Partners do not exercise in full their right of first refusal thereunder.\n\n3. At the end of such initial term, and any renewed term, as applicable, this Agreement shall automatically renew for an additional one (1) year term, unless a party provides written notice to the other parties at least six (6) months prior to the end of the\n\n4. The engagement letters will (unless otherwise agreed) provide that payments would be made to either SMBC/Nikko or Moelis Holdings and SMBC/Nikko and Moelis Holdings will split the fees pursuant to this Agreement.\n\n5. This Agreement may not be assigned by any party without the written consent of the other parties, except to a subsidiary or controlled affiliate of such party which succeeds such party's conduct of Covered Businesses.\n\n6. provided, however, that in no event shall a SMBC Unit-Holder be required by this Section 13.9(d) to contribute an aggregate amount in excess of the dollar amount of proceeds (net of underwriting discounts and commissions and other selling expenses) received by such SMBC Unit-Holder from the sale of Registrable Securities giving rise to such contribution.\n\n7. Moelis Holdings agrees not to open an office in Japan conducting Covered Businesses during the term of this Agreement.\n\n8. At any time during a renewed term, this Agreement may be terminated by any party on six (6) months prior notice that it wishes to terminate the Agreement."
+      },
+      {
+        "id": "e2e-05-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 2 of the Agreement is amended and restated in its entirety to read as follows: Prior to the IPO and during the term of the Strategic Alliance, SMBC shall not have the right of first refusal to purchase all (but not less than all) Additional Units that Moelis Holdings proposes to issue to an SMBC Competitor, including (x) in a proposed issuance that is excepted from Section 3.4.2 of the Moelis Holdings Agreement as an issuance to a Strategic Investor, and (y) in a proposed issuance that is subject to Section 3.4.2 of the Moelis Holdings Agreement, to the extent that the Partners do not exercise in full their right of first refusal thereunder.\n\n2. Section 6 of the Agreement is amended and restated in its entirety to read as follows: provided that in no event shall a SMBC Unit-Holder be required by this Section 13.9(d) to contribute an aggregate amount in excess of the dollar amount of proceeds (net of underwriting discounts and commissions and other selling expenses) received by such SMBC Unit-Holder from the sale of Registrable Securities giving rise to such contribution.\n\n3. Notwithstanding Section 4 of the Agreement, the requirement that Moelis Holdings will split the fees pursuant to this Agreement shall not apply to promotional units provided free of charge.\n\n4. Solely in the event that this Agreement is terminated by Bioeq pursuant to Sections 15.2.1, 15.2.2, 15.2.3, 15.2.4, 15.2.8 or 15.2.9 or by Licensee pursuant to Section 15.2.5 , Licensee shall grant, and hereby grants to Bioeq an exclusive, royalty-free, fully paid, sublicenseable, license to use the Licensee-Controlled Trademarks which were actually used by Licensee to Commercialize the Licensed Products in the Territory in connection with Bioeq's Commercialization of the Licensed Products in the Territory. I\n\n5. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Businesses involving Japanese Companies where all principal parties involved are not located within Covered Regions\n\n6. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-05-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Rofr/Rofo/Rofn",
+        "edit": "negation: \"have\" -> \"not have\"",
+        "a": {
+          "docId": "e2e-05-agreement",
+          "start": 244,
+          "end": 810
+        },
+        "b": {
+          "docId": "e2e-05-amendment",
+          "start": 179,
+          "end": 836
+        }
+      },
+      {
+        "id": "e2e-05-g2",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Revenue/Profit Sharing",
+        "edit": "carve-out of \"the requirement that Moelis Holdings will split the fees pursuant to this Agreement\" to promotional units provided free of charge",
+        "a": {
+          "docId": "e2e-05-agreement",
+          "start": 1075,
+          "end": 1287
+        },
+        "b": {
+          "docId": "e2e-05-amendment",
+          "start": 1279,
+          "end": 1468
+        }
+      },
+      {
+        "id": "e2e-05-g3",
+        "label": "contradict",
+        "source": "twin",
+        "category": "No-Solicit Of Customers",
+        "edit": "negation: \"located\" -> \"not located\"",
+        "a": {
+          "docId": "e2e-05-agreement",
+          "start": 128,
+          "end": 239
+        },
+        "b": {
+          "docId": "e2e-05-amendment",
+          "start": 1992,
+          "end": 2194
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-05-agreement",
+          "start": 1514,
+          "end": 1870
+        },
+        "b": {
+          "docId": "e2e-05-amendment",
+          "start": 841,
+          "end": 1274
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-05-amendment",
+          "start": 1473,
+          "end": 1987
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-05-amendment",
+          "start": 2199,
+          "end": 2283
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-06",
+    "contractId": "BIOCEPTINC_08_19_2013-EX-10-COLLABORATION AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-06-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Upon the terms and conditions set forth in this Agreement, Biocept hereby grants Life Technologies during the Term the non-exclusive right, as further defined in Section 2.3, to promote the Tests in the Territory and to perform the Professional Component of the Tests sold by the parties in the Territory, in accordance with the terms of this Agreement.\n\n2. In the event a party undergoes a Change of Control Event as defined in Section 14.5, the other party may terminate the Agreement upon thirty (30) days written notice to the party undergoing the Change of Control.\n\n3. Each party shall provide a certificate of insurance (or evidence of self-insurance) evidencing such coverage to the other party upon request.\n\n4. This Agreement and any disputes, claims, or actions related thereto shall be governed by and construed in accordance with the laws of the State of California, USA, without regard to the conflicts of law provisions thereof.\n\n5. If Biocept does not obtain at least ten million dollars ($10,000,000) in equity financing by December 31, 2012, then Life Technologies shall have the non-exclusive option, exercisable by written notice to Biocept given no later than January 15, 2013, to negotiate with Biocept for a license (unless the parties mutually agree to a different transaction structure) to all necessary Intellectual Property\n\n6. Life Technologies will be authorized to perform the Professional Component of all Tests sold by the parties, although Biocept may engage other groups in promotion, marketing and performance arrangements for the Tests, at the discretion of Biocept.\n\n7. NEITHER PARTY SHALL BE ENTITLED TO RECOVER FROM THE OTHER PARTY ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES IN CONNECTION WITH THIS AGREEMENT OR ANY LICENSE GRANTED HEREUNDER; provided, however, that this Section shall neither (a) apply to any liability for damages arising from breach of any obligations of confidentiality under Article 10, nor (b) limit the indemnification obligations of the parties arising under Article 12 of this Agreement.\n\n8. The term of this Agreement will commence on the Effective Date and continue for a period of three (3) years after the Effective Date (the \"Initial Term\")."
+      },
+      {
+        "id": "e2e-06-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Notwithstanding Section 3 of the Agreement, the requirement that each party shall provide a certificate of insurance (or evidence of self-insurance) evidencing such coverage to the other party upon request shall not apply to the extent compliance would violate applicable law or a court order.\n\n2. Licensor shall make available to Rogers, on a free trial basis and at no cost to Rogers, not less than ten (10) Licensed Programs at all times during the Term (each, a \"Promotional Program\") for distribution and exhibition on the ROD Service to promote the Licensed Programs and the ROD Service.\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: In the event a party undergoes a Change of Control Event as defined in Section 14.5, the other party may terminate the Agreement upon sixty (60) days written notice to the party undergoing the Change of Control.\n\n4. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Upon the terms and conditions set out in this Agreement, Biocept hereby grants Life Technologies during the Term the non-exclusive right, as further defined in Section 2.3, to promote the Tests in the Territory and to perform the Professional Component of the Tests sold by the parties in the Territory, in accordance with the terms of this Agreement.\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-06-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Insurance",
+        "edit": "carve-out of \"the requirement that each party shall provide a certificate of insurance (or evidence of self-insurance) evidencing such coverage to the other party upon request\" to the extent compliance would violate applicable law or a court order",
+        "a": {
+          "docId": "e2e-06-agreement",
+          "start": 703,
+          "end": 844
+        },
+        "b": {
+          "docId": "e2e-06-amendment",
+          "start": 179,
+          "end": 472
+        }
+      },
+      {
+        "id": "e2e-06-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Change Of Control",
+        "edit": "number: \"thirty (30)\" -> \"sixty (60)\"",
+        "a": {
+          "docId": "e2e-06-agreement",
+          "start": 486,
+          "end": 698
+        },
+        "b": {
+          "docId": "e2e-06-amendment",
+          "start": 777,
+          "end": 1075
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-06-amendment",
+          "start": 477,
+          "end": 772
+        }
+      },
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-06-agreement",
+          "start": 128,
+          "end": 481
+        },
+        "b": {
+          "docId": "e2e-06-amendment",
+          "start": 1080,
+          "end": 1518
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-06-amendment",
+          "start": 1523,
+          "end": 1607
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-07",
+    "contractId": "KIROMICBIOPHARMA,INC_04_08_2020-EX-10.28-JOINT VENTURE AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-07-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Upon termination of the contract, the agreement set forth in clause 5 (\"Intellectual property rights and prohibition of transfer to third parties\") and clause 6 (\"Economic rights\") will remain into force.\n\n2. All disputes arising out of or in connection with this Agreement shall be finally settled under the Rules of Arbitration of the International Chamber of Commerce by one or more arbitrators appointed in accordance with the said Rules. Any such arbitration shall (i) be subject to the application of the Italian Law, (ii) take place in Paris, France and (iii) be conducted in English.\n\n3. In this case the Party concerned shall have the right to proceed with the submission of the application on the Results at its own expense and in co-ownership with the other Party, subject to written notice.\n\n4. Kiromic will grant to Molipharma the follows royalties: - *% of the realized turnover by the marketing of Ovarian Cancer research results in Italy;\n\n5. The Parties shall provide civil liability insurance cover to their own personnel with respect to accidents and damages charged to them.\n\n6. Notwithstanding the foregoing, the Parties shall grant each other, free of charge, a non-exclusive right to use their respective Backgrounds in connection with the activities which will be carried out by this JV and by reason of their execution.\n\n7. Kiromic is committed to sharing patents and know-how in relation to the following products which will be licensed to the JV exclusively for the application in the specific and limited field of sars-cov-2 threat and relative disease COVID-19: (i) VAPAs-Viral Antigen Proteins Associated © (Kiromic-2020) derived from Diamonds AI - Artificial Intelligence Platform for Discovery and Prediction Antigen Protein (ii) Platform of DC Vaccines (dendritic cell vaccine) - for therapeutic purposes - nominated BSK 01; (iii) Oral Delivery Platform for Prophylactic Vaccine - accompanying immuno-boosting therapy - therapeutic vaccine administration - nominated BSK02 (iv) Other patents eventually applicable in the specific field.\n\n8. This JV Agreement shall become effective on the signing date and shall have a duration of * years, extendable for a further * years, unless notice of non- renewal is sent one year before the natural expiry date."
+      },
+      {
+        "id": "e2e-07-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Upon termination of the contract, the agreement set forth in clause 5 (\"Intellectual property rights and prohibition of transfer to third parties\") and clause 6 (\"Economic rights\") will not remain into force.\n\n2. This Agreement may not be assigned by any party without the written consent of the other parties, except to a subsidiary or controlled affiliate of such party which succeeds such party's conduct of Covered Businesses.\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: All disputes arising out of or in connection with this Agreement shall not be finally settled under the Rules of Arbitration of the International Chamber of Commerce by one or more arbitrators appointed in accordance with the said Rules. Any such arbitration shall (i) be subject to the application of the Italian Law, (ii) take place in Paris, France and (iii) be conducted in English.\n\n4. Notwithstanding Section 4 of the Agreement, the requirement that Kiromic will grant to Molipharma the follows royalties shall not apply with respect to any transaction entered into before the Effective Date.\n\n5. Section 3 of the Agreement is amended and restated in its entirety to read as follows: In this case the Party concerned shall have the right to proceed with the submission of the application on the Results at its own expense and in co-ownership with the other Party, subject to notice in writing.\n\n6. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-07-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Post-Termination Services",
+        "edit": "negation: \"remain\" -> \"not remain\"",
+        "a": {
+          "docId": "e2e-07-agreement",
+          "start": 128,
+          "end": 332
+        },
+        "b": {
+          "docId": "e2e-07-amendment",
+          "start": 179,
+          "end": 474
+        }
+      },
+      {
+        "id": "e2e-07-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Governing Law",
+        "edit": "negation: \"be\" -> \"not be\"",
+        "a": {
+          "docId": "e2e-07-agreement",
+          "start": 337,
+          "end": 719
+        },
+        "b": {
+          "docId": "e2e-07-amendment",
+          "start": 701,
+          "end": 1174
+        }
+      },
+      {
+        "id": "e2e-07-g3",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Revenue/Profit Sharing",
+        "edit": "carve-out of \"the requirement that Kiromic will grant to Molipharma the follows royalties\" with respect to any transaction entered into before the Effective Date",
+        "a": {
+          "docId": "e2e-07-agreement",
+          "start": 935,
+          "end": 1082
+        },
+        "b": {
+          "docId": "e2e-07-amendment",
+          "start": 1179,
+          "end": 1386
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-07-amendment",
+          "start": 479,
+          "end": 696
+        }
+      },
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-07-agreement",
+          "start": 724,
+          "end": 930
+        },
+        "b": {
+          "docId": "e2e-07-amendment",
+          "start": 1391,
+          "end": 1687
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-07-amendment",
+          "start": 1692,
+          "end": 1776
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-08",
+    "contractId": "VAXCYTE,INC_05_22_2020-EX-10.19-SUPPLY AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-08-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. This Supply Agreement shall be governed by, and construed and enforced in accordance with, the laws of the State of California, without regard to any conflict of laws rules to the contrary.\n\n2. . Each Party shall provide the other with written notice at least [***] days prior to the cancellation, non renewal or material change in such insurance.\n\n3. SutroVax agrees to purchase all its requirements of Extract from Sutro in accordance with this Agreement, except to the extent SutroVax is allowed to purchase Extract from (a) Alternate Suppliers engaged by Sutro in accordance with Section 2.15 of this Agreement; (b) a CMO engaged or established and authorized by Sutro under Section 3.l(d) of the License Agreement; or (c) a CMO authorized by Sutro under Section 3.l(e) of the License Agreement. Manufacturing of Extracts in breach of this Section 2.20 shall be deemed a material breach of this Agreement and the License Agreement by SutroVax.\n\n4. Neither Party may assign or transfer this Supply Agreement, including by merger, operation of law, or otherwise, without the other Party's prior written consent (which shall not be withheld unreasonably) except each Party may assign this Supply Agreement without the other Party's consent in the case of assignment or transfer to a Third Party that succeeds to all or substantially all of the assigning Party's business and assets relating to the subject matter of this Supply Agreement, whether by sale, merger, operation of law or otherwise. Any attempted assignment by a Party in violation of this Section without the written consent of the other Party will be null and void.\n\n5. Notwithstanding anything to the contrary in this Supply Agreement, this Supply Agreement may be terminated: 10.2.1 in its entirety or with respect to one or more Products, on a Product-by-Product basis, by mutual written consent of Sutro and SutroVax; 10.2.2 in its entirety by a Party if the other Party materially breaches any of the material terms, conditions or agreements contained in this Supply Agreement to be kept, observed or performed by the other Party, by giving the Party who committed the breach [***] days' prior written notice, unless the notified Party shall have cured the breach within such [***]-day period; and 10.2.3 in its entirety or with respect to one or more Products, on a Product-by-Product basis, by SutroVax upon [***] days' prior written notice to Sutro for any reason.\n\n6. During the Term and the [***] period thereafter, SutroVax or a SutroVax Affiliate may, during normal working hours and upon reasonable advance notice perform site audits and inspect, or request information relating to, Sutro's or its subcontractor's Facilities and records directly or indirectly involved in the performance of this Supply Agreement or related to the Product(s). Such requests should be made in writing and Sutro will allow for such audits or inspection to occur within [***] days from request (excepting for cause audits) for Sutro's Facilities and within [***] days' from request (excepting for cause audits) for Sutro's subcontractor's facilities. Reasonable advance notice for audits for cause shall not require more than [***] advance notice.\n\n7. The term of this Supply Agreement shall begin on the Effective Date first set forth above and shall remain in effect until the later of (a) July 31, 2021 or (b) the date that the Parties enter into the Phase 3/Commercial Supply Agreement and Sutro is supplying to SutroVax each Product under the Phase 3/Commercial Supply Agreement (the \"Term\"), unless it is terminated earlier in accordance with Section 10.2.\n\n8. Once the Alternate Supplier is qualified pursuant to this Section 2.15, SutroVax shall have the first right (as between SutroVax and Sutro or Third Parties supplied or authorized by Sutro) to obtain Extract Manufactured by the Alternate Supplier up to the Capacity established pursuant to the Transfer Addendum for a period ending the later of [***] or [***], and provided SutroVax commits to [***] or [***]."
+      },
+      {
+        "id": "e2e-08-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. FMM grants to iVillage, during the Initial Term of this Agreement, a royalty-free, non-exclusive, worldwide license to use, reproduce and display Ford's tradenames, trademarks, service marks and logos (collectively, the \"Marks\") in connection with this Agreement.\n\n2. Section 5 of the Agreement is amended and restated in its entirety to read as follows: Notwithstanding anything to the contrary in this Supply Agreement, this Supply Agreement may be terminated: 10.2.1 in its entirety or regarding one or more Products, on a Product-by-Product basis, by mutual written consent of Sutro and SutroVax; 10.2.2 in its entirety by a Party if the other Party materially breaches any of the material terms, conditions or agreements contained in this Supply Agreement to be kept, observed or performed by the other Party, by giving the Party who committed the breach [***] days' prior notice in writing, unless the notified Party shall have cured the breach within such [***]-day period; and 10.2.3 in its entirety or regarding one or more Products, on a Product-by-Product basis, by SutroVax upon [***] days' prior notice in writing to Sutro for any reason.\n\n3. Section 1 of the Agreement is amended and restated in its entirety to read as follows: This Supply Agreement shall not be governed by, and construed and enforced in accordance with, the laws of the State of California, without regard to any conflict of laws rules to the contrary.\n\n4. Notwithstanding Section 2 of the Agreement, the requirement that each Party shall provide the other with written notice at least [***] days prior to the cancellation shall not apply to the extent compliance would violate applicable law or a court order.\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-08-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Governing Law",
+        "edit": "negation: \"be\" -> \"not be\"",
+        "a": {
+          "docId": "e2e-08-agreement",
+          "start": 128,
+          "end": 317
+        },
+        "b": {
+          "docId": "e2e-08-amendment",
+          "start": 1335,
+          "end": 1615
+        }
+      },
+      {
+        "id": "e2e-08-g2",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Insurance",
+        "edit": "carve-out of \"the requirement that each Party shall provide the other with written notice at least [***] days prior to the cancellation\" to the extent compliance would violate applicable law or a court order",
+        "a": {
+          "docId": "e2e-08-agreement",
+          "start": 322,
+          "end": 475
+        },
+        "b": {
+          "docId": "e2e-08-amendment",
+          "start": 1620,
+          "end": 1873
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-08-amendment",
+          "start": 179,
+          "end": 442
+        }
+      },
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-08-agreement",
+          "start": 1763,
+          "end": 2565
+        },
+        "b": {
+          "docId": "e2e-08-amendment",
+          "start": 447,
+          "end": 1330
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-08-amendment",
+          "start": 1878,
+          "end": 1962
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-09",
+    "contractId": "BELLICUMPHARMACEUTICALS,INC_05_07_2019-EX-10.1-Supply Agreement",
+    "documents": [
+      {
+        "id": "e2e-09-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. The foregoing shall be Bellicum's sole and exclusive remedy and Miltenyi's sole obligation with respect to claims that any Miltenyi Product fails to comply with the Miltenyi Product Warranty or the warranties in Section 11.\n\n2. Any assignment of this Agreement in contravention of this Article 17 shall be null and void.\n\n3. In addition, the Parties shall from time to time discuss in good faith and mutually and reasonably agree upon (i) whether one or more Miltenyi Products require a minimum inventory to be held by Bellicum, and (ii) whether there shall be any type of Miltenyi Product that require a minimum inventory to be held by Miltenyi on behalf of Bellicum and under which terms and conditions such minimum inventory shall be reserved for Bellicum.\n\n4. In addition, from time to time during the Term, each Party shall increase their levels of insurance coverage if reasonably deemed prudent by such Party in light of the overall products supplied and/or activities performed under this Agreement.\n\n5. hereunder and under the Quality Agreement, as applicable; and (ii) notwithstanding the transfer of any Miltenyi Product purchased hereunder, Bellicum will nevertheless continue to remain fully and primarily responsible and liable to Miltenyi for payment of the Product Price and for the use of the Miltenyi Product by any Subcontractor and Licensee to whom a Miltenyi Product is transferred.\n\n6. Except in the case of latent defects as described in Section 7.3, each shipment of Miltenyi Products shall be deemed accepted by Bellicum if Bellicum or its designated recipient of the shipment does not provide Miltenyi with written notice of rejection (a \"Rejection Notice\") within [...***...] days from the date of receipt of the relevant shipment of Miltenyi Product, describing the reasons for the rejection and the non-conforming characteristics of such Rejected Product in reasonable detail.\n\n7. At the reasonable written request of Bellicum during the Term, Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum, materially consistent with the terms and conditions of this Agreement and the Quality Agreement (as applicable), except as agreed otherwise in writing between Miltenyi and the respective Bellicum Licensee.\n\n8. This Agreement shall be governed in all respects by, and construed and enforced in accordance with, the laws of the State of New York, USA, without regard to the conflict of law provisions thereof or the United Nations Convention on Contracts for the International Sale of Goods; provided, however, that any dispute relating to the scope, validity, enforceability or infringement of any Intellectual Property Right will be governed by, and construed and enforced in accordance with, the substantive laws of the jurisdiction in which such Intellectual Property Right applies."
+      },
+      {
+        "id": "e2e-09-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 1 of the Agreement is amended and restated in its entirety to read as follows: The foregoing shall not be Bellicum's sole and exclusive remedy and Miltenyi's sole obligation with respect to claims that any Miltenyi Product fails to comply with the Miltenyi Product Warranty or the warranties in Section 11.\n\n2. Section 2 of the Agreement is amended and restated in its entirety to read as follows: Any assignment of this Agreement in contravention of this Article 17 shall not be null and void.\n\n3. Notwithstanding Section 5 of the Agreement, the requirement that Bellicum will nevertheless continue to remain fully and primarily responsible and liable to Miltenyi for payment of the Product Price shall not apply to any successor in interest following a merger or acquisition.\n\n4. The purchase price for the Call Shares (the \"Call Option Price\") shall be the greater of (x) the amount in Japanese Yen equal to the Net Book Value as of the most recently completed month end prior to the Call Closing Date, minus the Net Book Value as of the most recently completed month end prior to the Effective Date, multiplied by the number of Call Shares, or (y) one Japanese Yen (¥1).\n\n5. Section 6 of the Agreement is amended and restated in its entirety to read as follows: Except in the case of latent defects as described in Section 7.3, each shipment of Miltenyi Products shall be deemed accepted by Bellicum if Bellicum or its designated recipient of the shipment does not provide Miltenyi with notice in writing of rejection (a \"Rejection Notice\") within [...***...] days from the date of receipt of the relevant shipment of Miltenyi Product, describing the reasons for the rejection and the non-conforming characteristics of such Rejected Product in reasonable detail.\n\n6. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-09-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Cap On Liability",
+        "edit": "negation: \"be\" -> \"not be\"",
+        "a": {
+          "docId": "e2e-09-agreement",
+          "start": 128,
+          "end": 351
+        },
+        "b": {
+          "docId": "e2e-09-amendment",
+          "start": 179,
+          "end": 493
+        }
+      },
+      {
+        "id": "e2e-09-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Anti-Assignment",
+        "edit": "negation: \"be\" -> \"not be\"",
+        "a": {
+          "docId": "e2e-09-agreement",
+          "start": 356,
+          "end": 448
+        },
+        "b": {
+          "docId": "e2e-09-amendment",
+          "start": 498,
+          "end": 681
+        }
+      },
+      {
+        "id": "e2e-09-g3",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Affiliate License-Licensee",
+        "edit": "carve-out of \"the requirement that Bellicum will nevertheless continue to remain fully and primarily responsible and liable to Miltenyi for payment of the Product Price\" to any successor in interest following a merger or acquisition",
+        "a": {
+          "docId": "e2e-09-agreement",
+          "start": 1140,
+          "end": 1531
+        },
+        "b": {
+          "docId": "e2e-09-amendment",
+          "start": 686,
+          "end": 964
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-09-amendment",
+          "start": 969,
+          "end": 1361
+        }
+      },
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-09-agreement",
+          "start": 1536,
+          "end": 2033
+        },
+        "b": {
+          "docId": "e2e-09-amendment",
+          "start": 1366,
+          "end": 1953
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-09-amendment",
+          "start": 1958,
+          "end": 2042
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-10",
+    "contractId": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-10-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. The limitations set forth in Section 15(a), (b), (c), (d) and (e) shall not apply in respect of (i) breach of confidentiality obligations; (ii) breach of privacy provisions as detailed in Schedule 6; (iii) the intellectual property indemnity; (iv) any Abandonment committed by Diversinet; or (v) any willful gross misconduct (including fraud). \"Abandonment\" means Diversinet's cessation or suspension of, or refusal to perform, its obligations under this Agreement, and such cessation, suspension or refusal (i) was knowingly intended by Diversinet to cause harm to Reseller, and (ii) was not the result of a termination of this Agreement by Diversinet in accordance with Section 4 (Termination).\n\n2. The escrow agreement shall provide, among other terms, that the source code shall be released to Reseller if any of the following events (collectively the \"Release Conditions\") occurs: (i) Diversinet ceases to support services at levels as stated in Schedule 5 under this Agreement that is not remedied within sixty (60) days after receipt of written notice of such failure; (ii) Diversinet makes an assignment for the benefit of creditors, or becomes subject to direct control of a trustee, receiver or similar authority, or Diversinet becomes subject to any bankruptcy or insolvency proceeding under federal or state statutes; or (iii) Diversinet suspends or ceases to carry on its business and a receiver, trustee or assignee does not carry on the business.\n\n3. After AMC termination, Reseller shall generate at least the following amount of new sales of the Products in each contract year (for the purpose of this Schedule 3, a contract year shall be each 12-month period commencing after the termination by Reseller of the AMC).\n\n4. Reseller agrees to allow Diversinet or its agents and representatives the right to examine and audit such books, records and accounts during Reseller's normal business hours for no more than once per calendar quarter upon reasonable notice.\n\n5. Subject to payment of the Annual Minimum Commitment (\"AMC\" - defined herein), Diversinet hereby grants to Reseller an exclusive, non- transferable and non-assignable right to market, sell, and sub-license those Diversinet products listed in Schedule 2 (the \"Products\") within the territory listed in Schedule 3 (the \"Territory\") to Canadian headquartered companies, and governmental and broader public sector entities located in Canada.\n\n6. In addition, Diversinet hereby grants to Reseller the right to use those Diversinet trademarks and copyrighted materials with respect to the Products solely for the purpose of marketing and distribution of the Products as authorized hereunder.\n\n7. Any annual renewal would be subject to the payment, if applicable, of the AMC as agreed to by the parties, however such AMC will not be less than the previous year AMC times 115%, payable in applicable quarterly instalments.\n\n8. The term of this Agreement shall begin on the Effective Date and continue in effect for a period of five (5) years (the \"Initial Term\"), unless sooner terminated in accordance with the provisions set out herein."
+      },
+      {
+        "id": "e2e-10-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 2 of the Agreement is amended and restated in its entirety to read as follows: The escrow agreement shall provide, among other terms, that the source code shall be released to Reseller if any of the following events (collectively the \"Release Conditions\") occurs: (i) Diversinet ceases to support services at levels as stated in Schedule 5 under this Agreement that is not remedied within sixty (60) days after receipt of notice in writing of such failure; (ii) Diversinet makes an assignment for the benefit of creditors, or becomes subject to direct control of a trustee, receiver or similar authority, or Diversinet becomes subject to any bankruptcy or insolvency proceeding under federal or state statutes; or (iii) Diversinet suspends or ceases to carry on its business and a receiver, trustee or assignee does not carry on the business.\n\n2. Notwithstanding Section 3 of the Agreement, the requirement that Reseller shall generate at least the following amount of new sales of the Products in each contract year shall not apply during any period in which a Force Majeure Event is continuing.\n\n3. This Agreement shall be governed by, and construed and enforced in accordance with, the laws of the State of Delaware, without regard to any conflict or choice-of-law provision or rule (whether of the State of Delaware or any other jurisdiction) that would cause the application of the laws of any jurisdiction other than the State of Delaware.\n\n4. Section 1 of the Agreement is amended and restated in its entirety to read as follows: The limitations set forth in Section 15(a), (b), (c), (d) and (e) shall apply in respect of (i) breach of confidentiality obligations; (ii) breach of privacy provisions as detailed in Schedule 6; (iii) the intellectual property indemnity; (iv) any Abandonment committed by Diversinet; or (v) any willful gross misconduct (including fraud). \"Abandonment\" means Diversinet's cessation or suspension of, or refusal to perform, its obligations under this Agreement, and such cessation, suspension or refusal (i) was knowingly intended by Diversinet to cause harm to Reseller, and (ii) was not the result of a termination of this Agreement by Diversinet in accordance with Section 4 (Termination).\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-10-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Post-Termination Services",
+        "edit": "carve-out of \"the requirement that Reseller shall generate at least the following amount of new sales of the Products in each contract year\" during any period in which a Force Majeure Event is continuing",
+        "a": {
+          "docId": "e2e-10-agreement",
+          "start": 1594,
+          "end": 1862
+        },
+        "b": {
+          "docId": "e2e-10-amendment",
+          "start": 1034,
+          "end": 1283
+        }
+      },
+      {
+        "id": "e2e-10-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Uncapped Liability",
+        "edit": "negation: \"not apply\" -> \"apply\"",
+        "a": {
+          "docId": "e2e-10-agreement",
+          "start": 128,
+          "end": 824
+        },
+        "b": {
+          "docId": "e2e-10-amendment",
+          "start": 1637,
+          "end": 2416
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-10-agreement",
+          "start": 829,
+          "end": 1589
+        },
+        "b": {
+          "docId": "e2e-10-amendment",
+          "start": 179,
+          "end": 1029
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-10-amendment",
+          "start": 1288,
+          "end": 1632
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-10-amendment",
+          "start": 2421,
+          "end": 2505
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-11",
+    "contractId": "MPLXLP_06_17_2015-EX-10.1-TRANSPORTATION SERVICES AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-11-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. This Agreement shall be binding upon and inure to the benefit of the Parties and their successors and permitted assigns; provided, however, that the rights and obligations of any Party under this Agreement shall not be assignable by such Party without the prior written consent of the\n\n2. If Shipper makes a Pre-Service Increase Request, MPL shall notify Shipper of its new Quarterly Volume Commitment within thirty (30) days following receipt of Shipper's Pre-Service Increase Request, and Exhibit C shall be deemed revised to reflect Shipper's new volume commitment, which shall equal the sum of its original Capacity Request Form volume commitment and its Pre-Service Increase Request or its allocated portion thereof pursuant to this Section 3.9.\n\n3. In the event that, pursuant to this first right, MPL receives binding commitments for volumes that exceed the expansion capacity available for committed volumes, each Shipper that submitted a binding commitment pursuant to this first right procedure shall be allocated the lesser of: (i) its Requested Expansion Volume Commitment, or (ii) the Shipper's pro-rata share of the expansion capacity available for committed volumes, which shall be calculated by multiplying (1) the Shipper's Proportionate Share, times (2) the expansion capacity available for committed volumes (\"Expansion Volume Commitment\").\n\n4. This Agreement shall be construed and interpreted in accordance with the laws of the State of Ohio, without recourse to any principles of law governing conflicts of law, which might otherwise be applicable.\n\n5. This Agreement will automatically renew for up to two (2) renewal terms of five (5) years each (each, an \"Extension Period\") unless either Party provides the other Party with written notice of its intent to terminate this Agreement at least six (6) months prior to the end of the Initial Term or the then current Extension Period.\n\n6. If Shipper fails to notify MPL within one hundred and eighty (180) days of the Project's in-service date or if MPL is unsuccessful in obtaining additional volume commitments as provided for in Section 3.8 to\n\n7. Upon termination of this Agreement for reasons other than a default by Shipper, pursuant to any provisions of this Agreement or any other termination of this Agreement initiated by Shipper pursuant to Section 5, Shipper shall have the right to require MPL to enter into a new transportation service agreement with Shipper that (a) is consistent with the terms and objectives set forth in this Agreement and (b) has commercial terms that are, in the aggregate, equal to or more favorable to Shipper than fair market value terms as would be agreed by similarly-situated parties negotiating at arm's length provided.\n\n8. The amount of expansion capacity available for volume commitments pursuant to this Section 6.6 shall not exceed ninety percent (90%) of the total expansion capacity."
+      },
+      {
+        "id": "e2e-11-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Notwithstanding Section 4 of the Agreement, the requirement that this Agreement shall be construed and interpreted in accordance with the laws of the State of Ohio shall not apply to claims for injunctive or other equitable relief, which may be brought in any court of competent jurisdiction.\n\n2. Upon receipt of final payment Contractor shall provide to Company, and will assigns to Company, all right, title and interest to any Works in progress.\n\n3. Section 3 of the Agreement is amended and restated in its entirety to read as follows: If, under this first right, MPL receives binding commitments for volumes that exceed the expansion capacity available for committed volumes, each Shipper that submitted a binding commitment under this first right procedure shall be allocated the lesser of: (i) its Requested Expansion Volume Commitment, or (ii) the Shipper's pro-rata share of the expansion capacity available for committed volumes, which shall be calculated by multiplying (1) the Shipper's Proportionate Share, times (2) the expansion capacity available for committed volumes (\"Expansion Volume Commitment\").\n\n4. Section 2 of the Agreement is amended and restated in its entirety to read as follows: If Shipper makes a Pre-Service Increase Request, MPL shall not notify Shipper of its new Quarterly Volume Commitment within thirty (30) days following receipt of Shipper's Pre-Service Increase Request, and Exhibit C shall be deemed revised to reflect Shipper's new volume commitment, which shall equal the sum of its original Capacity Request Form volume commitment and its Pre-Service Increase Request or its allocated portion thereof pursuant to this Section 3.9.\n\n5. Section 1 of the Agreement is amended and restated in its entirety to read as follows: This Agreement shall be binding upon and inure to the benefit of the Parties and their successors and permitted assigns; provided, however, that the rights and obligations of any Party under this Agreement shall be assignable by such Party without the prior written consent of the\n\n6. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-11-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Governing Law",
+        "edit": "carve-out of \"the requirement that this Agreement shall be construed and interpreted in accordance with the laws of the State of Ohio\" to claims for injunctive or other equitable relief, which may be brought in any court of competent jurisdiction",
+        "a": {
+          "docId": "e2e-11-agreement",
+          "start": 1492,
+          "end": 1698
+        },
+        "b": {
+          "docId": "e2e-11-amendment",
+          "start": 179,
+          "end": 471
+        }
+      },
+      {
+        "id": "e2e-11-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Minimum Commitment",
+        "edit": "negation: \"notify\" -> \"not notify\"",
+        "a": {
+          "docId": "e2e-11-agreement",
+          "start": 417,
+          "end": 878
+        },
+        "b": {
+          "docId": "e2e-11-amendment",
+          "start": 1301,
+          "end": 1853
+        }
+      },
+      {
+        "id": "e2e-11-g3",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Anti-Assignment",
+        "edit": "negation: \"not be\" -> \"be\"",
+        "a": {
+          "docId": "e2e-11-agreement",
+          "start": 128,
+          "end": 412
+        },
+        "b": {
+          "docId": "e2e-11-amendment",
+          "start": 1858,
+          "end": 2225
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-11-amendment",
+          "start": 476,
+          "end": 627
+        }
+      },
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-11-agreement",
+          "start": 883,
+          "end": 1487
+        },
+        "b": {
+          "docId": "e2e-11-amendment",
+          "start": 632,
+          "end": 1296
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-11-amendment",
+          "start": 2230,
+          "end": 2314
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-12",
+    "contractId": "AimmuneTherapeuticsInc_20200205_8-K_EX-10.3_11967170_EX-10.3_Development Agreement",
+    "documents": [
+      {
+        "id": "e2e-12-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. On a country-by-country and Product-by-Product basis, if at any time during the Royalty Term with respect to such country and such Product, such Product is not Covered by any Valid Claim of a [***], the royalty rate applied to Net Sales of such Product shall be the royalty rate in Section 7.3.1 reduced by [***] percent ([***]%) for so long as during the Royalty Term such Product is not Covered by a Valid Claim of a [***] in such country.\n\n2. Xencor shall bear the full cost of such audit unless such audit discloses an underpayment of more than [***] percent ([***]%) of the payments due under this Agreement, in which case, [***].\n\n3. Aimmune hereby grants to Xencor an exclusive license under and with respect to Aimmune Patents, and a non-exclusive license under and with respect to Aimmune Know-How, in each case, where such license is an irrevocable, perpetual, royalty-bearing license, with the right to sublicense, to Develop, Manufacture and Commercialize the Product(s), as the Product(s) exist as of the effective date of such termination, or optimized versions thereof that are Products.\n\n4. Any assignment or transfer, or attempted assignment or transfer, by either Party in violation of the terms of this Section 15.6 shall be null and void and of no legal effect.\n\n5. Collaboration Patent to expire or intends to otherwise abandon any such Xencor Product Specific Patent, Aimmune Patent Covering an Antibody or Product or Joint Collaboration Patent, or (ii) decides not to prepare or file patent applications Covering Aimmune Inventions or Joint Inventions, Aimmune shall notify Xencor of such intention or decision at least [***] ([***]) days (or as soon as possible if less than [***] ([***]) days) prior to any filing or payment due date, or any other date that requires action, in connection with such Xencor Product Specific Patent, Aimmune Patent Covering an Antibody or Product or Joint Collaboration Patent, and Xencor shall thereupon have the right, but not the obligation, to assume responsibility for the preparation, filing, prosecution or maintenance thereof [***], in the name of Xencor or Aimmune, as applicable.\n\n6. Without limitation of its rights under this ARTICLE 13, Xencor may also terminate this Agreement in its entirety as applicable, pursuant to the provisions of Section 9.7.\n\n7. Subject to the terms and conditions of this Agreement, Xencor hereby grants to Aimmune during the Term an exclusive, worldwide, payment-bearing license under and with respect to Xencor Patents and Xencor's interest in Joint Collaboration Patents, and a non-exclusive, payment bearing license under and with respect to Xencor Know-How, in each case, with the right to sublicense solely in accordance with Section 2.3.2, solely to Develop, Manufacture and Commercialize the Product in and for the Licensed Field; provided that notwithstanding the foregoing, Xencor shall retain the right under and with respect to Xencor Patents and Xencor's interest in Joint Collaboration Patents to the extent necessary to perform its obligations under this Agreement.\n\n8. This Agreement shall be governed by and construed in accordance with the internal laws of the State of California applicable to agreements made and to be performed entirely within such state, without regard to the conflicts of law principles of such state; provided that any matters relating to the construction or effect of any Patent will be governed by the patent laws of the relevant jurisdiction in which such Patent is granted."
+      },
+      {
+        "id": "e2e-12-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Notwithstanding Section 5 of the Agreement, the requirement that Aimmune shall notify Xencor of such intention shall not apply with respect to activities conducted outside the Territory.\n\n2. Section 3 of the Agreement is amended and restated in its entirety to read as follows: Aimmune hereby grants to Xencor an exclusive license under and regarding Aimmune Patents, and a non-exclusive license under and regarding Aimmune Know-How, in each case, where such license is an irrevocable, perpetual, royalty-bearing license, with the right to sublicense, to Develop, Manufacture and Commercialize the Product(s), as the Product(s) exist as of the effective date of such termination, or optimized versions thereof that are Products.\n\n3. Section 1 of the Agreement is amended and restated in its entirety to read as follows: On a country-by-country and Product-by-Product basis, if at any time during the Royalty Term with respect to such country and such Product, such Product is not Covered by any Valid Claim of a [***], the royalty rate applied to Net Sales of such Product shall not be the royalty rate in Section 7.3.1 reduced by [***] percent ([***]%) for so long as during the Royalty Term such Product is not Covered by a Valid Claim of a [***] in such country.\n\n4. Commencing as of the Effective Date and thereafter during the Development Term, and subject to Section 12.3.2 below, each Party will carry and maintain, at its own expense, insurance coverage of the kind and with liability limits that, at a minimum, satisfy the requirements of Section 12.3.2, to protect itself and the other Party against any claims or liabilities that may arise from the conduct of the Clinical Trials and all other rights and obligations hereunder with insurers with a minimum \"A-\" A.M. Best rating.\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-12-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Rofr/Rofo/Rofn",
+        "edit": "carve-out of \"the requirement that Aimmune shall notify Xencor of such intention\" with respect to activities conducted outside the Territory",
+        "a": {
+          "docId": "e2e-12-agreement",
+          "start": 1414,
+          "end": 2273
+        },
+        "b": {
+          "docId": "e2e-12-amendment",
+          "start": 179,
+          "end": 365
+        }
+      },
+      {
+        "id": "e2e-12-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Revenue/Profit Sharing",
+        "edit": "negation: \"be\" -> \"not be\"",
+        "a": {
+          "docId": "e2e-12-agreement",
+          "start": 128,
+          "end": 569
+        },
+        "b": {
+          "docId": "e2e-12-amendment",
+          "start": 912,
+          "end": 1444
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-12-agreement",
+          "start": 768,
+          "end": 1230
+        },
+        "b": {
+          "docId": "e2e-12-amendment",
+          "start": 370,
+          "end": 907
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-12-amendment",
+          "start": 1449,
+          "end": 1968
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-12-amendment",
+          "start": 1973,
+          "end": 2057
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-13",
+    "contractId": "Microgenics Corporation - Collaborative Development and Commercialization Agreement",
+    "documents": [
+      {
+        "id": "e2e-13-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Each Party shall maintain, through self-insurance or commercially-placed insurance, adequate commercial general liability and products liability insurance, including contractual liability coverage, necessary to satisfy its obligations hereunder and consistent with pharmaceutical and\n\n2. Microgenics shall own all inventions and discoveries made by one or both of the Parties as part of the Research Program, whether or not patentable, relating solely to Microgenics Cell Lines, Microgenics [***] Antibodies, the Assay, Immunoassay Technologies and Microgenics Know-How (\"Microgenics Inventions\").\n\n3. In the event that, during the applicable Minimum Threshold Periods (as defined below), Microgenics does not receive the applicable Minimum Threshold Revenue (as defined below) during a given calendar year, Achaogen agrees to pay [***] Microgenics for such region during such calendar year (on a prorated basis, as applicable).\n\n4. [***] hereby grants to [***] a non-exclusive, non-transferable (except in connection with a permitted assignment, sublicense or subcontract) \"right of reference\" (as defined in 21 CFR 314.3(b)) with respect to [***] clinical trial data (including [***]), information (including the [***], as applicable) and results related to [***], solely as necessary for [***] to prepare, submit and maintain regulatory submissions related to [***] and Regulatory Approvals for [***].\n\n5. In the event that the Responsible Party elects to abandon any applicable Patent, the Responsible Party shall notify the Review Party in writing (such notice, an \"Abandonment Notice\") at least [***] ([***]) days prior to any filing or payment due date or any other due date that requires action to prevent loss of rights, and in the event that the Review Party provides the Responsible Party with written notice within [***] ([***]) days of receipt of the applicable Abandonment Notice, the Review Party shall thereafter have the right, [***], to conduct such filing, prosecution and maintenance for the applicable Patent.\n\n6. Neither Party may assign this Agreement to a Third Party unless both Parties have agreed to such assignment in a writing signed by an authorized representative of each Party hereto; provided, however, that upon providing written notice, (i) either Party may, without the other Party's consent, assign this Agreement to an Affiliate or to any Third Party entity that acquires all or substantially all of its assets to which this Agreement relates and (ii) Achaogen may, without Microgenics' consent, assign this Agreement (in whole or in part) to a Third Party licensee of Achaogen's rights with respect to Plazomicin.\n\n7. Company shall make available, for audit by Achaogen, the secretary, HHS, the physician statements and informed consents required by 42 U.S.C. 289g-1(b) and (c), or ensure HHS access to those records, if maintained by an entity other than the Contractor.\n\n8. During the Term, and without limiting Section 4.2, Achaogen hereby grants to Microgenics a royalty-free, exclusive, worldwide license to use the Achaogen"
+      },
+      {
+        "id": "e2e-13-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Notwithstanding Section 5 of the Agreement, the requirement that the Responsible Party shall notify the Review Party in writing shall not apply to any transfer to an Affiliate.\n\n2. Section 3 of the Agreement is amended and restated in its entirety to read as follows: If, during the applicable Minimum Threshold Periods (as defined below), Microgenics does not receive the applicable Minimum Threshold Revenue (as defined below) during a given calendar year, Achaogen agrees to pay [***] Microgenics for such region during such calendar year (on a prorated basis, as applicable).\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: Microgenics shall not own all inventions and discoveries made by one or both of the Parties as part of the Research Program, whether or not patentable, relating solely to Microgenics Cell Lines, Microgenics [***] Antibodies, the Assay, Immunoassay Technologies and Microgenics Know-How (\"Microgenics Inventions\").\n\n4. This Agreement and performance under this Agreement shall be governed by the laws of the United States of America and of the Commonwealth of Pennsylvania as applied to agreements entered into and to be performed entirely within Pennsylvania between Pennsylvania residents, excluding its conflicts of law provisions.\n\n5. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Each Party shall not maintain, through self-insurance or commercially-placed insurance, adequate commercial general liability and products liability insurance, including contractual liability coverage, necessary to satisfy its obligations hereunder and consistent with pharmaceutical and\n\n6. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-13-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Rofr/Rofo/Rofn",
+        "edit": "carve-out of \"the requirement that the Responsible Party shall notify the Review Party in writing\" to any transfer to an Affiliate",
+        "a": {
+          "docId": "e2e-13-agreement",
+          "start": 1537,
+          "end": 2158
+        },
+        "b": {
+          "docId": "e2e-13-amendment",
+          "start": 179,
+          "end": 355
+        }
+      },
+      {
+        "id": "e2e-13-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Ip Ownership Assignment",
+        "edit": "negation: \"own\" -> \"not own\"",
+        "a": {
+          "docId": "e2e-13-agreement",
+          "start": 416,
+          "end": 725
+        },
+        "b": {
+          "docId": "e2e-13-amendment",
+          "start": 763,
+          "end": 1163
+        }
+      },
+      {
+        "id": "e2e-13-g3",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Insurance",
+        "edit": "negation: \"maintain\" -> \"not maintain\"",
+        "a": {
+          "docId": "e2e-13-agreement",
+          "start": 128,
+          "end": 411
+        },
+        "b": {
+          "docId": "e2e-13-amendment",
+          "start": 1488,
+          "end": 1862
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-13-agreement",
+          "start": 730,
+          "end": 1056
+        },
+        "b": {
+          "docId": "e2e-13-amendment",
+          "start": 360,
+          "end": 758
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-13-amendment",
+          "start": 1168,
+          "end": 1483
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-13-amendment",
+          "start": 1867,
+          "end": 1951
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-14",
+    "contractId": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-14-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. Notwithstanding the aforesaid in Section 16.1. and any possible implication to the contrary herein or as a result of the course of conduct of the parties, Contractor shall be entitled, at its sole discretion, to terminate this Agreement only during the Extended Term, with or without cause, upon a prior written notice of termination to NICE of not less than six (6) months.\n\n2. NICE shall have the rights to conduct audits of the Manufacturing Outsourcing Services and related facilities, systems, and records as set forth in this Section 10 for the purpose of auditing Contractor's compliance with the provisions of this Agreement, all subject to the limitations below.\n\n3. Furthermore, without derogating from NICE' undertakings hereunder, Contractor will use its international supply chain in order to assist NICE in selling its dead inventory, which is not included in APPENDIX F, and the proceeds from such sales will be shared as follows: 10% Contractor, 90% NICE. Contractor will report to NICE regularly, on such sales.\n\n4. In the event that following the delay, Contractor is in compliance with the Due Dates for two immediately consecutive Quarters and there is no delay whatsoever, Contractor will be reimbursed by NICE for liquidated damages already paid for delay in the previous Quarter (before the said 2 Quarters), if paid, without derogating from the previous delay being regarded as a breach hereunder.\n\n5. Notwithstanding anything to the contrary contained herein, NICE' liability to Contractor for any indirect, special, incidental, exemplary or consequential damages as a result of any claim arising under this Agreement or in connection therewith, regardless of whether NICE has been advised of the possibility of such damages, shall not exceed five million US dollars ($5,000,000) in the aggregate for all claims, except for infringement of Intellectual Property rights for which NICE is liable under Section 12.8.\n\n6. Notwithstanding the aforesaid in Section 16.1. and any possible implication to the contrary herein or as a result of the course of conduct of the parties, NICEshall be entitled, at its sole discretion, to terminate this Agreement, in whole or in part, at any time during the Initial Term or the Extended Term, with or without cause, upon a prior written notice of termination to Contractor of not less than forty-five (45) Days.\n\n7. This Agreement shall be governed by and construed in accordance with the laws of the state of Israel, without giving effect to choice of law rules.\n\n8. Without limiting any of the obligations or liabilities of Contractor, whether under this Agreement or by law, subject to any limitations hereunder, Contractor shall maintain, and shall cause any subcontractors engaged by Contractor to provide services under this Agreement to maintain, at Contractor's own expense, as long as this Agreement is in effect, insurance policies of the kind and limits as set forth in APPENDIX D to this Agreement. The expense of such insurance shall be borne by Contractor. The Contractor shall keep in force the policies specified in sections 1 and 3 to the Insurance Certificate valid as long as Contractor's legal liability EXISTS IN CONNECTION WITH OPERATIONS ACCORDING TO THE AGREEMENT."
+      },
+      {
+        "id": "e2e-14-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 3 of the Agreement is amended and restated in its entirety to read as follows: Furthermore, without derogating from NICE' undertakings under this Agreement, Contractor will use its international supply chain to assist NICE in selling its dead inventory, which is not included in APPENDIX F, and the proceeds from such sales will be shared as follows: 10% Contractor, 90% NICE. Contractor will report to NICE regularly, on such sales.\n\n2. Section 1 of the Agreement is amended and restated in its entirety to read as follows: Notwithstanding the aforesaid in Section 16.1. and any possible implication to the contrary herein or as a result of the course of conduct of the parties, Contractor shall be entitled, at its sole discretion, to terminate this Agreement only during the Extended Term, with or without cause, upon a prior written notice of termination to NICE of not less than twelve (12) months.\n\n3. Promptly after any public announcement regarding any proposed transaction that would result in a Change in Circumstances, Buyer shall notify Seller, in writing, of the nature of such transaction, the parties thereto and the proposed date of consummation.\n\n4. Notwithstanding Section 2 of the Agreement, the requirement that NICE shall have the rights to conduct audits of the Manufacturing Outsourcing Services and related facilities, systems shall not apply with respect to activities conducted outside the Territory.\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-14-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Notice Period To Terminate Renewal",
+        "edit": "number: \"six (6)\" -> \"twelve (12)\"",
+        "a": {
+          "docId": "e2e-14-agreement",
+          "start": 128,
+          "end": 502
+        },
+        "b": {
+          "docId": "e2e-14-amendment",
+          "start": 625,
+          "end": 1090
+        }
+      },
+      {
+        "id": "e2e-14-g2",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Audit Rights",
+        "edit": "carve-out of \"the requirement that NICE shall have the rights to conduct audits of the Manufacturing Outsourcing Services and related facilities, systems\" with respect to activities conducted outside the Territory",
+        "a": {
+          "docId": "e2e-14-agreement",
+          "start": 507,
+          "end": 799
+        },
+        "b": {
+          "docId": "e2e-14-amendment",
+          "start": 1354,
+          "end": 1613
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-14-agreement",
+          "start": 804,
+          "end": 1156
+        },
+        "b": {
+          "docId": "e2e-14-amendment",
+          "start": 179,
+          "end": 620
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-14-amendment",
+          "start": 1095,
+          "end": 1349
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-14-amendment",
+          "start": 1618,
+          "end": 1702
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-15",
+    "contractId": "LegacyEducationAllianceInc_20141110_8-K_EX-10.9_8828866_EX-10.9_Endorsement Agreement",
+    "documents": [
+      {
+        "id": "e2e-15-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. CSA shall have the right to request an independent audit of the sales of the Product containing the Property which the Company agrees to assist within a reasonable period of time of such request.\n\n2. The period of license granted shall be for the Term and shall extend for a period of twenty four (24) months or until terminated as per clause 8 herein.\n\n3. Subject to the terms and conditions and in consideration of the payments set forth herein and in the Primary Agreement, CSA as disclosed agent for Talent grants to Company from the Commencement Date the right and license during the Term of this Agreement in the Territory to use the \"Property\" in connection with the advertisement, promotion, and sale of the Property Training Course and the Product as well as the right to use such Property on the Product and related packaging.\n\n4. This Agreement shall be governed by the laws of England and Wales, and all actions brought hereunder whether at law or in equity shall be brought in England.\n\n5. In accordance with the Primary Agreement, the Talent agrees that during the Term, he will make public appearances at the request of the Company, to include appearing at Company events and/or participating in photo shoots as requested by Company, not to exceed more than four such appearances or photo shoots per calendar year.\n\n6. The Parties may not assign this Agreement or the rights and obligations hereunder to any third party without the prior express written approval of the other Party.\n\n7. In consideration for the licenses granted hereunder, Company agrees to pay to CSA as follows: a. A [***]in the amount of [***]of Company's revenues from sales of the Property Training Course and all Products after deductions for VAT, returns, refunds\n\n8. Talent agrees that Company shall, for a period of nine (9) months (Sell-Off Period) following the effective date of termination, have the right to continue to sell Product bearing the Property and/or utilize advertising materials and collateral bearing the Property."
+      },
+      {
+        "id": "e2e-15-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Notwithstanding Section 4 of the Agreement, the requirement that this Agreement shall be governed by the laws of England and Wales shall not apply to claims for injunctive or other equitable relief, which may be brought in any court of competent jurisdiction.\n\n2. Section 3 of the Agreement is amended and restated in its entirety to read as follows: Subject to the terms and conditions and in consideration of the payments set out in this Agreement and in the Primary Agreement, CSA as disclosed agent for Talent grants to Company from the Commencement Date the right and license during the Term of this Agreement in the Territory to use the \"Property\" in relation to the advertisement, promotion, and sale of the Property Training Course and the Product as well as the right to use such Property on the Product and related packaging.\n\n3. Section 1 of the Agreement is amended and restated in its entirety to read as follows: CSA shall not have the right to request an independent audit of the sales of the Product containing the Property which the Company agrees to assist within a reasonable period of time of such request.\n\n4. (c) the Company shall not represent or make any claim that it has an ownership interest in any Arizona Licensed IP.\n\n5. Section 2 of the Agreement is amended and restated in its entirety to read as follows: The period of license granted shall be for the Term and shall extend for a period of twelve (12) months or until terminated as per clause 8 herein.\n\n6. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-15-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Governing Law",
+        "edit": "carve-out of \"the requirement that this Agreement shall be governed by the laws of England and Wales\" to claims for injunctive or other equitable relief, which may be brought in any court of competent jurisdiction",
+        "a": {
+          "docId": "e2e-15-agreement",
+          "start": 969,
+          "end": 1126
+        },
+        "b": {
+          "docId": "e2e-15-amendment",
+          "start": 179,
+          "end": 438
+        }
+      },
+      {
+        "id": "e2e-15-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Audit Rights",
+        "edit": "negation: \"have\" -> \"not have\"",
+        "a": {
+          "docId": "e2e-15-agreement",
+          "start": 128,
+          "end": 323
+        },
+        "b": {
+          "docId": "e2e-15-amendment",
+          "start": 1019,
+          "end": 1305
+        }
+      },
+      {
+        "id": "e2e-15-g3",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Renewal Term",
+        "edit": "number: \"twenty four (24)\" -> \"twelve (12)\"",
+        "a": {
+          "docId": "e2e-15-agreement",
+          "start": 328,
+          "end": 480
+        },
+        "b": {
+          "docId": "e2e-15-amendment",
+          "start": 1430,
+          "end": 1664
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-15-agreement",
+          "start": 485,
+          "end": 964
+        },
+        "b": {
+          "docId": "e2e-15-amendment",
+          "start": 443,
+          "end": 1014
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-15-amendment",
+          "start": 1310,
+          "end": 1425
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-15-amendment",
+          "start": 1669,
+          "end": 1753
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-16",
+    "contractId": "SoupmanInc_20150814_8-K_EX-10.1_9230148_EX-10.1_Franchise Agreement1",
+    "documents": [
+      {
+        "id": "e2e-16-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. During the term of this Agreement and after its expiration or termination, you shall not directly or indirectly contest the validity of, or our ownership of the Proprietary Marks, nor take any other action which may tend to jeopardize our or our affiliate's interest therein, or our right to use and to license others to use the Proprietary Marks.\n\n2. You acknowledge and agree that any such concept, process or improvement shall become our property and we may utilize or disclose such information to other master franchisees and unit franchisees as we determine to be appropriate.\n\n3. This Agreement shall be interpreted and construed under the laws of the State of New York.\n\n4. In consideration for such training, trade secrets and confidential information, you and your principals agree that during the term of this Agreement, and for a continuous uninterrupted period commencing upon expiration or termination of this Agreement, regardless of the cause for termination, and continuing for a period of three (3) years thereafter, neither you nor your principals shall, directly or indirectly, for themselves, or through, on behalf of, or in conjunction with any person, persons, partnership, limited liability company or corporation:\n\n5. If you do not meet the Minimum Development Quota, we may cancel your exclusive right to market and sell Unit Franchises in your Master Territory and may sell additional Master Franchises within your Master Territory, or we may begin operations of our own in your Master Territory, or we may terminate this Agreement.\n\n6. You and we acknowledge and agree that we are a third-party beneficiary to all Unit Franchise Agreements between you and Unit Franchisees in the Master Territory, and that we shall have the right to assume any of your responsibilities, duties or functions under such Unit Franchise Agreements in the event that this Agreement expires or is terminated for any reason.\n\n7. You and each of your principals agree that the liquidated damages provision does not give us an adequate remedy at law for any default under, or for the enforcement of, any provision of this Agreement other than the Royalty Fee sections.\n\n8. We shall have the right, at all reasonable times, to inspect the products and services on which the Proprietary Marks shall be used as we consider necessary to carry out the purposes of inspection as part of appropriate quality control."
+      },
+      {
+        "id": "e2e-16-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Notwithstanding Section 3 of the Agreement, the requirement that this Agreement shall be interpreted and construed under the laws of the State of New York shall not apply to disputes concerning the validity of a party's Intellectual Property.\n\n2. In such an instance, all compensation will continue for a extended period of five years from the date of termination for all subscriptions tagged as USA MCO.\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: You acknowledge and agree that any such concept, process or improvement shall become our property and we may use or disclose such information to other master franchisees and unit franchisees as we determine to be appropriate.\n\n4. Section 1 of the Agreement is amended and restated in its entirety to read as follows: During the term of this Agreement and after its expiration or termination, you shall directly or indirectly contest the validity of, or our ownership of the Proprietary Marks, nor take any other action which may tend to jeopardize our or our affiliate's interest therein, or our right to use and to license others to use the Proprietary Marks.\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-16-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Governing Law",
+        "edit": "carve-out of \"the requirement that this Agreement shall be interpreted and construed under the laws of the State of New York\" to disputes concerning the validity of a party's Intellectual Property",
+        "a": {
+          "docId": "e2e-16-agreement",
+          "start": 714,
+          "end": 804
+        },
+        "b": {
+          "docId": "e2e-16-amendment",
+          "start": 179,
+          "end": 421
+        }
+      },
+      {
+        "id": "e2e-16-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Covenant Not To Sue",
+        "edit": "negation: \"not directly\" -> \"directly\"",
+        "a": {
+          "docId": "e2e-16-agreement",
+          "start": 128,
+          "end": 475
+        },
+        "b": {
+          "docId": "e2e-16-amendment",
+          "start": 905,
+          "end": 1335
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-16-amendment",
+          "start": 426,
+          "end": 583
+        }
+      },
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-16-agreement",
+          "start": 480,
+          "end": 709
+        },
+        "b": {
+          "docId": "e2e-16-amendment",
+          "start": 588,
+          "end": 900
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-16-amendment",
+          "start": 1340,
+          "end": 1424
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-17",
+    "contractId": "WaterNowInc_20191120_10-Q_EX-10.12_11900227_EX-10.12_Distributor Agreement",
+    "documents": [
+      {
+        "id": "e2e-17-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. \"Distributor Share\" means, with respect to Net Revenue, the percentage of Net Revenue that the Distributor is entitled to receive, as follows: (i) for the first ten (10) Products installed, 7.5% of Net Revenue, and (ii) for the eleventh (11th) Product installed and all Products installed thereafter, 15% of Net Revenue. Notwithstanding anything to the contrary contained herein, the 1 Source: WATER NOW, INC., 10-Q, 11/20/2019 Distributor Share with respect to the split of Net Revenue between Hydraspin and the Distributor with respect to any particular Production installation or group Product installation may be negotiated by Hydraspin and the Distributor and set forth in a separate written agreement between the Parties, and in such case, the Distributor Share set forth in the separate written agreement shall supersede and control over the Distributor Share set forth above.\n\n2. The arbitrator shall not award any Party punitive, exemplary, multiplied or consequential damages, and each Party hereby irrevocably waives any right to seek such damages in arbitration or in judicial proceedings.\n\n3. solicit any Customers that have a business presence outside the Territory, except that Distributor shall not conduct solicitation activities in any outside territory where Hydraspin is bound to an exclusive distributor agreement with a third party, provided that Hydraspin has notified Distributor in writing of its arrangements with the other distributor and of the territory which is subject to exclusivity in favor of the other distributor.\n\n4. The initial term of this Agreement shall commence on the Effective Date and end on the five (5) year anniversary of the Effective Date (the \"Initial Term\"), unless sooner terminated pursuant to the terms hereo\n\n5. Notwithstanding anything contained in this Section to the contrary, Hydraspin may assign this Agreement upon written notice to Distributor to any entity which controls, is controlled by or under common control with Hydraspin or to any successor to or purchaser of all or substantially all of its assets or stock, by merger or otherwise.\n\n6. \"Performance Benchmarks\" shall mean the following requirements necessary for Distributor to maintain the exclusivity granted in Section 2.1 hereof: (a) the execution of contracts to deploy Products in 25 new locations approved in advance by Hydraspin (\"Customer Locations\") during each 12 month period following the Effective Date and (b) all Customer Locations in the aggregate shall generate an average of 7,500 barrels of fluid per day on a trailing 12 month basis. Customer Locations must be available for installation within 90 days of approval by Hydraspin to be applied toward the satisfaction of the Performance Benchmark.\n\n7. During the term of this Agreement, Distributor shall afford to Hydraspin and its authorized representatives full access at all reasonable times and upon reasonable prior notice, to all such books and records with respect to the Products.\n\n8. If the Parties are unable to reach an agreement on the terms of exclusivity within ten (10) business days of the date the opportunity is presented to Distributor, Hydraspin shall have no obligation to enter into a contract with Distributor regarding the new territory."
+      },
+      {
+        "id": "e2e-17-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 1 of the Agreement is amended and restated in its entirety to read as follows: \"Distributor Share\" means, with respect to Net Revenue, the percentage of Net Revenue that the Distributor is not entitled to receive, as follows: (i) for the first ten (10) Products installed, 7.5% of Net Revenue, and (ii) for the eleventh (11th) Product installed and all Products installed thereafter, 15% of Net Revenue. Notwithstanding anything to the contrary contained herein, the 1 Source: WATER NOW, INC., 10-Q, 11/20/2019 Distributor Share with respect to the split of Net Revenue between Hydraspin and the Distributor with respect to any particular Production installation or group Product installation may be negotiated by Hydraspin and the Distributor and set forth in a separate written agreement between the Parties, and in such case, the Distributor Share set forth in the separate written agreement shall supersede and control over the Distributor Share set forth above.\n\n2. Notwithstanding Section 5 of the Agreement, the right of Hydraspin to assign this Agreement upon written notice to Distributor to any entity which controls shall not apply with respect to any transaction entered into before the Effective Date.\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: The arbitrator shall award any Party punitive, exemplary, multiplied or consequential damages, and each Party hereby irrevocably waives any right to seek such damages in arbitration or in judicial proceedings.\n\n4. Section 4 of the Agreement is amended and restated in its entirety to read as follows: The initial term of this Agreement shall begin on the Effective Date and end on the five (5) year anniversary of the Effective Date (the \"Initial Term\"), unless sooner terminated under the terms hereo\n\n5. In order for Forty Niners SC to fulfill its obligations hereunder, Sponsor hereby grants to Forty Niners SC a limited license during the\n\n6. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-17-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Revenue/Profit Sharing",
+        "edit": "negation: \"entitled\" -> \"not entitled\"",
+        "a": {
+          "docId": "e2e-17-agreement",
+          "start": 128,
+          "end": 1011
+        },
+        "b": {
+          "docId": "e2e-17-amendment",
+          "start": 179,
+          "end": 1153
+        }
+      },
+      {
+        "id": "e2e-17-g2",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Anti-Assignment",
+        "edit": "carve-out of \"the right of Hydraspin to assign this Agreement upon written notice to Distributor to any entity which controls\" with respect to any transaction entered into before the Effective Date",
+        "a": {
+          "docId": "e2e-17-agreement",
+          "start": 1896,
+          "end": 2232
+        },
+        "b": {
+          "docId": "e2e-17-amendment",
+          "start": 1158,
+          "end": 1401
+        }
+      },
+      {
+        "id": "e2e-17-g3",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Cap On Liability",
+        "edit": "negation: \"not award\" -> \"award\"",
+        "a": {
+          "docId": "e2e-17-agreement",
+          "start": 1016,
+          "end": 1229
+        },
+        "b": {
+          "docId": "e2e-17-amendment",
+          "start": 1406,
+          "end": 1702
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-17-agreement",
+          "start": 1682,
+          "end": 1891
+        },
+        "b": {
+          "docId": "e2e-17-amendment",
+          "start": 1707,
+          "end": 1994
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-17-amendment",
+          "start": 1999,
+          "end": 2135
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-17-amendment",
+          "start": 2140,
+          "end": 2224
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-18",
+    "contractId": "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement",
+    "documents": [
+      {
+        "id": "e2e-18-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. 2TheMart hereby grants to i-Escrow a worldwide, non-exclusive right to use, reproduce, distribute, publicly perform, publicly display and digitally perform the 2TheMart Content soley with respect to and in conjunction with the Co-Branded Site all with the prior written consent of 2TheMart, for the term of this Agreement.\n\n2. This Agreement will be governed and construed in accordance with the laws of the State of California without giving effect to conflict of laws principles.\n\n3. Once every twelve (12) months, 2TheMart through a CPA may inspect and audit such records to verify reports.\n\n4. If a majority of the equity securities of either 2TheMart or i-Escrow, Inc. (except that i-Escrow may sell all or a majority of its equity securities or voting interests to i-Escrow.com, and i-Escrow.com may sell all or a majority of its equity securities or voting interests to i-Escrow's existing shareholders, without triggering the foregoing) are acquired by another company during the term of this Agreement either company may terminate this Agreement, without liability, by giving a thirty (30) days written notice to the other party.\n\n5. The term of this Agreement shall continue for one (1) year following the Launch Date, unless earlier terminated as provided herein.\n\n6. Notwithstanding the foregoing, unless this Agreement was terminated for a material breach, all provisions of this Agreement shall survive to the extent necessary for i-Escrow to complete any Customer transactions which are pending at the time of expiration or termination.\n\n7. Notwithstanding the foregoing, to the extent that the Domain Name is deemed a combination mark, neither party shall use the Domain Name for any purpose except as expressly provided herein or attempt to register the Domain Name, and the parties will jointly cooperate on any enforcement action of infringement of the Domain Name.\n\n8. After the Launch Date, i-Escrow shall pay 2TheMart advertising fees based on the number of Transaction Inquiries."
+      },
+      {
+        "id": "e2e-18-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 1 of the Agreement is amended and restated in its entirety to read as follows: 2TheMart hereby grants to i-Escrow a worldwide, non-exclusive right to use, reproduce, distribute, publicly perform, publicly display and digitally perform the 2TheMart Content soley regarding and in conjunction with the Co-Branded Site all with the prior written consent of 2TheMart, for the term of this Agreement.\n\n2. If, at any time during the Term of this Agreement, HCI fails to meet the content requirements set out in paragraphs 3(f), (g) and (h), HCI shall no longer be entitled to be the exclusive health content partner in the health section of the Sympatico web site.\n\n3. Notwithstanding Section 7 of the Agreement, the requirement that neither party shall use the Domain Name for any purpose except as expressly provided herein or attempt to register the Domain Name shall not apply to improvements developed solely by one party without use of the other party's Confidential Information.\n\n4. Section 2 of the Agreement is amended and restated in its entirety to read as follows: This Agreement will not be governed and construed in accordance with the laws of the State of California without giving effect to conflict of laws principles.\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-18-g1",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Joint Ip Ownership",
+        "edit": "carve-out of \"the requirement that neither party shall use the Domain Name for any purpose except as expressly provided herein or attempt to register the Domain Name\" to improvements developed solely by one party without use of the other party's Confidential Information",
+        "a": {
+          "docId": "e2e-18-agreement",
+          "start": 1684,
+          "end": 2012
+        },
+        "b": {
+          "docId": "e2e-18-amendment",
+          "start": 850,
+          "end": 1166
+        }
+      },
+      {
+        "id": "e2e-18-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Governing Law",
+        "edit": "negation: \"be\" -> \"not be\"",
+        "a": {
+          "docId": "e2e-18-agreement",
+          "start": 455,
+          "end": 609
+        },
+        "b": {
+          "docId": "e2e-18-amendment",
+          "start": 1171,
+          "end": 1416
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "agree",
+        "source": "paraphrase",
+        "a": {
+          "docId": "e2e-18-agreement",
+          "start": 128,
+          "end": 450
+        },
+        "b": {
+          "docId": "e2e-18-amendment",
+          "start": 179,
+          "end": 582
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-18-amendment",
+          "start": 587,
+          "end": 845
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-18-amendment",
+          "start": 1421,
+          "end": 1505
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-19",
+    "contractId": "ENERGOUSCORP_03_16_2017-EX-10.24-STRATEGIC ALLIANCE AGREEMENT",
+    "documents": [
+      {
+        "id": "e2e-19-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. If, at the time of notice of any termination of this Agreement, DIALOG or any of its Affiliates has a written supply contract with a customer that extends beyond the end of the Wind Down Period (a \"Continuing Obligation\"), DIALOG and/or its Affiliates may continue to Sell Licensed Products to such customer through the term of the Wind Down Period and for the remainder of the term of such Continuing Obligation, provided that in no event may DIALOG or its Affiliates Sell Licensed Products to such customer pursuant to this Section 15.4(b) for a period longer than [***] after the effective date of termination of this Agreement.\n\n2. This Letter of Authorization will be governed by and construed in accordance with the laws of California, excluding its conflict of laws provisions, and be subject to the non-exclusive jurisdiction of the California courts.\n\n3. If DIALOG provides such a notice, for a period of [***] following ENERGOUS' receipt of such notice, ENERGOUS and DIALOG will negotiate in good faith the terms pursuant to which such New Product will be added as a Product to this Agreement.\n\n4. DIALOG may terminate this Agreement, immediately upon issuance of written notice to ENERGOUS in the event that: (A) DIALOG or its Affiliates fail to achieve a design-win pipeline with an annual projected sales value to DIALOG of at least [***] in the [***] after the availability of a Mass Production Qualified Product; or (B) the aggregate annual Net Sales of Products are below [***] by the [***] of the availability of a Mass Production Qualified Product, or below [***] by the [***] of the availability of a Mass Production Qualified Product, or below [***] by each [***] of the availability of a Mass Production Qualified Product during the remainder of the Term.\n\n5. In the event any warranty claim is due to or arises from an Epidemic Defect, ENERGOUS will be responsible for all costs and expenses directly incurred by DIALOG or its Affiliates or their respective customers as a result of reasonable inspection, servicing, repairs, replacements, recall notices, recalls and responses with respect thereto, provided that ENERGOUS' aggregate liability to DIALOG and its Affiliates and their respective customers under this paragraph (d) will not exceed [***] per occurrence of an Epidemic Defect.\n\n6. During the Record Retention Period, ENERGOUS may appoint a mutually agreed independent, internationally recognized third-party certified auditor who will have the right to inspect and copy the Records upon reasonable prior notice, and DIALOG will (and will cause its Affiliates to) allow necessary access including, as applicable, to its premises where such Records are located. ENERGOUS may exercise such right to this independent-third party audit no more than one time per calendar year and each such audit will be conducted during normal business hours.\n\n7. Each party will maintain, during the Term and for three (3) years thereafter, such comprehensive general liability insurance (including without limitation, products liability) as will adequately protect it against its potential liabilities under this Agreement, in amounts customary in the semiconductor industry for similar services and products.\n\n8. The above warranties are valid for a period of [***] from the date of shipment of any Licensed Product to any customer."
+      },
+      {
+        "id": "e2e-19-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 1 of the Agreement is amended and restated in its entirety to read as follows: If, at the time of notice of any termination of this Agreement, DIALOG or any of its Affiliates has a written supply contract with a customer that extends beyond the end of the Wind Down Period (a \"Continuing Obligation\"), DIALOG and/or its Affiliates may not continue to Sell Licensed Products to such customer through the term of the Wind Down Period and for the remainder of the term of such Continuing Obligation, provided that in no event may DIALOG or its Affiliates Sell Licensed Products to such customer pursuant to this Section 15.4(b) for a period longer than [***] after the effective date of termination of this Agreement.\n\n2. Metavante hereby grants to Customer a personal, nonexclusive, and nontransferable license and right, for the duration of this Agreement, to use the Incidental Software solely in accordance with the applicable Documentation and for no other purposes.\n\n3. Section 2 of the Agreement is amended and restated in its entirety to read as follows: This Letter of Authorization will not be governed by and construed in accordance with the laws of California, excluding its conflict of laws provisions, and be subject to the non-exclusive jurisdiction of the California courts.\n\n4. Notwithstanding Section 3 of the Agreement, the requirement that DIALOG will negotiate in good faith the terms pursuant to which such New Product will be added as a Product to this Agreement shall not apply to any transaction approved in writing by the holder of the right.\n\n5. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-19-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Post-Termination Services",
+        "edit": "negation: \"continue\" -> \"not continue\"",
+        "a": {
+          "docId": "e2e-19-agreement",
+          "start": 128,
+          "end": 759
+        },
+        "b": {
+          "docId": "e2e-19-amendment",
+          "start": 179,
+          "end": 901
+        }
+      },
+      {
+        "id": "e2e-19-g2",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Governing Law",
+        "edit": "negation: \"be\" -> \"not be\"",
+        "a": {
+          "docId": "e2e-19-agreement",
+          "start": 764,
+          "end": 987
+        },
+        "b": {
+          "docId": "e2e-19-amendment",
+          "start": 1160,
+          "end": 1474
+        }
+      },
+      {
+        "id": "e2e-19-g3",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Rofr/Rofo/Rofn",
+        "edit": "carve-out of \"the requirement that DIALOG will negotiate in good faith the terms pursuant to which such New Product will be added as a Product to this Agreement\" to any transaction approved in writing by the holder of the right",
+        "a": {
+          "docId": "e2e-19-agreement",
+          "start": 992,
+          "end": 1231
+        },
+        "b": {
+          "docId": "e2e-19-amendment",
+          "start": 1479,
+          "end": 1752
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-19-amendment",
+          "start": 906,
+          "end": 1155
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-19-amendment",
+          "start": 1757,
+          "end": 1841
+        }
+      }
+    ]
+  },
+  {
+    "id": "e2e-20",
+    "contractId": "RemarkHoldingsInc_20081114_10-Q_EX-10.24_2895649_EX-10.24_Content License Agreement",
+    "documents": [
+      {
+        "id": "e2e-20-agreement",
+        "name": "master-agreement.txt",
+        "kind": "txt",
+        "text": "MASTER AGREEMENT\n\nThis Master Agreement is entered into by and between the parties identified in the signature block below.\n\n1. All rights granted to HSWI under this Agreement may be exercised by or through HSWI and/or its Affiliates.\n\n2. World Book shall not license to any third parties or otherwise use the Content as Affinities in any digital form during the term of the license.\n\n3. Notwithstanding the foregoing, attached as Attachment C is a list of companies (the \"Competitors\") to whom assignment of this Agreement outside of an Acquisition may be made only with prior written consent of the other party, which the other party may withhold at its sole discretion.\n\n4. The Royalty rate shall be [*] percent ([*]%) on the Affinities and Reference Content; and [*] percent ([*]%) on Translated Content.\n\n5. No more than [*] audit may be conducted in any [*] month period, unless the then-most-recent audit reveals a discrepancy of more than [*] percent ([*]%) in the total applicable amount reported by HSWI.\n\n6. HSWI may not sublicense the Content, Images or Affinities to any paid-subscription website which is an aggregator of third-party content (for the avoidance of doubt, such shall not include the\n\n7. Subject to the terms and conditions of this Agreement, World Book grants HSWI the right to use, copy, store, archive, distribute, transmit, modify, translate (subject to Section 2.3), and Display the Content that comprises the Affinities as part of the Affinities, and the Affinities themselves, in any manner and in any digital media (and to sublicense such rights to third parties), provided that HSWI does not resell all or license substantially all of the Content for a fee to other content publishers.\n\n8. The term of the license for the Images delivered to HSWI as part of the Affinity, shall be perpetual and irrevocable."
+      },
+      {
+        "id": "e2e-20-amendment",
+        "name": "amendment-1.txt",
+        "kind": "txt",
+        "text": "AMENDMENT NO. 1 TO MASTER AGREEMENT\n\nThis Amendment modifies the Master Agreement between the same parties. Capitalised terms have the meanings given in the Master Agreement.\n\n1. Section 1 of the Agreement is amended and restated in its entirety to read as follows: All rights granted to HSWI under this Agreement may not be exercised by or through HSWI and/or its Affiliates.\n\n2. Notwithstanding Section 2 of the Agreement, the restriction that World Book shall not license to any third parties or otherwise use the Content as Affinities in any digital form during the term of the license shall not apply during any period in which a Force Majeure Event is continuing.\n\n3. Turpin agrees to maintain at all times adequate and current records relating to the creation and development of the Work Product and Intellectual Property Rights therein, which records and all copies thereof shall be and shall remain the exclusive property of the Company, and to disclose all such records and copies to the Company promptly.\n\n4. Except as amended by this Amendment, the Agreement remains in full force and effect."
+      }
+    ],
+    "gold": [
+      {
+        "id": "e2e-20-g1",
+        "label": "contradict",
+        "source": "twin",
+        "category": "Affiliate License-Licensee",
+        "edit": "negation: \"be\" -> \"not be\"",
+        "a": {
+          "docId": "e2e-20-agreement",
+          "start": 128,
+          "end": 234
+        },
+        "b": {
+          "docId": "e2e-20-amendment",
+          "start": 179,
+          "end": 376
+        }
+      },
+      {
+        "id": "e2e-20-g2",
+        "label": "exception",
+        "source": "carveout",
+        "category": "Exclusivity",
+        "edit": "carve-out of \"the restriction that World Book shall not license to any third parties or otherwise use the Content as Affinities in any digital form during the term of the license\" during any period in which a Force Majeure Event is continuing",
+        "a": {
+          "docId": "e2e-20-agreement",
+          "start": 239,
+          "end": 383
+        },
+        "b": {
+          "docId": "e2e-20-amendment",
+          "start": 381,
+          "end": 669
+        }
+      }
+    ],
+    "negatives": [
+      {
+        "label": "not_mentioned",
+        "source": "unrelated",
+        "b": {
+          "docId": "e2e-20-amendment",
+          "start": 674,
+          "end": 1015
+        }
+      },
+      {
+        "label": "not_mentioned",
+        "source": "boilerplate",
+        "b": {
+          "docId": "e2e-20-amendment",
+          "start": 1020,
+          "end": 1104
+        }
+      }
+    ]
+  }
+]

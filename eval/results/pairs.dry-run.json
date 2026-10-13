@@ -1,0 +1,2575 @@
+{
+  "meta": {
+    "timestamp": "2026-10-13T19:23:20.570Z",
+    "gitSha": "111a95b5b618b8a81664ead1d68395aa62dcdd5c",
+    "gitDirty": true,
+    "node": "v22.22.0",
+    "model": "claude-sonnet-5-5",
+    "hasApiKey": false,
+    "env": {}
+  },
+  "dryRun": true,
+  "limit": null,
+  "n": 260,
+  "judged": 260,
+  "errors": 0,
+  "report": {
+    "labels": [
+      "contradict",
+      "exception",
+      "agree",
+      "not_mentioned"
+    ],
+    "n": 260,
+    "accuracy": 0.7692307692307693,
+    "macroF1": 0.7606349206349206,
+    "perLabel": [
+      {
+        "label": "contradict",
+        "support": 91,
+        "predicted": 84,
+        "tp": 69,
+        "precision": 0.8214285714285714,
+        "recall": 0.7582417582417582,
+        "f1": 0.7885714285714285
+      },
+      {
+        "label": "exception",
+        "support": 52,
+        "predicted": 41,
+        "tp": 31,
+        "precision": 0.7560975609756098,
+        "recall": 0.5961538461538461,
+        "f1": 0.6666666666666667
+      },
+      {
+        "label": "agree",
+        "support": 65,
+        "predicted": 61,
+        "tp": 53,
+        "precision": 0.8688524590163934,
+        "recall": 0.8153846153846154,
+        "f1": 0.8412698412698412
+      },
+      {
+        "label": "not_mentioned",
+        "support": 52,
+        "predicted": 74,
+        "tp": 47,
+        "precision": 0.6351351351351351,
+        "recall": 0.9038461538461539,
+        "f1": 0.746031746031746
+      }
+    ],
+    "confusion": {
+      "contradict": {
+        "contradict": 69,
+        "exception": 8,
+        "agree": 4,
+        "not_mentioned": 10
+      },
+      "exception": {
+        "contradict": 6,
+        "exception": 31,
+        "agree": 3,
+        "not_mentioned": 12
+      },
+      "agree": {
+        "contradict": 6,
+        "exception": 1,
+        "agree": 53,
+        "not_mentioned": 5
+      },
+      "not_mentioned": {
+        "contradict": 3,
+        "exception": 1,
+        "agree": 1,
+        "not_mentioned": 47
+      }
+    }
+  },
+  "contradictionF1": 0.7885714285714285,
+  "conflictDetection": {
+    "precision": 0.912,
+    "recall": 0.7972027972027972,
+    "f1": 0.8507462686567164
+  },
+  "bySource": {
+    "carveout": {
+      "n": 52,
+      "accuracy": 0.5961538461538461
+    },
+    "paraphrase": {
+      "n": 65,
+      "accuracy": 0.8153846153846154
+    },
+    "twin": {
+      "n": 91,
+      "accuracy": 0.7582417582417582
+    },
+    "unrelated": {
+      "n": 52,
+      "accuracy": 0.9038461538461539
+    }
+  },
+  "curve": [
+    {
+      "threshold": 0,
+      "kept": 260,
+      "total": 260,
+      "correct": 200,
+      "coverage": 1,
+      "accuracy": 0.7692307692307693
+    },
+    {
+      "threshold": 0.05,
+      "kept": 260,
+      "total": 260,
+      "correct": 200,
+      "coverage": 1,
+      "accuracy": 0.7692307692307693
+    },
+    {
+      "threshold": 0.1,
+      "kept": 260,
+      "total": 260,
+      "correct": 200,
+      "coverage": 1,
+      "accuracy": 0.7692307692307693
+    },
+    {
+      "threshold": 0.15,
+      "kept": 260,
+      "total": 260,
+      "correct": 200,
+      "coverage": 1,
+      "accuracy": 0.7692307692307693
+    },
+    {
+      "threshold": 0.2,
+      "kept": 260,
+      "total": 260,
+      "correct": 200,
+      "coverage": 1,
+      "accuracy": 0.7692307692307693
+    },
+    {
+      "threshold": 0.25,
+      "kept": 260,
+      "total": 260,
+      "correct": 200,
+      "coverage": 1,
+      "accuracy": 0.7692307692307693
+    },
+    {
+      "threshold": 0.3,
+      "kept": 260,
+      "total": 260,
+      "correct": 200,
+      "coverage": 1,
+      "accuracy": 0.7692307692307693
+    },
+    {
+      "threshold": 0.35,
+      "kept": 260,
+      "total": 260,
+      "correct": 200,
+      "coverage": 1,
+      "accuracy": 0.7692307692307693
+    },
+    {
+      "threshold": 0.4,
+      "kept": 246,
+      "total": 260,
+      "correct": 200,
+      "coverage": 0.9461538461538461,
+      "accuracy": 0.8130081300813008
+    },
+    {
+      "threshold": 0.45,
+      "kept": 234,
+      "total": 260,
+      "correct": 200,
+      "coverage": 0.9,
+      "accuracy": 0.8547008547008547
+    },
+    {
+      "threshold": 0.5,
+      "kept": 223,
+      "total": 260,
+      "correct": 199,
+      "coverage": 0.8576923076923076,
+      "accuracy": 0.8923766816143498
+    },
+    {
+      "threshold": 0.55,
+      "kept": 205,
+      "total": 260,
+      "correct": 190,
+      "coverage": 0.7884615384615384,
+      "accuracy": 0.926829268292683
+    },
+    {
+      "threshold": 0.6,
+      "kept": 182,
+      "total": 260,
+      "correct": 181,
+      "coverage": 0.7,
+      "accuracy": 0.9945054945054945
+    },
+    {
+      "threshold": 0.65,
+      "kept": 182,
+      "total": 260,
+      "correct": 181,
+      "coverage": 0.7,
+      "accuracy": 0.9945054945054945
+    },
+    {
+      "threshold": 0.7,
+      "kept": 182,
+      "total": 260,
+      "correct": 181,
+      "coverage": 0.7,
+      "accuracy": 0.9945054945054945
+    },
+    {
+      "threshold": 0.75,
+      "kept": 170,
+      "total": 260,
+      "correct": 169,
+      "coverage": 0.6538461538461539,
+      "accuracy": 0.9941176470588236
+    },
+    {
+      "threshold": 0.8,
+      "kept": 143,
+      "total": 260,
+      "correct": 142,
+      "coverage": 0.55,
+      "accuracy": 0.993006993006993
+    },
+    {
+      "threshold": 0.85,
+      "kept": 89,
+      "total": 260,
+      "correct": 89,
+      "coverage": 0.3423076923076923,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.9,
+      "kept": 46,
+      "total": 260,
+      "correct": 46,
+      "coverage": 0.17692307692307693,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.95,
+      "kept": 0,
+      "total": 260,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    },
+    {
+      "threshold": 1,
+      "kept": 0,
+      "total": 260,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    }
+  ],
+  "predictions": [
+    {
+      "id": "cc-0001",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8300000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0002",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0003",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0004",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0005",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0006",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.37,
+      "correct": false
+    },
+    {
+      "id": "cc-0007",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0008",
+      "source": "paraphrase",
+      "editType": "synonym+reorder",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0009",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.5,
+      "correct": true
+    },
+    {
+      "id": "cc-0010",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8400000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0011",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0012",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0013",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0014",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0015",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8300000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0016",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "exception",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0017",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8400000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0018",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.58,
+      "correct": true
+    },
+    {
+      "id": "cc-0019",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.38,
+      "correct": false
+    },
+    {
+      "id": "cc-0020",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.5700000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0021",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0022",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.77,
+      "correct": true
+    },
+    {
+      "id": "cc-0023",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.86,
+      "correct": true
+    },
+    {
+      "id": "cc-0024",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0025",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0026",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.86,
+      "correct": true
+    },
+    {
+      "id": "cc-0027",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0028",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "agree",
+      "confidence": 0.45999999999999996,
+      "correct": false
+    },
+    {
+      "id": "cc-0029",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.57,
+      "correct": false
+    },
+    {
+      "id": "cc-0030",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.54,
+      "correct": false
+    },
+    {
+      "id": "cc-0031",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "exception",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0032",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "exception",
+      "confidence": 0.49,
+      "correct": false
+    },
+    {
+      "id": "cc-0033",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0034",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0035",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0036",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.91,
+      "correct": true
+    },
+    {
+      "id": "cc-0037",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.51,
+      "correct": true
+    },
+    {
+      "id": "cc-0038",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8300000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0039",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0040",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0041",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0042",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0043",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "id": "cc-0044",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0045",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.48,
+      "correct": false
+    },
+    {
+      "id": "cc-0046",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0047",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8600000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0048",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.38,
+      "correct": false
+    },
+    {
+      "id": "cc-0049",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "exception",
+      "confidence": 0.38,
+      "correct": false
+    },
+    {
+      "id": "cc-0050",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0051",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.5,
+      "correct": false
+    },
+    {
+      "id": "cc-0052",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.77,
+      "correct": true
+    },
+    {
+      "id": "cc-0053",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.8099999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0054",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "id": "cc-0055",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8300000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0056",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.86,
+      "correct": true
+    },
+    {
+      "id": "cc-0057",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0058",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0059",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0060",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0061",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0062",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.79,
+      "correct": true
+    },
+    {
+      "id": "cc-0063",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.53,
+      "correct": true
+    },
+    {
+      "id": "cc-0064",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "exception",
+      "confidence": 0.47,
+      "correct": false
+    },
+    {
+      "id": "cc-0065",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0066",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "exception",
+      "confidence": 0.44999999999999996,
+      "correct": false
+    },
+    {
+      "id": "cc-0067",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0068",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.52,
+      "correct": false
+    },
+    {
+      "id": "cc-0069",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0070",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0071",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0072",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0073",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0074",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0075",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0076",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "agree",
+      "confidence": 0.5599999999999999,
+      "correct": false
+    },
+    {
+      "id": "cc-0077",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0078",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.58,
+      "correct": true
+    },
+    {
+      "id": "cc-0079",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.79,
+      "correct": true
+    },
+    {
+      "id": "cc-0080",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.77,
+      "correct": true
+    },
+    {
+      "id": "cc-0081",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.8099999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0082",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8300000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0083",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0084",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.5700000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0085",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.51,
+      "correct": true
+    },
+    {
+      "id": "cc-0086",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "exception",
+      "confidence": 0.39999999999999997,
+      "correct": false
+    },
+    {
+      "id": "cc-0087",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.86,
+      "correct": true
+    },
+    {
+      "id": "cc-0088",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.59,
+      "correct": true
+    },
+    {
+      "id": "cc-0089",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0090",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0091",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0092",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "contradict",
+      "confidence": 0.47,
+      "correct": false
+    },
+    {
+      "id": "cc-0093",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": false
+    },
+    {
+      "id": "cc-0094",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0095",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0096",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.51,
+      "correct": true
+    },
+    {
+      "id": "cc-0097",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0098",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "id": "cc-0099",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.51,
+      "correct": true
+    },
+    {
+      "id": "cc-0100",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0101",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0102",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "not_mentioned",
+      "confidence": 0.44999999999999996,
+      "correct": false
+    },
+    {
+      "id": "cc-0103",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0104",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.86,
+      "correct": true
+    },
+    {
+      "id": "cc-0105",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.83,
+      "correct": true
+    },
+    {
+      "id": "cc-0106",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.58,
+      "correct": true
+    },
+    {
+      "id": "cc-0107",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0108",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8400000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0109",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8500000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0110",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "not_mentioned",
+      "confidence": 0.59,
+      "correct": false
+    },
+    {
+      "id": "cc-0111",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.91,
+      "correct": true
+    },
+    {
+      "id": "cc-0112",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "agree",
+      "confidence": 0.48,
+      "correct": false
+    },
+    {
+      "id": "cc-0113",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0114",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0115",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "not_mentioned",
+      "confidence": 0.35,
+      "correct": false
+    },
+    {
+      "id": "cc-0116",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.76,
+      "correct": true
+    },
+    {
+      "id": "cc-0117",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0118",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0119",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.36,
+      "correct": false
+    },
+    {
+      "id": "cc-0120",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0121",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "agree",
+      "confidence": 0.37,
+      "correct": false
+    },
+    {
+      "id": "cc-0122",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0123",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.87,
+      "correct": true
+    },
+    {
+      "id": "cc-0124",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.47,
+      "correct": false
+    },
+    {
+      "id": "cc-0125",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0126",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "agree",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0127",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0128",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.52,
+      "correct": false
+    },
+    {
+      "id": "cc-0129",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0130",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8300000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0131",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.56,
+      "correct": true
+    },
+    {
+      "id": "cc-0132",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0133",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.8099999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0134",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8300000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0135",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.73,
+      "correct": true
+    },
+    {
+      "id": "cc-0136",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.7999999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0137",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0138",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.77,
+      "correct": true
+    },
+    {
+      "id": "cc-0139",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.72,
+      "correct": true
+    },
+    {
+      "id": "cc-0140",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0141",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0142",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0143",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0144",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0145",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "contradict",
+      "confidence": 0.38,
+      "correct": false
+    },
+    {
+      "id": "cc-0146",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.86,
+      "correct": true
+    },
+    {
+      "id": "cc-0147",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8500000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0148",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0149",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0150",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0151",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0152",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "not_mentioned",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0153",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0154",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0155",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "exception",
+      "confidence": 0.35,
+      "correct": false
+    },
+    {
+      "id": "cc-0156",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8400000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0157",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0158",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.8099999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0159",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.5599999999999999,
+      "correct": false
+    },
+    {
+      "id": "cc-0160",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0161",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "contradict",
+      "confidence": 0.5599999999999999,
+      "correct": false
+    },
+    {
+      "id": "cc-0162",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.87,
+      "correct": true
+    },
+    {
+      "id": "cc-0163",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "contradict",
+      "confidence": 0.52,
+      "correct": false
+    },
+    {
+      "id": "cc-0164",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0165",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0166",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.91,
+      "correct": true
+    },
+    {
+      "id": "cc-0167",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "contradict",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0168",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8500000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0169",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.5700000000000001,
+      "correct": false
+    },
+    {
+      "id": "cc-0170",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "agree",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0171",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8400000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0172",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0173",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "exception",
+      "confidence": 0.43999999999999995,
+      "correct": false
+    },
+    {
+      "id": "cc-0174",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8600000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0175",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8400000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0176",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0177",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0178",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0179",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0180",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.91,
+      "correct": true
+    },
+    {
+      "id": "cc-0181",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "contradict",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0182",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.77,
+      "correct": true
+    },
+    {
+      "id": "cc-0183",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0184",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.79,
+      "correct": true
+    },
+    {
+      "id": "cc-0185",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.52,
+      "correct": false
+    },
+    {
+      "id": "cc-0186",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0187",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0188",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.38999999999999996,
+      "correct": false
+    },
+    {
+      "id": "cc-0189",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.73,
+      "correct": true
+    },
+    {
+      "id": "cc-0190",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.36,
+      "correct": false
+    },
+    {
+      "id": "cc-0191",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.51,
+      "correct": true
+    },
+    {
+      "id": "cc-0192",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0193",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8700000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0194",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0195",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.91,
+      "correct": true
+    },
+    {
+      "id": "cc-0196",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.86,
+      "correct": true
+    },
+    {
+      "id": "cc-0197",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.5,
+      "correct": false
+    },
+    {
+      "id": "cc-0198",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.73,
+      "correct": true
+    },
+    {
+      "id": "cc-0199",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0200",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0201",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.45999999999999996,
+      "correct": false
+    },
+    {
+      "id": "cc-0202",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0203",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0204",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8500000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0205",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0206",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0207",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8500000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0208",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "id": "cc-0209",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0210",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "contradict",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0211",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0212",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0213",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "id": "cc-0214",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "contradict",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0215",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0216",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0217",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0218",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.51,
+      "correct": false
+    },
+    {
+      "id": "cc-0219",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8400000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0220",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0221",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "contradict",
+      "confidence": 0.35,
+      "correct": false
+    },
+    {
+      "id": "cc-0222",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8400000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0223",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.53,
+      "correct": true
+    },
+    {
+      "id": "cc-0224",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.48,
+      "correct": true
+    },
+    {
+      "id": "cc-0225",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.59,
+      "correct": false
+    },
+    {
+      "id": "cc-0226",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9199999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0227",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.83,
+      "correct": true
+    },
+    {
+      "id": "cc-0228",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0229",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0230",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0231",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "agree",
+      "confidence": 0.38999999999999996,
+      "correct": false
+    },
+    {
+      "id": "cc-0232",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.76,
+      "correct": true
+    },
+    {
+      "id": "cc-0233",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0234",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0235",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0236",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0237",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.5,
+      "correct": true
+    },
+    {
+      "id": "cc-0238",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.73,
+      "correct": true
+    },
+    {
+      "id": "cc-0239",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "not_mentioned",
+      "confidence": 0.38,
+      "correct": false
+    },
+    {
+      "id": "cc-0240",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0241",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.72,
+      "correct": true
+    },
+    {
+      "id": "cc-0242",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.5599999999999999,
+      "correct": false
+    },
+    {
+      "id": "cc-0243",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0244",
+      "source": "twin",
+      "editType": "modal",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0245",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.79,
+      "correct": true
+    },
+    {
+      "id": "cc-0246",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0247",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8200000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0248",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.58,
+      "correct": true
+    },
+    {
+      "id": "cc-0249",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.88,
+      "correct": true
+    },
+    {
+      "id": "cc-0250",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.8700000000000001,
+      "correct": true
+    },
+    {
+      "id": "cc-0251",
+      "source": "paraphrase",
+      "editType": "synonym",
+      "gold": "agree",
+      "pred": "agree",
+      "confidence": 0.89,
+      "correct": true
+    },
+    {
+      "id": "cc-0252",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.79,
+      "correct": true
+    },
+    {
+      "id": "cc-0253",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.76,
+      "correct": true
+    },
+    {
+      "id": "cc-0254",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "exception",
+      "confidence": 0.54,
+      "correct": false
+    },
+    {
+      "id": "cc-0255",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.76,
+      "correct": true
+    },
+    {
+      "id": "cc-0256",
+      "source": "twin",
+      "editType": "number",
+      "gold": "contradict",
+      "pred": "not_mentioned",
+      "confidence": 0.39999999999999997,
+      "correct": false
+    },
+    {
+      "id": "cc-0257",
+      "source": "twin",
+      "editType": "negation",
+      "gold": "contradict",
+      "pred": "contradict",
+      "confidence": 0.9299999999999999,
+      "correct": true
+    },
+    {
+      "id": "cc-0258",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.41,
+      "correct": false
+    },
+    {
+      "id": "cc-0259",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.41,
+      "correct": false
+    },
+    {
+      "id": "cc-0260",
+      "source": "unrelated",
+      "gold": "not_mentioned",
+      "pred": "not_mentioned",
+      "confidence": 0.55,
+      "correct": true
+    }
+  ]
+}

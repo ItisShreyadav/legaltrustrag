@@ -16,13 +16,58 @@ import type {
 import { structureDocument } from "@/lib/parse";
 import { typeClauses } from "@/lib/typing";
 import { ClauseIndex } from "@/lib/retrieval";
+import type { CandidatePair } from "@/lib/retrieval";
 import { checkRule, clamp01, judgePairs, mapWithConcurrency, wholeClauseQuote } from "@/lib/engine";
-import type { RuleCheck } from "@/lib/engine";
+import type { PairResult, RuleCheck } from "@/lib/engine";
 import { verifyFindings, INSUFFICIENT_EVIDENCE } from "@/lib/verify";
 import type { FindingDraft } from "@/lib/verify";
 import { buildReport } from "@/lib/report";
 
 type StageName = Exclude<ProgressEvent["stage"], "done" | "error">;
+
+/** Intermediate state exposed to evaluation code through `PipelineOptions.onTrace`. */
+export interface PipelineTrace {
+  /** Typed clauses of every document. */
+  clauses: Clause[];
+  /** Conflict candidate pairs sent to the NLI engine. */
+  pairs: CandidatePair[];
+  /** Every NLI result, including agree / not_mentioned and per-pair errors. */
+  judged: PairResult[];
+}
+
+/**
+ * Optional switches for evaluation and ablations. The app calls `runPipeline` without them,
+ * which keeps the default behaviour (full verification, default index, real Claude modules).
+ */
+export interface PipelineOptions {
+  /** false = plain-RAG baseline: skip the verifier, keep every finding, confidence = engine probability. Default true. */
+  verify?: boolean;
+  /** Retrieval toggles passed to `ClauseIndex.build` (dense embeddings, cross-encoder reranker). */
+  index?: { embed?: boolean; rerank?: boolean };
+  /** Replacement clause typer (same contract as `typeClauses`), e.g. a heuristic-only stub for dry runs. */
+  typeClauses?: typeof typeClauses;
+  /** Replacement NLI engine (same contract as `judgePairs`), e.g. a deterministic stub for dry runs. */
+  judgePairs?: typeof judgePairs;
+  /** Replacement verifier (same contract as `verifyFindings`), e.g. a deterministic stub for dry runs. */
+  verifyFindings?: typeof verifyFindings;
+  /** Called once, after verification, with the candidate pairs and raw NLI results. */
+  onTrace?: (trace: PipelineTrace) => void;
+}
+
+/** Baseline (verification off): the engine's finding as-is, never withheld. */
+function unverifiedFinding(d: FindingDraft): Finding {
+  return {
+    id: d.id,
+    kind: d.kind,
+    label: d.label,
+    clauseA: d.clauseA,
+    ...(d.clauseB ? { clauseB: d.clauseB } : {}),
+    ...(d.rule !== undefined ? { rule: d.rule } : {}),
+    explanation: d.explanation,
+    confidence: clamp01(d.probability),
+    verification: { checks: [], status: "unverified", retries: 0 },
+  };
+}
 
 const RULE_TOP_K = 8;
 
@@ -63,7 +108,11 @@ function evidenceSimilarity(check: RuleCheck, evidence: RetrievedClause[]): numb
   return clamp01(owner.score);
 }
 
-export async function runPipeline(req: AnalyzeRequest, onProgress: (e: ProgressEvent) => void): Promise<TrustReport> {
+export async function runPipeline(
+  req: AnalyzeRequest,
+  onProgress: (e: ProgressEvent) => void,
+  options: PipelineOptions = {},
+): Promise<TrustReport> {
   let lastPct = -1;
   let lastStage: StageName | null = null;
   const emit = (stage: StageName, message: string, pct: number, force = false) => {
@@ -92,7 +141,7 @@ export async function runPipeline(req: AnalyzeRequest, onProgress: (e: ProgressE
 
     // 2. Type (10-30).
     emit("typing", `Classifying ${clauses.length} clauses into CUAD categories`, 10, true);
-    clauses = await typeClauses(clauses, {
+    clauses = await (options.typeClauses ?? typeClauses)(clauses, {
       onProgress: (...args: unknown[]) => {
         const f = progressFraction(args);
         if (f !== null) emit("typing", `Classifying clauses (${Math.round(clamp01(f) * 100)}%)`, 10 + 20 * clamp01(f));
@@ -103,6 +152,7 @@ export async function runPipeline(req: AnalyzeRequest, onProgress: (e: ProgressE
     // 3. Index (30-45).
     emit("retrieval", "Building the hybrid clause index", 30, true);
     const index = await ClauseIndex.build(clauses, {
+      ...options.index,
       onProgress: (...args: unknown[]) => {
         const f = progressFraction(args);
         if (f !== null) emit("retrieval", `Indexing clauses (${Math.round(clamp01(f) * 100)}%)`, 30 + 15 * clamp01(f));
@@ -112,7 +162,7 @@ export async function runPipeline(req: AnalyzeRequest, onProgress: (e: ProgressE
     // 4a. Candidate pairs + NLI (45-65).
     const pairs = index.candidatePairs(maxPairs ? { maxPairs } : {});
     emit("conflict", `Comparing ${pairs.length} candidate clause pairs`, 45, true);
-    const judged = await judgePairs(
+    const judged = await (options.judgePairs ?? judgePairs)(
       pairs,
       { docs: docMap, clauseById },
       {
@@ -203,15 +253,22 @@ export async function runPipeline(req: AnalyzeRequest, onProgress: (e: ProgressE
     });
 
     // 5. Verification (75-95).
-    emit("verification", `Verifying ${drafts.length} finding${drafts.length === 1 ? "" : "s"}`, 75, true);
-    const verified = await verifyFindings(
-      drafts,
-      { docs: docMap, clauses: clauseById },
-      {
-        concurrency,
-        onProgress: (done, total) => emit("verification", `Verified ${done}/${total} findings`, 75 + (20 * done) / Math.max(1, total)),
-      },
-    );
+    let verified: Finding[];
+    if (options.verify === false) {
+      emit("verification", `Verification disabled (baseline): keeping ${drafts.length} unverified finding${drafts.length === 1 ? "" : "s"}`, 75, true);
+      verified = drafts.map(unverifiedFinding);
+    } else {
+      emit("verification", `Verifying ${drafts.length} finding${drafts.length === 1 ? "" : "s"}`, 75, true);
+      verified = await (options.verifyFindings ?? verifyFindings)(
+        drafts,
+        { docs: docMap, clauses: clauseById },
+        {
+          concurrency,
+          onProgress: (done, total) => emit("verification", `Verified ${done}/${total} findings`, 75 + (20 * done) / Math.max(1, total)),
+        },
+      );
+    }
+    options.onTrace?.({ clauses, pairs, judged });
     const byId = new Map(verified.map((f) => [f.id, f]));
 
     const compliance: ComplianceRow[] = ruleOutcomes.map((o, i) => {

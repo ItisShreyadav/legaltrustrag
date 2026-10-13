@@ -134,5 +134,12 @@ export interface AnalyzeRequest {
 /** Server-sent progress events for the UI. */
 export type ProgressEvent =
   | { stage: "structuring" | "typing" | "retrieval" | "conflict" | "verification" | "report"; message: string; pct: number }
-  | { stage: "done"; report: TrustReport }
+  | { stage: "done"; report: TrustReport; runId?: string } // runId: the saved run (/runs/[id]), when it was persisted
   | { stage: "error"; message: string };
+
+/** The signed-in user as exposed to pages, the header and /api/auth/*. Never includes the password hash. */
+export interface SessionUser {
+  id: string;
+  email: string;
+  name: string;
+}

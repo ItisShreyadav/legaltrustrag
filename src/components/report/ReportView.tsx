@@ -1,7 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo } from "react";
+import type { ReviewView } from "@/lib/review/types";
 import type { Finding, TrustReport } from "@/lib/types";
+import { FindingReview } from "../review/FindingReview";
+import { ReviewProvider, useReviews } from "../review/ReviewProvider";
+import { shortRunId } from "../runs/format";
 import { ComplianceTable } from "./ComplianceTable";
 import { FindingCard, type DocLookup } from "./FindingCard";
 import { SummaryCards } from "./SummaryCards";
@@ -14,12 +19,20 @@ interface Props {
   docTexts?: Record<string, string>;
   /** Section number the report sits under, e.g. "3" gives subsections 3.1, 3.2 … */
   sectionNumber?: string;
+  /** Id of the saved run. Enables the human-review controls and adds the reviews to the JSON export. */
+  runId?: string;
+  /** The run's review rows as stored, when re-opening a saved run. */
+  reviews?: ReviewView[];
 }
 
 const STATUS_RANK: Record<Finding["verification"]["status"], number> = { verified: 0, unverified: 1, withheld: 2 };
 
-function downloadJson(report: TrustReport) {
-  const blob = new Blob([JSON.stringify(report, null, 2)], { type: "application/json" });
+/** The report as JSON; for a saved run also its id and every human review row (with reviewer and time). */
+function downloadJson(report: TrustReport, runId?: string, reviews?: readonly ReviewView[]) {
+  const payload = runId
+    ? { ...report, runId, reviews: [...(reviews ?? [])].sort((a, b) => a.createdAt.localeCompare(b.createdAt)) }
+    : report;
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   const stamp = report.generatedAt.replace(/[:.]/g, "-").slice(0, 19);
@@ -41,7 +54,36 @@ function Lede({ children }: { children: React.ReactNode }) {
   return <p className="mt-2 mb-5 max-w-[68ch] text-[1.0625rem] leading-[1.6] text-muted">{children}</p>;
 }
 
-export function ReportView({ report, docTexts, sectionNumber = "3" }: Props) {
+function ExportButton({ report, runId }: { report: TrustReport; runId?: string }) {
+  const reviews = useReviews();
+  return (
+    <button
+      type="button"
+      onClick={() => downloadJson(report, runId, reviews?.reviews)}
+      className="link font-serif text-[0.9375rem] text-ink"
+    >
+      Export JSON
+    </button>
+  );
+}
+
+const NO_REVIEWS: ReviewView[] = [];
+
+export function ReportView(props: Props) {
+  if (!props.runId) return <ReportBody {...props} />;
+  return (
+    <ReviewProvider key={props.runId} runId={props.runId} initial={props.reviews ?? NO_REVIEWS}>
+      <ReportBody {...props} />
+    </ReviewProvider>
+  );
+}
+
+function reviewControl(finding: Finding) {
+  return <FindingReview findingId={finding.id} />;
+}
+
+function ReportBody({ report, docTexts, sectionNumber = "3", runId }: Props) {
+  const review = runId ? reviewControl : undefined;
   const docs = useMemo<DocLookup>(() => {
     const names = new Map(report.documents.map((d) => [d.id, d.name]));
     return {
@@ -74,10 +116,19 @@ export function ReportView({ report, docTexts, sectionNumber = "3" }: Props) {
             ·
           </span>
           generated {formatGeneratedAt(report.generatedAt)}
+          {runId ? (
+            <>
+              <span aria-hidden="true" className="px-[0.6ch]">
+                ·
+              </span>
+              saved as run{" "}
+              <Link href={`/runs/${runId}`} className="link text-ink" title={runId}>
+                {shortRunId(runId)}
+              </Link>
+            </>
+          ) : null}
         </p>
-        <button type="button" onClick={() => downloadJson(report)} className="link font-serif text-[0.9375rem] text-ink">
-          Export JSON
-        </button>
+        <ExportButton report={report} runId={runId} />
       </div>
 
       <section aria-labelledby="summary-heading">
@@ -98,11 +149,12 @@ export function ReportView({ report, docTexts, sectionNumber = "3" }: Props) {
         <Lede>
           Clause pairs that contradict one another or carve out an exception. The underlined words are the exact quote
           the verifier checked against the source.
+          {runId ? " Any finding can be sent to a human reviewer; the system never decides on its own." : null}
         </Lede>
         {conflicts.length > 0 ? (
           <div className="border-b border-rule">
             {conflicts.map((f, i) => (
-              <FindingCard key={f.id} finding={f} index={i} docs={docs} />
+              <FindingCard key={f.id} finding={f} index={i} docs={docs} footer={review?.(f)} />
             ))}
           </div>
         ) : (
@@ -120,7 +172,7 @@ export function ReportView({ report, docTexts, sectionNumber = "3" }: Props) {
         />
         <Lede>Each rule you supplied, checked against the documents.</Lede>
         {report.compliance.length > 0 ? (
-          <ComplianceTable rows={report.compliance} docs={docs} />
+          <ComplianceTable rows={report.compliance} docs={docs} review={review} />
         ) : (
           <p className="border-y border-rule py-5 text-muted italic">No compliance rules were supplied for this run.</p>
         )}
@@ -139,7 +191,7 @@ export function ReportView({ report, docTexts, sectionNumber = "3" }: Props) {
           here so the abstention can be checked.
         </Lede>
         {report.withheld.length > 0 ? (
-          <WithheldList findings={report.withheld} docs={docs} />
+          <WithheldList findings={report.withheld} docs={docs} review={review} />
         ) : (
           <p className="border-y border-rule py-5 text-muted italic">Nothing was withheld.</p>
         )}

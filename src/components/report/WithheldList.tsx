@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Finding, Quote } from "@/lib/types";
 import type { DocLookup } from "./FindingCard";
 import { quoteMatches } from "./context";
@@ -17,8 +18,19 @@ function joinWords(words: string[]): string {
   return `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`;
 }
 
-/** Findings that failed verification. Shown for transparency, never as results. */
-export function WithheldList({ findings, docs }: { findings: Finding[]; docs: DocLookup }) {
+/**
+ * Findings that failed verification. Shown for transparency, never as results.
+ * `review` renders the human-review control: a lawyer may want to check what the system declined to say.
+ */
+export function WithheldList({
+  findings,
+  docs,
+  review,
+}: {
+  findings: Finding[];
+  docs: DocLookup;
+  review?: (finding: Finding) => ReactNode;
+}) {
   return (
     <ol className="border-t border-rule">
       {findings.map((f, n) => {
@@ -60,6 +72,7 @@ export function WithheldList({ findings, docs }: { findings: Finding[]; docs: Do
               <div className="mt-3">
                 <VerificationDetails verification={f.verification} />
               </div>
+              {review ? <div className="mt-3">{review(f)}</div> : null}
             </div>
           </li>
         );

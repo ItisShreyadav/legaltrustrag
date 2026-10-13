@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { AnalyzeApp } from "@/components/AnalyzeApp";
+import { requireUser } from "@/lib/auth";
 
 function AppFallback() {
   return (
@@ -7,6 +8,12 @@ function AppFallback() {
       <p className="font-mono text-xs text-muted">Loading&hellip;</p>
     </div>
   );
+}
+
+/** Validates the session (the proxy only checks that the cookie exists); redirects to /login otherwise. */
+async function SignedInApp() {
+  await requireUser("/");
+  return <AnalyzeApp />;
 }
 
 export default function Home() {
@@ -22,7 +29,7 @@ export default function Home() {
         </p>
       </div>
       <Suspense fallback={<AppFallback />}>
-        <AnalyzeApp />
+        <SignedInApp />
       </Suspense>
     </div>
   );

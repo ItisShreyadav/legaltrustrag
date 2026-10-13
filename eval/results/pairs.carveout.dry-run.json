@@ -1,0 +1,744 @@
+{
+  "meta": {
+    "timestamp": "2026-10-13T19:23:20.570Z",
+    "gitSha": "111a95b5b618b8a81664ead1d68395aa62dcdd5c",
+    "gitDirty": true,
+    "node": "v22.22.0",
+    "model": "claude-sonnet-5-5",
+    "hasApiKey": false,
+    "env": {}
+  },
+  "dryRun": true,
+  "limit": null,
+  "n": 52,
+  "judged": 52,
+  "errors": 0,
+  "subset": "carveout",
+  "report": {
+    "labels": [
+      "contradict",
+      "exception",
+      "agree",
+      "not_mentioned"
+    ],
+    "n": 52,
+    "accuracy": 0.5961538461538461,
+    "macroF1": 0.7469879518072289,
+    "perLabel": [
+      {
+        "label": "contradict",
+        "support": 0,
+        "predicted": 6,
+        "tp": 0,
+        "precision": 0,
+        "recall": null,
+        "f1": null
+      },
+      {
+        "label": "exception",
+        "support": 52,
+        "predicted": 31,
+        "tp": 31,
+        "precision": 1,
+        "recall": 0.5961538461538461,
+        "f1": 0.7469879518072289
+      },
+      {
+        "label": "agree",
+        "support": 0,
+        "predicted": 3,
+        "tp": 0,
+        "precision": 0,
+        "recall": null,
+        "f1": null
+      },
+      {
+        "label": "not_mentioned",
+        "support": 0,
+        "predicted": 12,
+        "tp": 0,
+        "precision": 0,
+        "recall": null,
+        "f1": null
+      }
+    ],
+    "confusion": {
+      "contradict": {
+        "contradict": 0,
+        "exception": 0,
+        "agree": 0,
+        "not_mentioned": 0
+      },
+      "exception": {
+        "contradict": 6,
+        "exception": 31,
+        "agree": 3,
+        "not_mentioned": 12
+      },
+      "agree": {
+        "contradict": 0,
+        "exception": 0,
+        "agree": 0,
+        "not_mentioned": 0
+      },
+      "not_mentioned": {
+        "contradict": 0,
+        "exception": 0,
+        "agree": 0,
+        "not_mentioned": 0
+      }
+    }
+  },
+  "contradictionF1": null,
+  "conflictDetection": {
+    "precision": 1,
+    "recall": 0.7115384615384616,
+    "f1": 0.8314606741573033
+  },
+  "bySource": {
+    "carveout": {
+      "n": 52,
+      "accuracy": 0.5961538461538461
+    }
+  },
+  "curve": [
+    {
+      "threshold": 0,
+      "kept": 52,
+      "total": 52,
+      "correct": 31,
+      "coverage": 1,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "threshold": 0.05,
+      "kept": 52,
+      "total": 52,
+      "correct": 31,
+      "coverage": 1,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "threshold": 0.1,
+      "kept": 52,
+      "total": 52,
+      "correct": 31,
+      "coverage": 1,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "threshold": 0.15,
+      "kept": 52,
+      "total": 52,
+      "correct": 31,
+      "coverage": 1,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "threshold": 0.2,
+      "kept": 52,
+      "total": 52,
+      "correct": 31,
+      "coverage": 1,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "threshold": 0.25,
+      "kept": 52,
+      "total": 52,
+      "correct": 31,
+      "coverage": 1,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "threshold": 0.3,
+      "kept": 52,
+      "total": 52,
+      "correct": 31,
+      "coverage": 1,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "threshold": 0.35,
+      "kept": 52,
+      "total": 52,
+      "correct": 31,
+      "coverage": 1,
+      "accuracy": 0.5961538461538461
+    },
+    {
+      "threshold": 0.4,
+      "kept": 49,
+      "total": 52,
+      "correct": 31,
+      "coverage": 0.9423076923076923,
+      "accuracy": 0.6326530612244898
+    },
+    {
+      "threshold": 0.45,
+      "kept": 45,
+      "total": 52,
+      "correct": 31,
+      "coverage": 0.8653846153846154,
+      "accuracy": 0.6888888888888889
+    },
+    {
+      "threshold": 0.5,
+      "kept": 42,
+      "total": 52,
+      "correct": 30,
+      "coverage": 0.8076923076923077,
+      "accuracy": 0.7142857142857143
+    },
+    {
+      "threshold": 0.55,
+      "kept": 35,
+      "total": 52,
+      "correct": 30,
+      "coverage": 0.6730769230769231,
+      "accuracy": 0.8571428571428571
+    },
+    {
+      "threshold": 0.6,
+      "kept": 29,
+      "total": 52,
+      "correct": 29,
+      "coverage": 0.5576923076923077,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.65,
+      "kept": 29,
+      "total": 52,
+      "correct": 29,
+      "coverage": 0.5576923076923077,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.7,
+      "kept": 29,
+      "total": 52,
+      "correct": 29,
+      "coverage": 0.5576923076923077,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.75,
+      "kept": 25,
+      "total": 52,
+      "correct": 25,
+      "coverage": 0.4807692307692308,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.8,
+      "kept": 15,
+      "total": 52,
+      "correct": 15,
+      "coverage": 0.28846153846153844,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.85,
+      "kept": 0,
+      "total": 52,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    },
+    {
+      "threshold": 0.9,
+      "kept": 0,
+      "total": 52,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    },
+    {
+      "threshold": 0.95,
+      "kept": 0,
+      "total": 52,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    },
+    {
+      "threshold": 1,
+      "kept": 0,
+      "total": 52,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    }
+  ],
+  "predictions": [
+    {
+      "id": "cc-0006",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.37,
+      "correct": false
+    },
+    {
+      "id": "cc-0011",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0021",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0022",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.77,
+      "correct": true
+    },
+    {
+      "id": "cc-0025",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0030",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.54,
+      "correct": false
+    },
+    {
+      "id": "cc-0033",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0034",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0043",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "id": "cc-0045",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.48,
+      "correct": false
+    },
+    {
+      "id": "cc-0046",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0051",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.5,
+      "correct": false
+    },
+    {
+      "id": "cc-0054",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "id": "cc-0067",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0068",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.52,
+      "correct": false
+    },
+    {
+      "id": "cc-0073",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0077",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0079",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.79,
+      "correct": true
+    },
+    {
+      "id": "cc-0080",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.77,
+      "correct": true
+    },
+    {
+      "id": "cc-0089",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0098",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "id": "cc-0100",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0105",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.83,
+      "correct": true
+    },
+    {
+      "id": "cc-0106",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.58,
+      "correct": true
+    },
+    {
+      "id": "cc-0112",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "agree",
+      "confidence": 0.48,
+      "correct": false
+    },
+    {
+      "id": "cc-0116",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.76,
+      "correct": true
+    },
+    {
+      "id": "cc-0126",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "agree",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0128",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.52,
+      "correct": false
+    },
+    {
+      "id": "cc-0137",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0142",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0148",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0154",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0169",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.5700000000000001,
+      "correct": false
+    },
+    {
+      "id": "cc-0179",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0185",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.52,
+      "correct": false
+    },
+    {
+      "id": "cc-0190",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.36,
+      "correct": false
+    },
+    {
+      "id": "cc-0197",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.5,
+      "correct": false
+    },
+    {
+      "id": "cc-0199",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0206",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0215",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0216",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0217",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0218",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.51,
+      "correct": false
+    },
+    {
+      "id": "cc-0224",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.48,
+      "correct": true
+    },
+    {
+      "id": "cc-0225",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.59,
+      "correct": false
+    },
+    {
+      "id": "cc-0227",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.83,
+      "correct": true
+    },
+    {
+      "id": "cc-0230",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0231",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "agree",
+      "confidence": 0.38999999999999996,
+      "correct": false
+    },
+    {
+      "id": "cc-0242",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.5599999999999999,
+      "correct": false
+    },
+    {
+      "id": "cc-0255",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.76,
+      "correct": true
+    },
+    {
+      "id": "cc-0258",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.41,
+      "correct": false
+    },
+    {
+      "id": "cc-0259",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.41,
+      "correct": false
+    }
+  ]
+}

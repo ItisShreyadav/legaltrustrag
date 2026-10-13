@@ -11,6 +11,8 @@ Six-stage pipeline, all TypeScript, runs in Next.js route handlers (Node runtime
 5. `src/lib/verify/`  – relevance gate, exact quote check (string equality at offsets), support check, conflict check, retry, confidence, abstain.
 6. `src/lib/report/`  – assemble TrustReport.
 UI: `src/app/` (upload, rules textarea, live progress via SSE, report view). API: `src/app/api/analyze/route.ts`.
+Auth: `src/lib/auth/` (email + password, scrypt hashes, opaque `ltr_session` cookie, users/sessions in `node:sqlite` at `LTR_DB_PATH` or `data/ltr.sqlite`); routes `src/app/api/auth/{signup,login,logout,me,expired}`, pages `/login` and `/signup`.
+`src/proxy.ts` only checks the cookie exists; pages call `requireUser()` and API routes call `getSessionUser()` to validate it. Client code and the proxy import `@/lib/auth/constants`, never `@/lib/auth` (it loads sqlite).
 
 ## Rules
 - All shared shapes live in `src/lib/types.ts`. Import from there; never redefine.

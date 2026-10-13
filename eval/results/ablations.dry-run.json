@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "timestamp": "2026-10-13T19:23:20.570Z",
+    "gitSha": "111a95b5b618b8a81664ead1d68395aa62dcdd5c",
+    "gitDirty": true,
+    "node": "v22.22.0",
+    "model": "claude-sonnet-5-5",
+    "hasApiKey": false,
+    "env": {}
+  },
+  "dryRun": true,
+  "cases": 20,
+  "rows": [
+    {
+      "model": "stub",
+      "embed": false,
+      "rerank": false,
+      "verify": false,
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 78,
+        "surfaced": 78,
+        "withheld": 0,
+        "correctSurfaced": 24,
+        "precision": 0.3076923076923077,
+        "recall": 0.48,
+        "f1": 0.37500000000000006,
+        "retrievalRecall": 0.78,
+        "groundedRate": 0.9358974358974359,
+        "citationPrecision": 0.2948717948717949,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8174603174603174,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 11,
+          "reasoning_failure": 65,
+          "invented": 4
+        }
+      },
+      "seconds": 0.025
+    },
+    {
+      "model": "stub",
+      "embed": false,
+      "rerank": false,
+      "verify": true,
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 78,
+        "surfaced": 35,
+        "withheld": 43,
+        "correctSurfaced": 18,
+        "precision": 0.5142857142857142,
+        "recall": 0.36,
+        "f1": 0.4235294117647058,
+        "retrievalRecall": 0.78,
+        "groundedRate": 1,
+        "citationPrecision": 0.5142857142857142,
+        "abstainRate": 0.5512820512820513,
+        "answeredAccuracy": 0.9044776119402985,
+        "abstainedCorrect": 6,
+        "errors": {
+          "search_failure": 11,
+          "reasoning_failure": 36,
+          "invented": 2
+        }
+      },
+      "seconds": 0.027
+    },
+    {
+      "model": "stub",
+      "embed": false,
+      "rerank": true,
+      "verify": false,
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 78,
+        "surfaced": 78,
+        "withheld": 0,
+        "correctSurfaced": 24,
+        "precision": 0.3076923076923077,
+        "recall": 0.48,
+        "f1": 0.37500000000000006,
+        "retrievalRecall": 0.78,
+        "groundedRate": 0.9358974358974359,
+        "citationPrecision": 0.2948717948717949,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8174603174603174,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 11,
+          "reasoning_failure": 65,
+          "invented": 4
+        }
+      },
+      "seconds": 0.024
+    },
+    {
+      "model": "stub",
+      "embed": false,
+      "rerank": true,
+      "verify": true,
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 78,
+        "surfaced": 35,
+        "withheld": 43,
+        "correctSurfaced": 18,
+        "precision": 0.5142857142857142,
+        "recall": 0.36,
+        "f1": 0.4235294117647058,
+        "retrievalRecall": 0.78,
+        "groundedRate": 1,
+        "citationPrecision": 0.5142857142857142,
+        "abstainRate": 0.5512820512820513,
+        "answeredAccuracy": 0.9044776119402985,
+        "abstainedCorrect": 6,
+        "errors": {
+          "search_failure": 11,
+          "reasoning_failure": 36,
+          "invented": 2
+        }
+      },
+      "seconds": 0.024
+    },
+    {
+      "model": "stub",
+      "embed": true,
+      "rerank": false,
+      "verify": false,
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 75,
+        "surfaced": 75,
+        "withheld": 0,
+        "correctSurfaced": 20,
+        "precision": 0.26666666666666666,
+        "recall": 0.4,
+        "f1": 0.32,
+        "retrievalRecall": 0.68,
+        "groundedRate": 0.9466666666666667,
+        "citationPrecision": 0.26666666666666666,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8217054263565892,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 16,
+          "reasoning_failure": 65,
+          "invented": 4
+        }
+      },
+      "seconds": 0.024
+    },
+    {
+      "model": "stub",
+      "embed": true,
+      "rerank": false,
+      "verify": true,
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 75,
+        "surfaced": 37,
+        "withheld": 38,
+        "correctSurfaced": 16,
+        "precision": 0.43243243243243246,
+        "recall": 0.32,
+        "f1": 0.36781609195402293,
+        "retrievalRecall": 0.68,
+        "groundedRate": 1,
+        "citationPrecision": 0.43243243243243246,
+        "abstainRate": 0.5066666666666667,
+        "answeredAccuracy": 0.8997134670487106,
+        "abstainedCorrect": 4,
+        "errors": {
+          "search_failure": 16,
+          "reasoning_failure": 36,
+          "invented": 3
+        }
+      },
+      "seconds": 0.026
+    },
+    {
+      "model": "stub",
+      "embed": true,
+      "rerank": true,
+      "verify": false,
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 75,
+        "surfaced": 75,
+        "withheld": 0,
+        "correctSurfaced": 20,
+        "precision": 0.26666666666666666,
+        "recall": 0.4,
+        "f1": 0.32,
+        "retrievalRecall": 0.68,
+        "groundedRate": 0.9466666666666667,
+        "citationPrecision": 0.26666666666666666,
+        "abstainRate": 0,
+        "answeredAccuracy": 0.8217054263565892,
+        "abstainedCorrect": 0,
+        "errors": {
+          "search_failure": 16,
+          "reasoning_failure": 65,
+          "invented": 4
+        }
+      },
+      "seconds": 0.023
+    },
+    {
+      "model": "stub",
+      "embed": true,
+      "rerank": true,
+      "verify": true,
+      "summary": {
+        "cases": 20,
+        "caseErrors": 0,
+        "gold": 50,
+        "findings": 75,
+        "surfaced": 37,
+        "withheld": 38,
+        "correctSurfaced": 16,
+        "precision": 0.43243243243243246,
+        "recall": 0.32,
+        "f1": 0.36781609195402293,
+        "retrievalRecall": 0.68,
+        "groundedRate": 1,
+        "citationPrecision": 0.43243243243243246,
+        "abstainRate": 0.5066666666666667,
+        "answeredAccuracy": 0.8997134670487106,
+        "abstainedCorrect": 4,
+        "errors": {
+          "search_failure": 16,
+          "reasoning_failure": 36,
+          "invented": 3
+        }
+      },
+      "seconds": 0.026
+    }
+  ]
+}

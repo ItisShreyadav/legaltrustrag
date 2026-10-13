@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local SQLite database (auth)
+/data/
+
+# legal reranker training (training/README.md): venv, downloaded data, checkpoints, bytecode
+/training/.venv/
+/training/data/
+/training/out/
+__pycache__/
+# exported ONNX rerankers (~1.4 GB; regenerate with training/export_onnx.py or unzip the Colab artifact)
+/public/models/
+
+# evaluation (eval/README.md): downloaded datasets, per-query dumps, logs
+/eval/data/raw/
+/eval/results/*.jsonl
+/eval/results/*.log

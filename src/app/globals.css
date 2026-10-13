@@ -83,6 +83,15 @@
   summary::-webkit-details-marker {
     display: none;
   }
+
+  /* Keep autofilled fields on paper instead of the browser's tinted fill. */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--ink);
+    -webkit-box-shadow: 0 0 0 1000px var(--paper) inset;
+    caret-color: var(--ink);
+  }
 }
 
 @utility smallcaps {

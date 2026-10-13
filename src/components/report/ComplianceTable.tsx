@@ -1,10 +1,19 @@
-import type { ComplianceRow } from "@/lib/types";
+import type { ReactNode } from "react";
+import type { ComplianceRow, Finding } from "@/lib/types";
 import type { DocLookup } from "./FindingCard";
 import { QuoteRef } from "./QuotePanel";
 import { ComplianceText, Confidence, Sep, StatusText } from "./ui";
 
-/** Hairline table; stacks into ruled blocks below 768px. */
-export function ComplianceTable({ rows, docs }: { rows: ComplianceRow[]; docs: DocLookup }) {
+/** Hairline table; stacks into ruled blocks below 768px. `review` renders the human-review control for a row's finding. */
+export function ComplianceTable({
+  rows,
+  docs,
+  review,
+}: {
+  rows: ComplianceRow[];
+  docs: DocLookup;
+  review?: (finding: Finding) => ReactNode;
+}) {
   return (
     <table className="block w-full border-collapse text-left md:table">
       <caption className="sr-only">Compliance matrix: each rule, its status and the evidence quote</caption>
@@ -60,6 +69,7 @@ export function ComplianceTable({ rows, docs }: { rows: ComplianceRow[]; docs: D
                     {f.explanation ? (
                       <p className="mt-2 text-[0.9375rem] leading-[1.55] text-muted">{f.explanation}</p>
                     ) : null}
+                    {review ? <div className="mt-3">{review(f)}</div> : null}
                   </div>
                 ) : (
                   <p className="text-[0.9375rem] text-muted italic">No clause in the uploaded documents addresses this rule.</p>

@@ -6,7 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "eval:dataset": "tsx scripts/build-dataset.ts",
+    "eval:review": "tsx scripts/review-sample.ts",
+    "eval:agreement": "tsx scripts/review-agreement.ts",
+    "eval:retrieval": "tsx scripts/eval-retrieval.ts",
+    "eval:pairs": "tsx scripts/eval-pairs.ts",
+    "eval:e2e": "tsx scripts/eval-e2e.ts",
+    "eval:curve": "tsx scripts/eval-curve.ts",
+    "eval:ablate": "tsx scripts/eval-ablate.ts",
+    "eval:all": "tsx scripts/eval-all.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.133.0",
@@ -26,6 +35,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

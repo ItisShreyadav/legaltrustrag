@@ -6,7 +6,20 @@
  */
 
 export const EMBED_MODEL = "Xenova/bge-small-en-v1.5";
-export const RERANK_MODEL = "Xenova/bge-reranker-base";
+/** Stock cross-encoder (ONNX port of BAAI/bge-reranker-base), fetched from the HF Hub / local HF cache. */
+export const DEFAULT_RERANK_MODEL = "Xenova/bge-reranker-base";
+
+/**
+ * Reranker in use, resolved at runtime from the environment (re-resolved on every (re)load):
+ *  - `LTR_RERANK_MODEL`: a Hugging Face model id (default `Xenova/bge-reranker-base`) or a local
+ *    model directory, absolute or relative to the working directory, e.g. `public/models/legal-reranker`
+ *    as written by `training/export_onnx.py` (config.json, tokenizer.json, onnx/model_quantized.onnx).
+ *  - `LTR_LOCAL_MODELS_DIR`: optional folder of local models; when `<dir>/<LTR_RERANK_MODEL>/config.json`
+ *    exists the reranker is loaded from there instead of the Hub.
+ * Local models load with remote downloads disabled, so a missing file fails loudly instead of
+ * silently fetching a different model.
+ */
+export let RERANK_MODEL: string = rerankModelName();
 
 /** bge v1.5 retrieval instruction for short queries (passages are embedded as-is). */
 const QUERY_INSTRUCTION = "Represent this sentence for searching relevant passages: ";
@@ -17,6 +30,9 @@ const MAX_MODEL_CHARS = 2000;
 type DType = "fp32" | "fp16" | "q8" | "int8" | "uint8" | "q4";
 function envVar(name: string): string | undefined {
   return typeof process !== "undefined" ? process.env?.[name] : undefined;
+}
+function rerankModelName(): string {
+  return envVar("LTR_RERANK_MODEL")?.trim() || DEFAULT_RERANK_MODEL;
 }
 /** fp32 (~133MB) for the embedder; q8 (~280MB vs 1.1GB fp32) for the reranker. Overridable. */
 const embedDtype = (): DType => (envVar("LTR_EMBED_DTYPE") as DType | undefined) ?? "fp32";
@@ -78,15 +94,75 @@ async function loadTransformers() {
   return mod;
 }
 
+interface RerankSource {
+  /** What the user configured (LTR_RERANK_MODEL or the default). */
+  name: string;
+  /** Id handed to from_pretrained (relative to `localRoot` when loading from disk). */
+  modelId: string;
+  /** Absolute folder that transformers.js must use as `env.localModelPath`; undefined = Hub. */
+  localRoot?: string;
+}
+
+/** Map LTR_RERANK_MODEL / LTR_LOCAL_MODELS_DIR onto a Hub id or a local model folder. */
+async function resolveRerankSource(): Promise<RerankSource> {
+  const name = rerankModelName();
+  const fs = await import("node:fs");
+  const path = await import("node:path");
+  const isModelDir = (dir: string) => fs.existsSync(path.join(dir, "config.json"));
+  const localDir = envVar("LTR_LOCAL_MODELS_DIR")?.trim();
+  if (localDir) {
+    const root = path.resolve(localDir);
+    if (isModelDir(path.join(root, name))) return { name, modelId: name, localRoot: root };
+  }
+  const dir = path.resolve(name);
+  if (isModelDir(dir)) return { name, modelId: path.basename(dir), localRoot: path.dirname(dir) };
+  if (path.isAbsolute(name) || name.startsWith(".") || name.split(/[\\/]/).length > 2) {
+    throw new Error(`LTR_RERANK_MODEL=${name} is not a model directory (no config.json at ${dir})`);
+  }
+  return { name, modelId: name };
+}
+
+type TransformersEnv = Awaited<ReturnType<typeof loadTransformers>>["env"];
+let modelLoadLock: Promise<unknown> = Promise.resolve();
+
+/**
+ * Serialise model loads. transformers.js keeps `localModelPath` / `allowRemoteModels` on a global
+ * `env`, so a local-folder load points them at that folder (remote off) and restores them afterwards;
+ * the lock keeps a concurrent Hub load (e.g. the embedder) from running with remote models disabled.
+ */
+function withModelEnv<T>(env: TransformersEnv, localRoot: string | undefined, load: () => Promise<T>): Promise<T> {
+  const run = async (): Promise<T> => {
+    if (!localRoot) return load();
+    const saved = {
+      localModelPath: env.localModelPath,
+      allowLocalModels: env.allowLocalModels,
+      allowRemoteModels: env.allowRemoteModels,
+    };
+    env.localModelPath = localRoot;
+    env.allowLocalModels = true;
+    env.allowRemoteModels = false;
+    try {
+      return await load();
+    } finally {
+      Object.assign(env, saved);
+    }
+  };
+  const result = modelLoadLock.then(run, run);
+  modelLoadLock = result.catch(() => undefined);
+  return result;
+}
+
 function getEmbedder(): Promise<Embedder> {
   if (!embedderPromise) {
     embedderPromise = (async () => {
-      const { pipeline } = await loadTransformers();
-      const pipe = await (pipeline as unknown as (
-        task: string,
-        model: string,
-        opts: Record<string, unknown>,
-      ) => Promise<Embedder>)("feature-extraction", EMBED_MODEL, { dtype: embedDtype() });
+      const { pipeline, env } = await loadTransformers();
+      const pipe = await withModelEnv(env, undefined, () =>
+        (pipeline as unknown as (
+          task: string,
+          model: string,
+          opts: Record<string, unknown>,
+        ) => Promise<Embedder>)("feature-extraction", EMBED_MODEL, { dtype: embedDtype() }),
+      );
       return pipe;
     })();
     // Allow a retry on the next call if loading failed (e.g. transient network error).
@@ -100,11 +176,22 @@ function getEmbedder(): Promise<Embedder> {
 function getReranker(): Promise<{ tokenizer: Tokenizer; model: SeqClassifier }> {
   if (!rerankerPromise) {
     rerankerPromise = (async () => {
-      const { AutoTokenizer, AutoModelForSequenceClassification } = await loadTransformers();
-      const [tokenizer, model] = await Promise.all([
-        AutoTokenizer.from_pretrained(RERANK_MODEL),
-        AutoModelForSequenceClassification.from_pretrained(RERANK_MODEL, { dtype: rerankDtype() }),
-      ]);
+      const { AutoTokenizer, AutoModelForSequenceClassification, env } = await loadTransformers();
+      const src = await resolveRerankSource();
+      RERANK_MODEL = src.name;
+      const dtype = rerankDtype();
+      const opts = src.localRoot ? { local_files_only: true } : {};
+      const [tokenizer, model] = await withModelEnv(env, src.localRoot, () =>
+        Promise.all([
+          AutoTokenizer.from_pretrained(src.modelId, opts),
+          AutoModelForSequenceClassification.from_pretrained(src.modelId, { ...opts, dtype }),
+        ]),
+      );
+      console.info(
+        `[retrieval] reranker loaded: ${src.name} (${
+          src.localRoot ? `local ${src.localRoot}/${src.modelId}` : "Hugging Face Hub / cache"
+        }, dtype ${dtype})`,
+      );
       return {
         tokenizer: tokenizer as unknown as Tokenizer,
         model: model as unknown as SeqClassifier,
@@ -252,7 +339,8 @@ export function cosine(a: Float32Array, b: Float32Array): number {
 
 /**
  * Drop all cached embeddings and release the model singletons.
- * The next dense/rerank call reloads the models (from the on-disk HF cache).
+ * The next dense/rerank call reloads the models (from the on-disk HF cache), re-reading
+ * LTR_RERANK_MODEL / LTR_LOCAL_MODELS_DIR, so a process can switch rerankers (e.g. for ablations).
  */
 export async function clearModelCache(): Promise<void> {
   clauseEmbeddingCache.clear();
@@ -264,6 +352,7 @@ export async function clearModelCache(): Promise<void> {
   rerankerFailed = false;
   rerankerWarned = false;
   embedderWarned = false;
+  RERANK_MODEL = rerankModelName();
   await Promise.allSettled([
     e?.then((p) => p.dispose?.()),
     r?.then(({ model }) => model.dispose?.()),

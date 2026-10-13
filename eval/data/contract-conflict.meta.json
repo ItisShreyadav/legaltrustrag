@@ -1,0 +1,30 @@
+{
+  "seed": "contract-conflict-v1",
+  "total": 260,
+  "byLabel": {
+    "agree": 65,
+    "contradict": 91,
+    "exception": 52,
+    "not_mentioned": 52
+  },
+  "bySource": {
+    "paraphrase": 65,
+    "twin": 91,
+    "carveout": 52,
+    "unrelated": 52
+  },
+  "byEditType": {
+    "paraphrase:synonym": 64,
+    "twin:negation": 19,
+    "twin:modal": 35,
+    "carveout:specific": 52,
+    "paraphrase:synonym+reorder": 1,
+    "twin:number": 37
+  },
+  "categories": 37,
+  "contracts": 221,
+  "poolSize": 7378,
+  "source": "CUAD v1 (CUADv1.json, https://github.com/TheAtticusProject/cuad)",
+  "builtAt": "2026-10-13T14:37:09.639Z",
+  "bytes": 278719
+}

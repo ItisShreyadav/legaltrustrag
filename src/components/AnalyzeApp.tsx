@@ -15,14 +15,14 @@ type DocTexts = Record<string, string>;
 type RunState =
   | { status: "idle" }
   | { status: "running"; progress: ProgressState; docTexts?: DocTexts }
-  | { status: "done"; report: TrustReport; docTexts?: DocTexts }
+  | { status: "done"; report: TrustReport; docTexts?: DocTexts; runId?: string }
   | { status: "error"; message: string; progress: ProgressState | null };
 
 type Action =
   | { type: "start"; at: number; fileCount: number }
   | { type: "documents"; docTexts: DocTexts }
   | { type: "progress"; stage: PipelineStage; message: string; pct: number; at: number }
-  | { type: "done"; report: TrustReport }
+  | { type: "done"; report: TrustReport; runId?: string }
   | { type: "error"; message: string; at: number }
   | { type: "reset" };
 
@@ -59,6 +59,7 @@ function reducer(state: RunState, action: Action): RunState {
         status: "done",
         report: action.report,
         docTexts: state.status === "running" ? state.docTexts : undefined,
+        runId: action.runId,
       };
     case "error":
       return {
@@ -216,7 +217,7 @@ export function AnalyzeApp() {
       if (finished) return;
       if (event.stage === "done") {
         finished = true;
-        dispatch({ type: "done", report: event.report });
+        dispatch({ type: "done", report: event.report, runId: typeof event.runId === "string" ? event.runId : undefined });
       } else if (event.stage === "error") {
         finished = true;
         dispatch({ type: "error", message: event.message || "The analysis failed.", at: Date.now() });
@@ -274,6 +275,7 @@ export function AnalyzeApp() {
 
   const report = state.status === "done" ? state.report : null;
   const docTexts = state.status === "done" ? state.docTexts : undefined;
+  const runId = state.status === "done" ? state.runId : undefined;
 
   return (
     <div className="mt-12">
@@ -328,7 +330,7 @@ export function AnalyzeApp() {
             </>
           ) : null}
 
-          {report ? <ReportView report={report} docTexts={docTexts} sectionNumber="3" /> : null}
+          {report ? <ReportView report={report} docTexts={docTexts} sectionNumber="3" runId={runId} /> : null}
 
           {state.status === "idle" && !report ? <EmptyState /> : null}
         </div>

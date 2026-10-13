@@ -1,0 +1,24 @@
+# LegalTrustRAG legal reranker: data prep, fine-tuning, evaluation and ONNX export.
+# Install into a venv (local) or straight into the Colab runtime:
+#   pip install -r training/requirements.txt
+# Colab already ships a CUDA build of torch; pip keeps it because the constraint below is satisfied.
+
+torch>=2.2
+transformers>=4.51,<6
+sentence-transformers[train]>=4.1,<7   # CrossEncoder + CrossEncoderTrainer API (v4+); [train] pulls accelerate
+datasets>=2.16
+accelerate>=1.3
+rank_bm25>=0.2.2
+numpy>=1.24
+
+# ONNX export + dynamic int8 quantization (export_onnx.py)
+onnx>=1.16
+onnxruntime>=1.18
+onnxscript>=0.2   # needed by torch.onnx.export on torch>=2.5 (dynamo exporter / fallback)
+
+# NOTE on optimum: `optimum[exporters]` no longer exists in optimum 2.x (the ONNX exporter moved to the
+# separate `optimum-onnx` package), and optimum-onnx 0.1 pins transformers<4.58, which conflicts with
+# sentence-transformers>=6 / transformers 5. export_onnx.py therefore uses torch.onnx.export plus
+# onnxruntime.quantization.quantize_dynamic (the same dynamic int8 quantization optimum's ORTQuantizer
+# wraps) and does not need optimum. If you do want optimum, install it in a separate env:
+#   pip install "optimum[onnx]" "transformers<4.58" "sentence-transformers<6"

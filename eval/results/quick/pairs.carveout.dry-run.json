@@ -1,0 +1,411 @@
+{
+  "meta": {
+    "timestamp": "2026-10-13T15:11:16.928Z",
+    "gitSha": "111a95b5b618b8a81664ead1d68395aa62dcdd5c",
+    "gitDirty": true,
+    "node": "v22.22.0",
+    "model": "claude-sonnet-5-5",
+    "hasApiKey": false,
+    "env": {}
+  },
+  "dryRun": true,
+  "limit": 15,
+  "n": 15,
+  "judged": 15,
+  "errors": 0,
+  "subset": "carveout",
+  "report": {
+    "labels": [
+      "contradict",
+      "exception",
+      "agree",
+      "not_mentioned"
+    ],
+    "n": 15,
+    "accuracy": 0.5333333333333333,
+    "macroF1": 0.6956521739130436,
+    "perLabel": [
+      {
+        "label": "contradict",
+        "support": 0,
+        "predicted": 2,
+        "tp": 0,
+        "precision": 0,
+        "recall": null,
+        "f1": null
+      },
+      {
+        "label": "exception",
+        "support": 15,
+        "predicted": 8,
+        "tp": 8,
+        "precision": 1,
+        "recall": 0.5333333333333333,
+        "f1": 0.6956521739130436
+      },
+      {
+        "label": "agree",
+        "support": 0,
+        "predicted": 0,
+        "tp": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      {
+        "label": "not_mentioned",
+        "support": 0,
+        "predicted": 5,
+        "tp": 0,
+        "precision": 0,
+        "recall": null,
+        "f1": null
+      }
+    ],
+    "confusion": {
+      "contradict": {
+        "contradict": 0,
+        "exception": 0,
+        "agree": 0,
+        "not_mentioned": 0
+      },
+      "exception": {
+        "contradict": 2,
+        "exception": 8,
+        "agree": 0,
+        "not_mentioned": 5
+      },
+      "agree": {
+        "contradict": 0,
+        "exception": 0,
+        "agree": 0,
+        "not_mentioned": 0
+      },
+      "not_mentioned": {
+        "contradict": 0,
+        "exception": 0,
+        "agree": 0,
+        "not_mentioned": 0
+      }
+    }
+  },
+  "contradictionF1": null,
+  "conflictDetection": {
+    "precision": 1,
+    "recall": 0.6666666666666666,
+    "f1": 0.8
+  },
+  "bySource": {
+    "carveout": {
+      "n": 15,
+      "accuracy": 0.5333333333333333
+    }
+  },
+  "curve": [
+    {
+      "threshold": 0,
+      "kept": 15,
+      "total": 15,
+      "correct": 8,
+      "coverage": 1,
+      "accuracy": 0.5333333333333333
+    },
+    {
+      "threshold": 0.05,
+      "kept": 15,
+      "total": 15,
+      "correct": 8,
+      "coverage": 1,
+      "accuracy": 0.5333333333333333
+    },
+    {
+      "threshold": 0.1,
+      "kept": 15,
+      "total": 15,
+      "correct": 8,
+      "coverage": 1,
+      "accuracy": 0.5333333333333333
+    },
+    {
+      "threshold": 0.15,
+      "kept": 15,
+      "total": 15,
+      "correct": 8,
+      "coverage": 1,
+      "accuracy": 0.5333333333333333
+    },
+    {
+      "threshold": 0.2,
+      "kept": 15,
+      "total": 15,
+      "correct": 8,
+      "coverage": 1,
+      "accuracy": 0.5333333333333333
+    },
+    {
+      "threshold": 0.25,
+      "kept": 15,
+      "total": 15,
+      "correct": 8,
+      "coverage": 1,
+      "accuracy": 0.5333333333333333
+    },
+    {
+      "threshold": 0.3,
+      "kept": 15,
+      "total": 15,
+      "correct": 8,
+      "coverage": 1,
+      "accuracy": 0.5333333333333333
+    },
+    {
+      "threshold": 0.35,
+      "kept": 15,
+      "total": 15,
+      "correct": 8,
+      "coverage": 1,
+      "accuracy": 0.5333333333333333
+    },
+    {
+      "threshold": 0.4,
+      "kept": 14,
+      "total": 15,
+      "correct": 8,
+      "coverage": 0.9333333333333333,
+      "accuracy": 0.5714285714285714
+    },
+    {
+      "threshold": 0.45,
+      "kept": 13,
+      "total": 15,
+      "correct": 8,
+      "coverage": 0.8666666666666667,
+      "accuracy": 0.6153846153846154
+    },
+    {
+      "threshold": 0.5,
+      "kept": 12,
+      "total": 15,
+      "correct": 8,
+      "coverage": 0.8,
+      "accuracy": 0.6666666666666666
+    },
+    {
+      "threshold": 0.55,
+      "kept": 9,
+      "total": 15,
+      "correct": 8,
+      "coverage": 0.6,
+      "accuracy": 0.8888888888888888
+    },
+    {
+      "threshold": 0.6,
+      "kept": 8,
+      "total": 15,
+      "correct": 8,
+      "coverage": 0.5333333333333333,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.65,
+      "kept": 8,
+      "total": 15,
+      "correct": 8,
+      "coverage": 0.5333333333333333,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.7,
+      "kept": 8,
+      "total": 15,
+      "correct": 8,
+      "coverage": 0.5333333333333333,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.75,
+      "kept": 7,
+      "total": 15,
+      "correct": 7,
+      "coverage": 0.4666666666666667,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.8,
+      "kept": 4,
+      "total": 15,
+      "correct": 4,
+      "coverage": 0.26666666666666666,
+      "accuracy": 1
+    },
+    {
+      "threshold": 0.85,
+      "kept": 0,
+      "total": 15,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    },
+    {
+      "threshold": 0.9,
+      "kept": 0,
+      "total": 15,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    },
+    {
+      "threshold": 0.95,
+      "kept": 0,
+      "total": 15,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    },
+    {
+      "threshold": 1,
+      "kept": 0,
+      "total": 15,
+      "correct": 0,
+      "coverage": 0,
+      "accuracy": null
+    }
+  ],
+  "predictions": [
+    {
+      "id": "cc-0006",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.37,
+      "correct": false
+    },
+    {
+      "id": "cc-0011",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.78,
+      "correct": true
+    },
+    {
+      "id": "cc-0021",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.43,
+      "correct": false
+    },
+    {
+      "id": "cc-0022",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.77,
+      "correct": true
+    },
+    {
+      "id": "cc-0025",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.74,
+      "correct": true
+    },
+    {
+      "id": "cc-0030",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.54,
+      "correct": false
+    },
+    {
+      "id": "cc-0033",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.81,
+      "correct": true
+    },
+    {
+      "id": "cc-0034",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "id": "cc-0043",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "id": "cc-0045",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.48,
+      "correct": false
+    },
+    {
+      "id": "cc-0046",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.8,
+      "correct": true
+    },
+    {
+      "id": "cc-0051",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.5,
+      "correct": false
+    },
+    {
+      "id": "cc-0054",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "exception",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "id": "cc-0067",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "contradict",
+      "confidence": 0.58,
+      "correct": false
+    },
+    {
+      "id": "cc-0068",
+      "source": "carveout",
+      "editType": "specific",
+      "gold": "exception",
+      "pred": "not_mentioned",
+      "confidence": 0.52,
+      "correct": false
+    }
+  ]
+}

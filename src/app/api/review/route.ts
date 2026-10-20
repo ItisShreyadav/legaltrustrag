@@ -1,4 +1,5 @@
 import { getSessionUser, parseJsonBody } from "@/lib/auth";
+import { crossSiteResponse, isCrossSiteRequest } from "@/lib/http";
 import { ReviewCreateInput, ReviewListQuery, listReviews, queueReview, reviewCounts } from "@/lib/review";
 
 const NO_STORE = { "Cache-Control": "no-store" };
@@ -30,9 +31,10 @@ export async function GET(request: Request): Promise<Response> {
 /**
  * POST JSON {runId, findingId} -> 201 {review} queued for human review (200 with the
  * existing row if the finding was already sent); 400 invalid body; 401 without a
- * session; 404 when the run is not the user's or has no such finding.
+ * session; 403 cross-site; 404 when the run is not the user's or has no such finding.
  */
 export async function POST(request: Request): Promise<Response> {
+  if (isCrossSiteRequest(request)) return crossSiteResponse();
   const user = await getSessionUser();
   if (!user) return unauthorized();
 

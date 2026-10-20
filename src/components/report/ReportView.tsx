@@ -1,24 +1,29 @@
 "use client";
 
+import { DownloadIcon, FileTextIcon, InfoIcon } from "lucide-react";
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
+import { FindingReview } from "@/components/review/FindingReview";
+import { ReviewProvider, useReviews } from "@/components/review/ReviewProvider";
+import { formatUtc, shortRunId } from "@/components/runs/format";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { ReviewView } from "@/lib/review/types";
 import type { Finding, TrustReport } from "@/lib/types";
-import { FindingReview } from "../review/FindingReview";
-import { ReviewProvider, useReviews } from "../review/ReviewProvider";
-import { shortRunId } from "../runs/format";
 import { ComplianceTable } from "./ComplianceTable";
+import { downloadReportJson } from "./export";
 import { FindingCard, type DocLookup } from "./FindingCard";
 import { SummaryCards } from "./SummaryCards";
-import { NumberedHeading } from "./ui";
 import { WithheldList } from "./WithheldList";
 
-interface Props {
+export interface ReportViewProps {
   report: TrustReport;
   /** Parsed document texts keyed by doc id, used to show quotes in clause context. */
   docTexts?: Record<string, string>;
-  /** Section number the report sits under, e.g. "3" gives subsections 3.1, 3.2 … */
-  sectionNumber?: string;
   /** Id of the saved run. Enables the human-review controls and adds the reviews to the JSON export. */
   runId?: string;
   /** The run's review rows as stored, when re-opening a saved run. */
@@ -27,49 +32,61 @@ interface Props {
 
 const STATUS_RANK: Record<Finding["verification"]["status"], number> = { verified: 0, unverified: 1, withheld: 2 };
 
-/** The report as JSON; for a saved run also its id and every human review row (with reviewer and time). */
-function downloadJson(report: TrustReport, runId?: string, reviews?: readonly ReviewView[]) {
-  const payload = runId
-    ? { ...report, runId, reviews: [...(reviews ?? [])].sort((a, b) => a.createdAt.localeCompare(b.createdAt)) }
-    : report;
-  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  const stamp = report.generatedAt.replace(/[:.]/g, "-").slice(0, 19);
-  a.href = url;
-  a.download = `legaltrustrag-report-${stamp || "export"}.json`;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
+const NO_REVIEWS: ReviewView[] = [];
 
-function formatGeneratedAt(iso: string): string {
-  // Deterministic (no locale/timezone) so server and client render the same string.
-  const m = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/.exec(iso);
-  return m ? `${m[1]} ${m[2]} UTC` : iso;
-}
-
-function Lede({ children }: { children: React.ReactNode }) {
-  return <p className="mt-2 mb-5 max-w-[68ch] text-[1.0625rem] leading-[1.6] text-muted">{children}</p>;
+function reviewControl(finding: Finding) {
+  return <FindingReview findingId={finding.id} />;
 }
 
 function ExportButton({ report, runId }: { report: TrustReport; runId?: string }) {
   const reviews = useReviews();
   return (
-    <button
-      type="button"
-      onClick={() => downloadJson(report, runId, reviews?.reviews)}
-      className="link font-serif text-[0.9375rem] text-ink"
-    >
+    <Button variant="outline" size="sm" onClick={() => downloadReportJson(report, runId, reviews?.reviews)}>
+      <DownloadIcon data-icon="inline-start" />
       Export JSON
-    </button>
+    </Button>
   );
 }
 
-const NO_REVIEWS: ReviewView[] = [];
+function TabCount({ value }: { value: number }) {
+  return (
+    <Badge variant="secondary" className="h-4 min-w-4 px-1 tabular-nums">
+      {value}
+    </Badge>
+  );
+}
 
-export function ReportView(props: Props) {
+function SectionCard({ title, description, children }: { title: string; description: ReactNode; children: ReactNode }) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          <h2>{title}</h2>
+        </CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
+      <CardContent>{children}</CardContent>
+    </Card>
+  );
+}
+
+function NothingHere({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <Empty className="border py-10">
+      <EmptyHeader>
+        <EmptyTitle>{title}</EmptyTitle>
+        <EmptyDescription>{children}</EmptyDescription>
+      </EmptyHeader>
+    </Empty>
+  );
+}
+
+/**
+ * A TrustReport: header (documents, time, saved run, export), summary figures,
+ * then tabs for findings, the compliance matrix and withheld candidates. With a
+ * `runId`, every entry carries the human-review control.
+ */
+export function ReportView(props: ReportViewProps) {
   if (!props.runId) return <ReportBody {...props} />;
   return (
     <ReviewProvider key={props.runId} runId={props.runId} initial={props.reviews ?? NO_REVIEWS}>
@@ -78,11 +95,7 @@ export function ReportView(props: Props) {
   );
 }
 
-function reviewControl(finding: Finding) {
-  return <FindingReview findingId={finding.id} />;
-}
-
-function ReportBody({ report, docTexts, sectionNumber = "3", runId }: Props) {
+function ReportBody({ report, docTexts, runId }: ReportViewProps) {
   const review = runId ? reviewControl : undefined;
   const docs = useMemo<DocLookup>(() => {
     const names = new Map(report.documents.map((d) => [d.id, d.name]));
@@ -100,108 +113,114 @@ function ReportBody({ report, docTexts, sectionNumber = "3", runId }: Props) {
     [report.findings],
   );
 
-  const n = (sub: number) => `${sectionNumber}.${sub}`;
-  const count = (k: number, one: string, many: string) => (
-    <span className="font-mono text-[0.75rem] text-muted">
-      {k} {k === 1 ? one : many}
-    </span>
-  );
-
   return (
-    <div className="space-y-14">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-rule pb-3 font-mono text-[0.75rem] leading-5 text-muted">
-        <p className="min-w-0 break-words">
-          <span className="text-ink">{report.documents.map((d) => d.name).join(", ")}</span>
-          <span aria-hidden="true" className="px-[0.6ch]">
-            ·
-          </span>
-          generated {formatGeneratedAt(report.generatedAt)}
-          {runId ? (
-            <>
-              <span aria-hidden="true" className="px-[0.6ch]">
-                ·
-              </span>
-              saved as run{" "}
-              <Link href={`/runs/${runId}`} className="link text-ink" title={runId}>
-                {shortRunId(runId)}
-              </Link>
-            </>
-          ) : null}
-        </p>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex min-w-0 flex-col gap-2">
+          <ul aria-label="Documents" className="flex flex-wrap gap-1.5">
+            {report.documents.map((d) => (
+              <li key={d.id} className="max-w-full">
+                <Badge variant="outline" className="h-6 max-w-full gap-1.5 px-2.5" title={d.name}>
+                  <FileTextIcon data-icon="inline-start" className="text-muted-foreground" />
+                  <span className="min-w-0 truncate">{d.name}</span>
+                </Badge>
+              </li>
+            ))}
+          </ul>
+          <p className="text-xs text-muted-foreground">
+            Generated{" "}
+            <time dateTime={report.generatedAt} className="font-mono tabular-nums">
+              {formatUtc(report.generatedAt)}
+            </time>
+            {runId ? (
+              <>
+                <span aria-hidden="true"> · </span>
+                Saved as run{" "}
+                <Link
+                  href={`/runs/${runId}`}
+                  title={runId}
+                  className="font-mono text-foreground underline-offset-4 hover:underline"
+                >
+                  {shortRunId(runId)}
+                </Link>
+              </>
+            ) : null}
+          </p>
+        </div>
         <ExportButton report={report} runId={runId} />
       </div>
 
-      <section aria-labelledby="summary-heading">
-        <NumberedHeading id="summary-heading" level={3} number={n(1)} title="Summary" />
-        <div className="mt-4">
-          <SummaryCards report={report} />
-        </div>
-      </section>
+      <SummaryCards report={report} />
 
-      <section aria-labelledby="findings-heading">
-        <NumberedHeading
-          id="findings-heading"
-          level={3}
-          number={n(2)}
-          title="Findings"
-          aside={count(conflicts.length, "finding", "findings")}
-        />
-        <Lede>
-          Clause pairs that contradict one another or carve out an exception. The underlined words are the exact quote
-          the verifier checked against the source.
-          {runId ? " Any finding can be sent to a human reviewer; the system never decides on its own." : null}
-        </Lede>
-        {conflicts.length > 0 ? (
-          <div className="border-b border-rule">
-            {conflicts.map((f, i) => (
-              <FindingCard key={f.id} finding={f} index={i} docs={docs} footer={review?.(f)} />
-            ))}
-          </div>
-        ) : (
-          <p className="border-y border-rule py-5 text-muted italic">No conflicts survived verification.</p>
-        )}
-      </section>
+      <Tabs defaultValue="findings" className="gap-4">
+        <TabsList className="w-full sm:w-fit">
+          <TabsTrigger value="findings" className="sm:px-3">
+            Findings <TabCount value={conflicts.length} />
+          </TabsTrigger>
+          <TabsTrigger value="compliance" className="sm:px-3">
+            Compliance <TabCount value={report.compliance.length} />
+          </TabsTrigger>
+          <TabsTrigger value="withheld" className="sm:px-3">
+            Withheld <TabCount value={report.withheld.length} />
+          </TabsTrigger>
+        </TabsList>
 
-      <section aria-labelledby="compliance-heading">
-        <NumberedHeading
-          id="compliance-heading"
-          level={3}
-          number={n(3)}
-          title="Compliance matrix"
-          aside={count(report.compliance.length, "rule", "rules")}
-        />
-        <Lede>Each rule you supplied, checked against the documents.</Lede>
-        {report.compliance.length > 0 ? (
-          <ComplianceTable rows={report.compliance} docs={docs} review={review} />
-        ) : (
-          <p className="border-y border-rule py-5 text-muted italic">No compliance rules were supplied for this run.</p>
-        )}
-      </section>
+        <TabsContent value="findings">
+          <SectionCard
+            title="Findings"
+            description={
+              <>
+                Clause pairs that contradict one another or carve out an exception. Highlighted text is the exact quote the
+                verifier matched against the source.
+                {runId ? " Send any finding to review to record a human decision." : null}
+              </>
+            }
+          >
+            {conflicts.length > 0 ? (
+              <ol className="flex flex-col gap-4">
+                {conflicts.map((f, i) => (
+                  <li key={f.id}>
+                    <FindingCard finding={f} index={i} docs={docs} footer={review?.(f)} />
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <NothingHere title="No conflicts found">No clause pair produced a finding that survived verification.</NothingHere>
+            )}
+          </SectionCard>
+        </TabsContent>
 
-      <section aria-labelledby="withheld-heading">
-        <NumberedHeading
-          id="withheld-heading"
-          level={3}
-          number={n(4)}
-          title="Withheld for insufficient evidence"
-          aside={count(report.withheld.length, "item", "items")}
-        />
-        <Lede>
-          Candidate findings that failed verification. The system abstains rather than report them; they are listed
-          here so the abstention can be checked.
-        </Lede>
-        {report.withheld.length > 0 ? (
-          <WithheldList findings={report.withheld} docs={docs} review={review} />
-        ) : (
-          <p className="border-y border-rule py-5 text-muted italic">Nothing was withheld.</p>
-        )}
-      </section>
+        <TabsContent value="compliance">
+          <SectionCard title="Compliance" description="Each rule supplied for this run, checked against the documents.">
+            {report.compliance.length > 0 ? (
+              <ComplianceTable rows={report.compliance} docs={docs} review={review} />
+            ) : (
+              <NothingHere title="No rules checked">No compliance rules were supplied for this run.</NothingHere>
+            )}
+          </SectionCard>
+        </TabsContent>
 
-      <aside aria-label="Disclaimer" className="max-w-[68ch] border-t border-rule pt-4">
-        <p className="text-[0.9375rem] leading-[1.6] text-muted">
-          <span className="smallcaps font-semibold text-ink">Not legal advice.</span> {report.disclaimer}
-        </p>
-      </aside>
+        <TabsContent value="withheld">
+          <SectionCard
+            title="Withheld"
+            description="Candidate findings that failed verification. The system abstains rather than report them; they are listed so the abstention can be checked."
+          >
+            {report.withheld.length > 0 ? (
+              <WithheldList findings={report.withheld} docs={docs} review={review} />
+            ) : (
+              <NothingHere title="Nothing withheld">No candidate finding failed verification.</NothingHere>
+            )}
+          </SectionCard>
+        </TabsContent>
+      </Tabs>
+
+      {report.disclaimer ? (
+        <Alert role="note">
+          <InfoIcon />
+          <AlertTitle>Not legal advice</AlertTitle>
+          <AlertDescription>{report.disclaimer}</AlertDescription>
+        </Alert>
+      ) : null}
     </div>
   );
 }

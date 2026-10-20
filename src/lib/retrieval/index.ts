@@ -12,6 +12,7 @@
  * env `LTR_DISABLE_EMBEDDINGS=1`, gives a pure-BM25 index that never touches the network.
  */
 
+import { log } from "@/lib/log";
 import { CONFLICT_PAIRS } from "@/lib/types";
 import type { Clause, CuadCategory, RetrievedClause } from "@/lib/types";
 import { Bm25 } from "./bm25";
@@ -23,11 +24,13 @@ import {
   cosine,
   embedClauses,
   embedQuery,
+  modelStatus,
   modelsDisabled,
   rerankScores,
 } from "./models";
 
-export { EMBED_MODEL, RERANK_MODEL, clearModelCache };
+export { EMBED_MODEL, RERANK_MODEL, clearModelCache, modelStatus };
+export type { ModelStatus } from "./models";
 
 export interface BuildOptions {
   /** Compute dense embeddings (default true unless LTR_DISABLE_EMBEDDINGS=1). false = BM25 only. */
@@ -146,7 +149,7 @@ export class ClauseIndex {
       unique.push(c);
     }
     if (unique.length !== clauses.length) {
-      console.warn(`[retrieval] dropped ${clauses.length - unique.length} clause(s) with duplicate ids`);
+      log.warn("retrieval.duplicate_clause_ids", { dropped: clauses.length - unique.length });
     }
 
     const total = unique.length;

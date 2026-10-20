@@ -30,8 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files (secrets). .env.example documents every variable and is committed.
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -40,8 +41,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local SQLite database (auth)
+# local state: SQLite database (users, sessions, runs, reviews) and, when
+# LTR_MODEL_CACHE_DIR points inside the repo, downloaded Hugging Face models
 /data/
+/.cache/
 
 # legal reranker training (training/README.md): venv, downloaded data, checkpoints, bytecode
 /training/.venv/

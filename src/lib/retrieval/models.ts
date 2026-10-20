@@ -3,7 +3,14 @@
  * Node runtime only: `@huggingface/transformers` is imported dynamically so that
  * importing this module never pulls ONNX into a client/edge bundle and BM25-only
  * runs never touch the model stack.
+ *
+ * Downloaded models are cached on disk in `LTR_MODEL_CACHE_DIR` (absolute, or relative
+ * to the working directory) when it is set, else in transformers.js' default
+ * `node_modules/@huggingface/transformers/.cache/`. Point it at a persistent volume in
+ * containers so models are fetched from the Hub once, not on every deploy.
  */
+import { log } from "@/lib/log";
+
 
 export const EMBED_MODEL = "Xenova/bge-small-en-v1.5";
 /** Stock cross-encoder (ONNX port of BAAI/bge-reranker-base), fetched from the HF Hub / local HF cache. */
@@ -89,8 +96,17 @@ function clip(text: string): string {
   return text.length > MAX_MODEL_CHARS ? text.slice(0, MAX_MODEL_CHARS) : text;
 }
 
+function modelCacheDirSetting(): string | undefined {
+  return envVar("LTR_MODEL_CACHE_DIR")?.trim() || undefined;
+}
+
 async function loadTransformers() {
   const mod = await import("@huggingface/transformers");
+  const cacheDir = modelCacheDirSetting();
+  if (cacheDir) {
+    const path = await import("node:path");
+    mod.env.cacheDir = path.resolve(cacheDir);
+  }
   return mod;
 }
 
@@ -187,11 +203,11 @@ function getReranker(): Promise<{ tokenizer: Tokenizer; model: SeqClassifier }> 
           AutoModelForSequenceClassification.from_pretrained(src.modelId, { ...opts, dtype }),
         ]),
       );
-      console.info(
-        `[retrieval] reranker loaded: ${src.name} (${
-          src.localRoot ? `local ${src.localRoot}/${src.modelId}` : "Hugging Face Hub / cache"
-        }, dtype ${dtype})`,
-      );
+      log.info("retrieval.reranker_loaded", {
+        model: src.name,
+        source: src.localRoot ? "local" : "hub-or-cache",
+        dtype,
+      });
       return {
         tokenizer: tokenizer as unknown as Tokenizer,
         model: model as unknown as SeqClassifier,
@@ -257,10 +273,7 @@ export async function embedClauses(
   } catch (err) {
     if (!embedderWarned) {
       embedderWarned = true;
-      console.warn(
-        `[retrieval] embedding model ${EMBED_MODEL} unavailable, falling back to BM25 only:`,
-        err instanceof Error ? err.message : err,
-      );
+      log.warn("retrieval.embedder_unavailable", { model: EMBED_MODEL, fallback: "bm25", err });
     }
     return null;
   }
@@ -282,7 +295,7 @@ export async function embedQuery(query: string): Promise<Float32Array | null> {
   } catch (err) {
     if (!embedderWarned) {
       embedderWarned = true;
-      console.warn(`[retrieval] query embedding failed, BM25 only:`, err instanceof Error ? err.message : err);
+      log.warn("retrieval.query_embedding_failed", { model: EMBED_MODEL, fallback: "bm25", err });
     }
     return null;
   }
@@ -320,10 +333,7 @@ export async function rerankScores(query: string, passages: string[], batchSize 
     rerankerPromise = null;
     if (!rerankerWarned) {
       rerankerWarned = true;
-      console.warn(
-        `[retrieval] reranker ${RERANK_MODEL} unavailable, using fused BM25+dense score:`,
-        err instanceof Error ? err.message : err,
-      );
+      log.warn("retrieval.reranker_unavailable", { model: RERANK_MODEL, fallback: "fused-score", err });
     }
     return null;
   }
@@ -357,4 +367,53 @@ export async function clearModelCache(): Promise<void> {
     e?.then((p) => p.dispose?.()),
     r?.then(({ model }) => model.dispose?.()),
   ]);
+}
+
+export interface ModelStatus {
+  /** LTR_DISABLE_EMBEDDINGS=1: retrieval is BM25 only. */
+  disabled: boolean;
+  embedModel: string;
+  rerankModel: string;
+  /** Model files are in the on-disk cache (or a local model folder), so no download is needed. */
+  embedCached: boolean;
+  rerankCached: boolean;
+  /** Loaded into memory by this process. */
+  embedLoaded: boolean;
+  rerankLoaded: boolean;
+  /** The reranker failed to load or run and is off until the cache is cleared. */
+  rerankFailed: boolean;
+  /** transformers.js could not be imported (e.g. the ONNX runtime is missing). */
+  runtimeError?: string;
+}
+
+/** Snapshot of the model stack for /api/health. Imports transformers.js (once) to find its cache folder. */
+export async function modelStatus(): Promise<ModelStatus> {
+  const status: ModelStatus = {
+    disabled: modelsDisabled(),
+    embedModel: EMBED_MODEL,
+    rerankModel: rerankModelName(),
+    embedCached: false,
+    rerankCached: false,
+    embedLoaded: embedderPromise !== null,
+    rerankLoaded: rerankerPromise !== null && !rerankerFailed,
+    rerankFailed: rerankerFailed,
+  };
+  if (status.disabled) return status;
+  try {
+    const { env } = await loadTransformers();
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const cacheDir = env.cacheDir;
+    const cached = (id: string) => Boolean(cacheDir) && fs.existsSync(path.join(cacheDir as string, id, "config.json"));
+    status.embedCached = cached(EMBED_MODEL);
+    try {
+      const src = await resolveRerankSource();
+      status.rerankCached = src.localRoot ? true : cached(src.modelId);
+    } catch {
+      status.rerankCached = false;
+    }
+  } catch (err) {
+    status.runtimeError = err instanceof Error ? err.name : "Error";
+  }
+  return status;
 }

@@ -1,0 +1,24 @@
+# docker compose up -d --build
+# Reads secrets and settings from .env (copy .env.example and fill it in).
+# Users, sessions, saved runs, reviews and the downloaded Hugging Face models
+# live in the `ltr-data` volume, so they survive rebuilds and restarts.
+services:
+  app:
+    build: .
+    image: legaltrustrag:latest
+    restart: unless-stopped
+    init: true
+    env_file: .env
+    environment:
+      # Fixed by the image layout; .env cannot move these out of the volume.
+      LTR_DB_PATH: /app/data/ltr.sqlite
+      LTR_MODEL_CACHE_DIR: /app/data/hf-cache
+    ports:
+      - "3000:3000"
+    volumes:
+      - ltr-data:/app/data
+    # Give in-flight analyses time to finish streaming on shutdown.
+    stop_grace_period: 60s
+
+volumes:
+  ltr-data:

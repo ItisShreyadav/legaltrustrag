@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { connection } from "next/server";
 import { cache } from "react";
+import { getEnv } from "@/lib/env";
 import type { SessionUser } from "@/lib/types";
 import { SESSION_COOKIE, SESSION_TTL_MS } from "./constants";
 import { getDb } from "./db";
@@ -21,6 +22,12 @@ function sessionId(token: string): string {
   return createHash("sha256").update(token).digest("hex");
 }
 
+/** `Secure` cookies in production unless LTR_COOKIE_SECURE=false (plain-HTTP deployments only). */
+function secureCookies(): boolean {
+  const env = getEnv();
+  return env.LTR_COOKIE_SECURE ?? env.NODE_ENV === "production";
+}
+
 /** Delete expired sessions at most once an hour, piggybacking on normal traffic. */
 function pruneExpiredSessions(now: Date, force = false): void {
   const last = globalForSessions.__ltrSessionsPrunedAt ?? 0;
@@ -29,19 +36,28 @@ function pruneExpiredSessions(now: Date, force = false): void {
   getDb().prepare("DELETE FROM sessions WHERE expires_at <= ?").run(now.toISOString());
 }
 
-/** Starts a 30-day session for the user and sets the `ltr_session` cookie. Route Handlers / Server Functions only. */
+/**
+ * Starts a 30-day session for the user and sets the `ltr_session` cookie. A
+ * session the browser already carried is deleted first, so signing in always
+ * rotates the token. Route Handlers / Server Functions only.
+ */
 export async function createSession(userId: string): Promise<void> {
+  const store = await cookies();
   const now = new Date();
   const expires = new Date(now.getTime() + SESSION_TTL_MS);
   const token = randomBytes(32).toString("base64url");
   pruneExpiredSessions(now, true);
+  const previous = store.get(SESSION_COOKIE)?.value;
+  if (previous && TOKEN_PATTERN.test(previous)) {
+    getDb().prepare("DELETE FROM sessions WHERE id = ?").run(sessionId(previous));
+  }
   getDb()
     .prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
     .run(sessionId(token), userId, expires.toISOString(), now.toISOString());
-  (await cookies()).set(SESSION_COOKIE, token, {
+  store.set(SESSION_COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: secureCookies(),
     path: "/",
     expires,
   });

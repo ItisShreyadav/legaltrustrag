@@ -6,6 +6,7 @@
  * and a structured JSON output schema. Without credentials, heuristics alone are used.
  */
 import Anthropic from "@anthropic-ai/sdk";
+import { log } from "@/lib/log";
 import type { Clause } from "../types";
 import { HEURISTIC_SKIP_THRESHOLD, heuristicType, type TypeGuess } from "./heuristics";
 import { OutputError, classifyBatch, withRetry, type Effort } from "./llm";
@@ -120,7 +121,7 @@ export async function typeClauses(clauses: Clause[], opts: TypeClausesOptions = 
     if (!opts.client && !hasCredentials()) {
       if (!warnedNoKey) {
         warnedNoKey = true;
-        console.warn("[typing] ANTHROPIC_API_KEY is not set; clause typing uses keyword heuristics only.");
+        log.warn("typing.no_api_key", { detail: "clause typing uses keyword heuristics only" });
       }
     } else {
       const client = opts.client ?? getClient();
@@ -135,7 +136,7 @@ export async function typeClauses(clauses: Clause[], opts: TypeClausesOptions = 
           } catch (err) {
             if (err instanceof Anthropic.APIError && [400, 401, 403, 404].includes(err.status ?? 0)) fatal = true;
             const msg = err instanceof Error ? err.message : String(err);
-            console.warn(`[typing] batch of ${batch.length} failed, using heuristics${fatal ? " for the rest" : ""}: ${msg}`);
+            log.warn("typing.batch_failed", { batchSize: batch.length, fatal, error: msg });
           }
         }
         done += batch.length;

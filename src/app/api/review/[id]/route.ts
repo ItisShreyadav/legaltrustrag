@@ -1,4 +1,5 @@
 import { getSessionUser, parseJsonBody } from "@/lib/auth";
+import { crossSiteResponse, isCrossSiteRequest } from "@/lib/http";
 import { ReviewIdParam, ReviewUpdateInput, updateReview } from "@/lib/review";
 
 const NO_STORE = { "Cache-Control": "no-store" };
@@ -6,9 +7,10 @@ const NO_STORE = { "Cache-Control": "no-store" };
 /**
  * PATCH JSON {status: queued|accepted|rejected|needs_edit, note?} -> 200 {review}.
  * Records a human decision, stamped with the signed-in user and the time.
- * 400 invalid body; 401 without a session; 404 when the review is not the user's.
+ * 400 invalid body; 401 without a session; 403 cross-site; 404 when the review is not the user's.
  */
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }): Promise<Response> {
+  if (isCrossSiteRequest(request)) return crossSiteResponse();
   const user = await getSessionUser();
   if (!user) return Response.json({ error: "Sign in to use the review queue." }, { status: 401, headers: NO_STORE });
 

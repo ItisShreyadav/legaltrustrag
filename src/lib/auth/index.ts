@@ -6,7 +6,7 @@ export { MIN_PASSWORD_LENGTH, SESSION_COOKIE, safeNextPath } from "./constants";
 export { databasePath, getDb } from "./db";
 export { parseJsonBody } from "./http";
 export { hashPassword, verifyAgainstDummy, verifyPassword } from "./password";
-export { clearLoginFailures, loginRetryAfterSeconds, recordLoginFailure } from "./rate-limit";
+export { clearLoginFailures, consumeSignupAttempt, loginRetryAfterSeconds, recordLoginFailure } from "./rate-limit";
 export { LoginInput, SignupInput } from "./schemas";
 export { createSession, destroySession, getSessionUser, requireUser } from "./session";
 export { EmailTakenError, createUser, findUserByEmail, type UserRecord } from "./users";

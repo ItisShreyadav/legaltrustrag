@@ -1,6 +1,7 @@
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 import type { DatabaseSync } from "node:sqlite";
+import { getEnv } from "@/lib/env";
 
 const SCHEMA = `
 CREATE TABLE IF NOT EXISTS users (
@@ -54,7 +55,7 @@ const globalForDb = globalThis as typeof globalThis & { __ltrDb?: DatabaseSync }
 
 /** Absolute path of the SQLite file: LTR_DB_PATH (relative to the cwd) or ./data/ltr.sqlite. */
 export function databasePath(): string {
-  const configured = process.env.LTR_DB_PATH?.trim();
+  const configured = getEnv().LTR_DB_PATH;
   return path.resolve(configured || path.join(/* turbopackIgnore: true */ process.cwd(), "data", "ltr.sqlite"));
 }
 

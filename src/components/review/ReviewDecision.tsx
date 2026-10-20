@@ -1,13 +1,15 @@
 "use client";
 
+import { PencilIcon } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import type { ReviewView } from "@/lib/review/types";
 import { ReviewForm } from "./ReviewForm";
 import { ReviewStatusLine } from "./ReviewStatusLine";
 
 /**
  * Decision area of one entry on /review: the form while the finding is queued;
- * afterwards the recorded decision with a Revise link. Shows the saved row
+ * afterwards the recorded decision with a Revise action. Shows the saved row
  * straight away while the page refreshes its server data.
  */
 export function ReviewDecision({ review }: { review: ReviewView }) {
@@ -17,15 +19,16 @@ export function ReviewDecision({ review }: { review: ReviewView }) {
   const showForm = current.status === "queued" || revising;
 
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-3">
       <div aria-live="polite">
         <ReviewStatusLine
           review={current}
           action={
             showForm ? null : (
-              <button type="button" onClick={() => setRevising(true)} className="link font-mono text-[0.75rem] text-ink">
+              <Button variant="ghost" size="xs" onClick={() => setRevising(true)}>
+                <PencilIcon aria-hidden="true" data-icon="inline-start" />
                 Revise
-              </button>
+              </Button>
             )
           }
         />

@@ -1,0 +1,29 @@
+# Rebuilt inside the image
+node_modules
+.next
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets and local state: never bake them into an image.
+# (next build copies .env and .env.production into the standalone output.)
+.env
+.env.*
+!.env.example
+data
+*.pem
+
+# Not needed to build or run the app
+.git
+.gitignore
+.DS_Store
+coverage
+npm-debug.log*
+training
+eval
+public/models
+**/__pycache__
+
+# Docker files themselves
+Dockerfile
+.dockerignore
+docker-compose.yml

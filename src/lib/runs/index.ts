@@ -4,5 +4,16 @@
  * components import shapes from ./types instead.
  */
 export { RunIdParam } from "./schemas";
-export { findFinding, getRun, getRunReport, listRuns, loadRuns, saveRun } from "./store";
+export {
+  MAX_LISTED_RUNS,
+  countRuns,
+  deleteRun,
+  findFinding,
+  getRun,
+  getRunReport,
+  getRunSummary,
+  listRuns,
+  loadRuns,
+  saveRun,
+} from "./store";
 export { RUN_ID_PATTERN, type RunReviewCounts, type RunSummary, type SavedRun } from "./types";

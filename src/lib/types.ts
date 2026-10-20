@@ -135,7 +135,7 @@ export interface AnalyzeRequest {
 export type ProgressEvent =
   | { stage: "structuring" | "typing" | "retrieval" | "conflict" | "verification" | "report"; message: string; pct: number }
   | { stage: "done"; report: TrustReport; runId?: string } // runId: the saved run (/runs/[id]), when it was persisted
-  | { stage: "error"; message: string };
+  | { stage: "error"; message: string; requestId?: string }; // requestId: quote it when reporting a failed run (it is in the server log)
 
 /** The signed-in user as exposed to pages, the header and /api/auth/*. Never includes the password hash. */
 export interface SessionUser {

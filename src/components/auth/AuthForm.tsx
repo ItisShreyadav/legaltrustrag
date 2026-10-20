@@ -1,19 +1,27 @@
 "use client";
 
+import { CircleAlert } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useId, useState, type FormEvent } from "react";
+import { useId, useRef, useState, type FormEvent } from "react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Spinner } from "@/components/ui/spinner";
 // Not "@/lib/auth": its index pulls in node:sqlite. constants.ts is client-safe.
 import { MIN_PASSWORD_LENGTH, safeNextPath } from "@/lib/auth/constants";
 
 type Mode = "login" | "signup";
+type FieldName = "name" | "email" | "password";
+type FieldErrors = Partial<Record<FieldName, string>>;
 
 const COPY = {
   login: {
     endpoint: "/api/auth/login",
     submit: "Sign in",
     submitting: "Signing in…",
-    switchLead: "No account?",
+    switchLead: "Don’t have an account?",
     switchLink: "Create one",
     switchHref: "/signup",
   },
@@ -21,15 +29,16 @@ const COPY = {
     endpoint: "/api/auth/signup",
     submit: "Create account",
     submitting: "Creating account…",
-    switchLead: "Already registered?",
+    switchLead: "Already have an account?",
     switchLink: "Sign in",
     switchHref: "/login",
   },
 } as const;
 
-const INPUT_CLASS =
-  "mt-1.5 block w-full rounded-none border border-rule-strong bg-transparent px-3 py-2 font-serif text-[1.0625rem] leading-normal text-ink focus:border-ink disabled:text-muted";
-const LABEL_CLASS = "smallcaps block text-[0.9375rem] leading-tight font-semibold text-muted";
+const FIELD_ORDER: readonly FieldName[] = ["name", "email", "password"];
+
+// A light shape check only; the server validates the address properly.
+const EMAIL_SHAPE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 async function errorFromResponse(res: Response): Promise<string> {
   try {
@@ -41,42 +50,59 @@ async function errorFromResponse(res: Response): Promise<string> {
   return `The server responded with ${res.status}. Please try again.`;
 }
 
-function field(form: FormData, name: string): string {
+function readField(form: FormData, name: FieldName): string {
   const value = form.get(name);
   return typeof value === "string" ? value : "";
+}
+
+function validate(mode: Mode, name: string, email: string, password: string): FieldErrors {
+  const errors: FieldErrors = {};
+  if (mode === "signup" && !name) errors.name = "Enter your name.";
+  if (!email) errors.email = "Enter your email address.";
+  else if (!EMAIL_SHAPE.test(email)) errors.email = "Enter a valid email address, like name@company.com.";
+  if (!password) errors.password = "Enter your password.";
+  else if (mode === "signup" && password.length < MIN_PASSWORD_LENGTH)
+    errors.password = `Use at least ${MIN_PASSWORD_LENGTH} characters.`;
+  return errors;
 }
 
 export function AuthForm({ mode }: { mode: Mode }) {
   const copy = COPY[mode];
   const router = useRouter();
-  const nameId = useId();
-  const emailId = useId();
-  const passwordId = useId();
-  const passwordHintId = useId();
-  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const ids = {
+    name: useId(),
+    email: useId(),
+    password: useId(),
+    passwordHint: useId(),
+  };
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+
+  function clearFieldError(name: FieldName) {
+    if (fieldErrors[name]) setFieldErrors((prev) => ({ ...prev, [name]: undefined }));
+  }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (submitting) return;
 
     const form = new FormData(event.currentTarget);
-    const name = field(form, "name").trim();
-    const email = field(form, "email").trim();
-    const password = field(form, "password");
+    const name = readField(form, "name").trim();
+    const email = readField(form, "email").trim();
+    const password = readField(form, "password");
 
-    let problem: string | null = null;
-    if (mode === "signup" && !name) problem = "Enter your name.";
-    else if (!email) problem = "Enter your email address.";
-    else if (!password) problem = "Enter your password.";
-    else if (mode === "signup" && password.length < MIN_PASSWORD_LENGTH)
-      problem = `Use at least ${MIN_PASSWORD_LENGTH} characters for the password.`;
-    if (problem) {
-      setError(problem);
+    const errors = validate(mode, name, email, password);
+    const firstInvalid = FIELD_ORDER.find((key) => errors[key]);
+    setFieldErrors(errors);
+    if (firstInvalid) {
+      setFormError(null);
+      formRef.current?.querySelector<HTMLInputElement>(`[name="${firstInvalid}"]`)?.focus();
       return;
     }
 
-    setError(null);
+    setFormError(null);
     setSubmitting(true);
     try {
       const res = await fetch(copy.endpoint, {
@@ -85,7 +111,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
         body: JSON.stringify(mode === "signup" ? { name, email, password } : { email, password }),
       });
       if (!res.ok) {
-        setError(await errorFromResponse(res));
+        setFormError(await errorFromResponse(res));
         setSubmitting(false);
         return;
       }
@@ -93,37 +119,45 @@ export function AuthForm({ mode }: { mode: Mode }) {
       router.push(safeNextPath(new URLSearchParams(window.location.search).get("next")));
       router.refresh();
     } catch {
-      setError("Could not reach the server. Check your connection and try again.");
+      setFormError("Could not reach the server. Check your connection and try again.");
       setSubmitting(false);
     }
   }
 
+  const passwordDescribedBy =
+    [
+      mode === "signup" && !fieldErrors.password ? ids.passwordHint : null,
+      fieldErrors.password ? `${ids.password}-error` : null,
+    ]
+      .filter(Boolean)
+      .join(" ") || undefined;
+
   return (
-    <form onSubmit={onSubmit} noValidate aria-busy={submitting}>
-      <fieldset disabled={submitting} className="min-w-0 space-y-5">
-        <legend className="sr-only">{mode === "signup" ? "Create an account" : "Sign in"}</legend>
+    <form ref={formRef} onSubmit={onSubmit} noValidate aria-busy={submitting}>
+      <FieldGroup>
         {mode === "signup" ? (
-          <div>
-            <label htmlFor={nameId} className={LABEL_CLASS}>
-              Name
-            </label>
-            <input
-              id={nameId}
+          <Field data-invalid={fieldErrors.name ? true : undefined}>
+            <FieldLabel htmlFor={ids.name}>Name</FieldLabel>
+            <Input
+              id={ids.name}
               name="name"
               type="text"
               autoComplete="name"
               required
               maxLength={100}
-              className={INPUT_CLASS}
+              disabled={submitting}
+              aria-invalid={fieldErrors.name ? true : undefined}
+              aria-describedby={fieldErrors.name ? `${ids.name}-error` : undefined}
+              onChange={() => clearFieldError("name")}
             />
-          </div>
+            <FieldError id={`${ids.name}-error`}>{fieldErrors.name}</FieldError>
+          </Field>
         ) : null}
-        <div>
-          <label htmlFor={emailId} className={LABEL_CLASS}>
-            Email
-          </label>
-          <input
-            id={emailId}
+
+        <Field data-invalid={fieldErrors.email ? true : undefined}>
+          <FieldLabel htmlFor={ids.email}>Email</FieldLabel>
+          <Input
+            id={ids.email}
             name="email"
             type="email"
             inputMode="email"
@@ -132,48 +166,56 @@ export function AuthForm({ mode }: { mode: Mode }) {
             spellCheck={false}
             required
             maxLength={254}
-            className={INPUT_CLASS}
+            placeholder="name@company.com"
+            disabled={submitting}
+            aria-invalid={fieldErrors.email ? true : undefined}
+            aria-describedby={fieldErrors.email ? `${ids.email}-error` : undefined}
+            onChange={() => clearFieldError("email")}
           />
-        </div>
-        <div>
-          <label htmlFor={passwordId} className={LABEL_CLASS}>
-            Password
-          </label>
-          <input
-            id={passwordId}
+          <FieldError id={`${ids.email}-error`}>{fieldErrors.email}</FieldError>
+        </Field>
+
+        <Field data-invalid={fieldErrors.password ? true : undefined}>
+          <FieldLabel htmlFor={ids.password}>Password</FieldLabel>
+          <Input
+            id={ids.password}
             name="password"
             type="password"
             autoComplete={mode === "signup" ? "new-password" : "current-password"}
             required
             minLength={mode === "signup" ? MIN_PASSWORD_LENGTH : undefined}
             maxLength={256}
-            aria-describedby={mode === "signup" ? passwordHintId : undefined}
-            className={INPUT_CLASS}
+            disabled={submitting}
+            aria-invalid={fieldErrors.password ? true : undefined}
+            aria-describedby={passwordDescribedBy}
+            onChange={() => clearFieldError("password")}
           />
-          {mode === "signup" ? (
-            <p id={passwordHintId} className="mt-1.5 font-mono text-[0.6875rem] text-muted">
-              At least {MIN_PASSWORD_LENGTH} characters
-            </p>
+          {mode === "signup" && !fieldErrors.password ? (
+            <FieldDescription id={ids.passwordHint}>At least {MIN_PASSWORD_LENGTH} characters.</FieldDescription>
           ) : null}
-        </div>
-      </fieldset>
+          <FieldError id={`${ids.password}-error`}>{fieldErrors.password}</FieldError>
+        </Field>
 
-      <div role="alert">
-        {error ? <p className="mt-5 text-[1.0625rem] leading-[1.5] text-accent">{error}</p> : null}
-      </div>
+        {formError ? (
+          <Alert variant="destructive">
+            <CircleAlert aria-hidden />
+            <AlertDescription>{formError}</AlertDescription>
+          </Alert>
+        ) : null}
 
-      <div className="mt-7 flex flex-wrap items-baseline gap-x-6 gap-y-3">
-        <button type="submit" disabled={submitting} className={`btn-primary ${submitting ? "cursor-wait" : ""}`}>
-          {submitting ? copy.submitting : copy.submit}
-        </button>
-        <p className="text-[0.9375rem] leading-[1.5] text-muted">
-          {copy.switchLead}{" "}
-          <Link href={copy.switchHref} className="link text-ink">
-            {copy.switchLink}
-          </Link>
-          .
-        </p>
-      </div>
+        <Field>
+          <Button type="submit" disabled={submitting} className="w-full">
+            {submitting ? <Spinner aria-hidden data-icon="inline-start" /> : null}
+            {submitting ? copy.submitting : copy.submit}
+          </Button>
+          <FieldDescription className="text-center">
+            {copy.switchLead}{" "}
+            <Link href={copy.switchHref} className="font-medium text-foreground">
+              {copy.switchLink}
+            </Link>
+          </FieldDescription>
+        </Field>
+      </FieldGroup>
     </form>
   );
 }

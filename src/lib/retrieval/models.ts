@@ -97,7 +97,14 @@ function clip(text: string): string {
 }
 
 function modelCacheDirSetting(): string | undefined {
-  return envVar("LTR_MODEL_CACHE_DIR")?.trim() || undefined;
+  const configured = envVar("LTR_MODEL_CACHE_DIR")?.trim();
+  if (configured) return configured;
+  // Serverless hosts (Vercel) mount node_modules read-only, so the default
+  // in-package cache cannot be written; fall back to the OS temp dir there.
+  if (!process.env.VERCEL) return undefined;
+  const os = process.getBuiltinModule("node:os") as typeof import("node:os");
+  const path = process.getBuiltinModule("node:path") as typeof import("node:path");
+  return path.join(os.tmpdir(), "legaltrustrag", "hf-cache");
 }
 
 async function loadTransformers() {

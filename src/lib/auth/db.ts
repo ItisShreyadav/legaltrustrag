@@ -1,4 +1,5 @@
 import { mkdirSync } from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import type { DatabaseSync } from "node:sqlite";
 import { getEnv } from "@/lib/env";
@@ -56,7 +57,12 @@ const globalForDb = globalThis as typeof globalThis & { __ltrDb?: DatabaseSync }
 /** Absolute path of the SQLite file: LTR_DB_PATH (relative to the cwd) or ./data/ltr.sqlite. */
 export function databasePath(): string {
   const configured = getEnv().LTR_DB_PATH;
-  return path.resolve(configured || path.join(/* turbopackIgnore: true */ process.cwd(), "data", "ltr.sqlite"));
+  if (configured) return path.resolve(configured);
+  // Serverless hosts (Vercel) mount the app read-only; only the OS temp dir is
+  // writable there, and it does not survive cold starts. Set LTR_DB_PATH on a
+  // host with a persistent disk for durable data.
+  if (process.env.VERCEL) return path.join(os.tmpdir(), "legaltrustrag", "ltr.sqlite");
+  return path.join(/* turbopackIgnore: true */ process.cwd(), "data", "ltr.sqlite");
 }
 
 /** The shared connection, opened (and the schema created) on first use, never at import time. */
